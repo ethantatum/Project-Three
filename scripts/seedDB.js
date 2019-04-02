@@ -40,7 +40,10 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "this"
+            },
+            {
+                behavior2: "that"
             }
         ]
     },
@@ -59,7 +62,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: 
             }
         ]
     },
