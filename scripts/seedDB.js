@@ -21,7 +21,10 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "biting"
+            },
+            {
+                behavior2: "elopement"
             }
         ]
     },
@@ -40,10 +43,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: "this"
-            },
-            {
-                behavior2: "that"
+                behavior1: "yelling"
             }
         ]
     },
@@ -62,7 +62,13 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: 
+                behavior1: "biting"
+            },
+            {
+                behavior2: "spitting"
+            },
+            {
+                behavior3: "hitting"
             }
         ]
     },
@@ -78,7 +84,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "yelling"
             }
         ]
     },
@@ -97,7 +103,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "throwing"
             }
         ]
     },
@@ -113,7 +119,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "elopment"
             }
         ]
     },
@@ -132,7 +138,16 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "biting"
+            }, 
+            {
+                behavior2: "hitting"
+            },
+            {
+                behavior3: "kicking"
+            },
+            {
+                behavior4: "throwing"
             }
         ]
     },
@@ -151,7 +166,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-
+                behavior1: "hitting"
             }
         ]
     }
