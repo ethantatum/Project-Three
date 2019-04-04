@@ -84,7 +84,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: "yelling"
+                behavior1: "rocking"
             }
         ]
     },
@@ -119,7 +119,10 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: "elopment"
+                behavior1: "rocking"
+            },
+            {
+                behavior2: "flapping"
             }
         ]
     },
