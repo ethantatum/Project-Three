@@ -21,7 +21,7 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: "biting"
+                behavior1: "spitting"
             },
             {
                 behavior2: "elopement"
@@ -147,7 +147,7 @@ const studentSeed = [
                 behavior2: "hitting"
             },
             {
-                behavior3: "kicking"
+                behavior3: "scratching"
             },
             {
                 behavior4: "throwing"
@@ -169,7 +169,10 @@ const studentSeed = [
         ],
         behaviors: [
             {
-                behavior1: "hitting"
+                behavior1: "scratching"
+            },
+            {
+                behavior2: "biting"
             }
         ]
     }
