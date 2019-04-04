@@ -5,7 +5,7 @@ const studentSchema = new Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
     image: { type: String, default: "/assets/images/no-image.png"},
-    class: { type: String, required: true },
+    teacher: { type: String, required: true },
     parents: [{
         parent1: {
             type: String, required: true
@@ -16,7 +16,11 @@ const studentSchema = new Schema({
     }],
     behaviors: [{
         type: String
-    }]
+    }],
+    commentArr: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+    }] 
 
 });
 
