@@ -1,0 +1,25 @@
+img {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+.mainCont {
+    width: 100%;
+    background: #4A4946;
+    height: 400px;
+    color: white;
+}
+.infoCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 400px;
+}
+.imgCont {
+    justify-self: center;
+    align-self: center;
+}
+.imgCont > p {
+    margin: 20px auto 0;
+    text-align: center;
+    width: 80%;
+}
