@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ImageFadeIn from 'react-image-fade-in'
+import Logo from "./components/Logo";
+import LandingImage from "./components/LandingImages"
 import './App.css';
 
 class App extends Component {
