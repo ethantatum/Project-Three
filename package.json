@@ -16,9 +16,13 @@
   "bugs": {
     "url": "https://github.com/ethantatum/Project-Three/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/ethantatum/Project-Three#readme",
   "dependencies": {
     "express": "^4.16.4",
     "mongoose": "^5.4.21"
   }
+=======
+  "homepage": "https://github.com/ethantatum/Project-Three#readme"
+>>>>>>> leigh
 }
