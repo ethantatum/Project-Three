@@ -19,7 +19,7 @@ class Login extends Component {
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -38,7 +38,8 @@ class Login extends Component {
                             placeholder="Username"
                             value={this.state.username}
                             onChange={this.handleChange}
-                        />
+                            name="username"
+                        ></input>
                         <i className="user outline icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
@@ -48,6 +49,7 @@ class Login extends Component {
                             placeholder="Password"
                             value={this.state.password}
                             onChange={this.handleChange}
+                            name="password"
                         />
                         <i className="lock icon"></i>
                     </div>
