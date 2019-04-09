@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InfoPanel from "../../components/InfoPanel";
 import Footer from "../../components/Footer";
-import CallToAction from "../../components/CallToAction";
+import SignUpBtns from "../../components/SignUpBtns";
 import Login from "../../components/Login";
 import LandingImage from "../../components/LandingImage";
 import Logo from "../../components/Logo";
@@ -56,7 +56,7 @@ class Landing extends Component {
         <LandingImage />
         <Logo />
         <Login />
-        <CallToAction />
+        <SignUpBtns />
         <InfoPanel />
         <Footer />
     </div>

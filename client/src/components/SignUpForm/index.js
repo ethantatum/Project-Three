@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Dropdown from "../Dropdown";
+import DropdownItem from "../DropdownItem";
 import "./style.css";
 
 class SignUpForm extends Component {
@@ -43,7 +45,7 @@ class SignUpForm extends Component {
                     <div className="ui inverted left icon input">
                         <input autoFocus
                             type="text"
-                            placeholder="Please choose a username"
+                            placeholder="Choose a username"
                             value={this.state.username}
                             onChange={this.handleChange}
                             name="username"
@@ -54,7 +56,7 @@ class SignUpForm extends Component {
                     <div className="ui inverted left icon input">
                         <input
                             type="text"
-                            placeholder="Please choose a password"
+                            placeholder="Choose a password"
                             value={this.state.password}
                             onChange={this.handleChange}
                             name="password"
@@ -83,7 +85,7 @@ class SignUpForm extends Component {
                         ></input>
                         <i className="keyboard icon"></i>
                     </div>
-                    <div className="ui inverted left icon input">
+                    <div className="ui inverted left icon input ml-3">
                         <input 
                             type="text"
                             placeholder="Last Name"
@@ -94,10 +96,33 @@ class SignUpForm extends Component {
                         <i className="keyboard icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
-
-
-
-                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
+                    <Dropdown>
+                        <DropdownItem />
+                    </Dropdown>
+                    <div className="ui inverted divider"></div>
+                    <div className="ui inverted left icon input">
+                        <input 
+                            type="text"
+                            placeholder="Address"
+                            value={this.state.address}
+                            onChange={this.handleChange}
+                            name="address"
+                        ></input>
+                        <i className="home icon"></i>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                    <div className="ui inverted left icon input">
+                        <input 
+                            type="text"
+                            placeholder="Cell Number"
+                            value={this.state.phone}
+                            onChange={this.handleChange}
+                            name="phone"
+                        ></input>
+                        <i className="mobile alternate icon"></i>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Register</button>
                 </form>
             </div>
         )
