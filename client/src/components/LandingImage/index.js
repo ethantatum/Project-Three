@@ -4,7 +4,7 @@ import "./style.css";
 function LandingImage() {
   return (
     <div>
-        {/* <img className="landingimage" src={} /> */}
+        <img className="landingimage" src={require('./images/usersthink.jpg')} />
     </div>
   );
 }
