@@ -17,14 +17,14 @@ class Login extends Component {
     }
 
     // Helper function that updates state to be the user inputs
-    handleChange = () => {
+    handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
         });
     }
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
-    handleSubmit = () => {
+    handleSubmit = (event) => {
         event.preventDefault();
     }
 
@@ -32,13 +32,14 @@ class Login extends Component {
         return (
             <div className="Login">
                 <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted input">
+                    <div className="ui inverted left icon input">
                         <input autoFocus
                             type="text"
                             placeholder="Username"
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
+                        <i className="id card icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
                     <div className="ui inverted left icon input">
@@ -50,6 +51,7 @@ class Login extends Component {
                         />
                         <i className="lock icon"></i>
                     </div>
+                    <div className="ui inverted divider"></div>
                     <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
                 </form>
             </div>

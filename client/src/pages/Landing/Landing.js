@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Login from "../components/Login";
-import API from "../utils/API";
+import Login from "../../components/Login";
+// import API from "../utils/API";
 
 class Landing extends Component {
   // state = {
@@ -50,9 +50,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <Container fluid>
-       <Login />
-      </Container>
+      <Login />
     );
   }
 }
