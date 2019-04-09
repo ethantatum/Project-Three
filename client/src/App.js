@@ -5,6 +5,7 @@ import Landing from "./pages/Landing/Landing";
 // import Hub from "./pages/Hub";
 // import NoMatch from "./pages/NoMatch";
 import './App.css';
+import NavMenu from './components/Nav';
 
 class App extends Component {
   render() {
