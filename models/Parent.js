@@ -5,7 +5,10 @@ const parentSchema = new Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
     image: { type: String, default: "/assets/images/no-image.png"},
-    name: { type: String, required: true },
+    name: {
+      firstName: { type: String, required: true },
+      lastName: { type: String, required: true }
+    },
     child: { type: String, required: true},
     address: { type: String },
     phone: {
