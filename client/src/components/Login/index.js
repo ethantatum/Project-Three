@@ -39,7 +39,7 @@ class Login extends Component {
                             value={this.state.username}
                             onChange={this.handleChange}
                         />
-                        <i className="id card icon"></i>
+                        <i className="user outline icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
                     <div className="ui inverted left icon input">
