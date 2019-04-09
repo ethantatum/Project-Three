@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp";
 import Hub from "./pages/Hub";
 import NoMatch from "./pages/NoMatch";
 import Logo from "./components/Logo";
-import LandingImage from "./components/LandingImages"
+import LandingImage from "./components/LandingImage"
 import './App.css';
 import NavMenu from './components/Nav';
 
