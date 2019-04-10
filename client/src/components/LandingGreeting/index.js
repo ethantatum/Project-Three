@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Logo from "../../components/Logo";
-import Welcome from "../../components/Welcome";
-import SignUpBtns from "../../components/SignUpBtns";
-import Login from "../../components/Login";
+// import Logo from "../components/Logo";
+import Welcome from "../Welcome";
+import Login from "../Login";
 
 class LandingGreeting extends Component {
     constructor(props) {
@@ -25,7 +24,7 @@ class LandingGreeting extends Component {
 
     render() {
         const loginClicked = this.state.loginClicked;
-        const signupClicked = this.state.signupClicked;
+        // const signupClicked = this.state.signupClicked;
         let container;
 
         if (loginClicked) {
@@ -33,5 +32,13 @@ class LandingGreeting extends Component {
         } else {
             container = <Welcome />;
         }
+
+        return (
+            <div className="col-md-6 col-xs-12">
+                {container}
+            </div>
+        );
     }
 }
+
+export default LandingGreeting;

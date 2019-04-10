@@ -3,12 +3,12 @@ import './style.css';
 
 function SignUpBtns () {
     return (
-        <div className="two ui buttons">
-            <button className="large ui green button">
+        <div className="two ui buttons my-5">
+            <button className="large ui green button ml-2">
                 Login
             </button>
-            <div class="or"></div>
-            <button className="large ui blue button">
+            <div className="or"></div>
+            <button className="large ui blue button mr-2">
                 Sign Up
             </button>
         </div>
