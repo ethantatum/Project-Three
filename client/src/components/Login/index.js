@@ -3,14 +3,14 @@ import Logo from "../Logo";
 import "./style.css";
 
 class Login extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
+        state = {
             username: "",
             password: ""
         };
-    }
+    // }
 
     // Helper function checks if there is any content in username/password input fields
     validateForm() {
@@ -32,7 +32,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Login col-12">
-                <div className="container-fluid bg-dark p-3">
+                <div className="container-fluid p-3">
                     <Logo />
                     <form className="ui inverted segment" onSubmit={this.handleSubmit}>
                         <div className="ui inverted left icon input">
@@ -58,7 +58,7 @@ class Login extends Component {
                         </div>
                         <div className="ui inverted divider"></div>
                         <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
-                        <button className="ui inverted red button" type="submit">Cancel</button>
+                        <button className="ui inverted red button" type="submit" onClick={this.props.handleLogin}>Cancel</button>
                     </form>
                 </div>
             </div>

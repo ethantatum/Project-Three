@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import Dropdown from "../Dropdown";
-import DropdownItem from "../DropdownItem";
+import Logo from "../Logo";
+// import Dropdown from "../Dropdown";
+// import DropdownItem from "../DropdownItem";
 import "./style.css";
 
 class SignUpForm extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
+        state = {
             username: "",
             password: "",
             image: "",
@@ -17,7 +18,7 @@ class SignUpForm extends Component {
             },
             isTeacher: false
         };
-    }
+    // }
 
     // Helper function checks if there is any content in required input fields
     validateForm() {
@@ -66,74 +67,78 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div className="SignUp">
-                <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted left icon input">
-                        <input autoFocus
-                            type="text"
-                            placeholder="Choose a username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                            name="username"
-                        ></input>
-                        <i className="user outline icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Choose a password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                            name="password"
-                        />
-                        <i className="lock icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Image link (optional)"
-                            value={this.state.image}
-                            onChange={this.handleChange}
-                            name="image"
-                        ></input>
-                        <i className="camera retro icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="First Name"
-                            value={this.state.name.firstName}
-                            onChange={this.handleChange}
-                            name="firstName"
-                        ></input>
-                        <i className="keyboard icon"></i>
-                    </div>
-                    <div className="ui inverted left icon input ml-3">
-                        <input
-                            type="text"
-                            placeholder="Last Name"
-                            value={this.state.name.lastName}
-                            onChange={this.handleChange}
-                            name="lastName"
-                        ></input>
-                        <i className="keyboard icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui checkbox">
-                        <input 
-                            type="checkbox" 
-                            name="isTeacher"
-                            value={this.state.isTeacher}
-                            onChange={this.handleChange}
-                        ></input>
-                            <label className="text-white">I am a teacher</label>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Register</button>
-                </form>
+            <div className="SignUp col-12">
+                <div className="container-fluid p-3">
+                    <Logo />
+                    <form className="ui inverted segment" onSubmit={this.handleSubmit}>
+                        <div className="ui inverted left icon input">
+                            <input autoFocus
+                                type="text"
+                                placeholder="Choose a username"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                                name="username"
+                            ></input>
+                            <i className="user outline icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <div className="ui inverted left icon input">
+                            <input
+                                type="text"
+                                placeholder="Choose a password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                name="password"
+                            />
+                            <i className="lock icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <div className="ui inverted left icon input">
+                            <input
+                                type="text"
+                                placeholder="Image link (optional)"
+                                value={this.state.image}
+                                onChange={this.handleChange}
+                                name="image"
+                            ></input>
+                            <i className="camera retro icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <div className="ui inverted left icon input">
+                            <input
+                                type="text"
+                                placeholder="First Name"
+                                value={this.state.name.firstName}
+                                onChange={this.handleChange}
+                                name="firstName"
+                            ></input>
+                            <i className="keyboard icon"></i>
+                        </div>
+                        <div className="ui inverted left icon input ml-3">
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                value={this.state.name.lastName}
+                                onChange={this.handleChange}
+                                name="lastName"
+                            ></input>
+                            <i className="keyboard icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <div className="ui checkbox">
+                            <input 
+                                type="checkbox" 
+                                name="isTeacher"
+                                value={this.state.isTeacher}
+                                onChange={this.handleChange}
+                            ></input>
+                                <label className="text-white">I am a teacher</label>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Register</button>
+                        <button className="ui inverted red button" type="submit" onClick={this.props.handleLogin}>Cancel</button>
+                    </form>
+                </div>
             </div>
                 )
             }
