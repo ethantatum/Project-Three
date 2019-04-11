@@ -54,7 +54,7 @@ class Landing extends Component {
   render() {
     return (
     <div>
-        <div className="row">
+        <div className="row bg-dark">
           <LandingGreeting />
           <LandingImage />
         </div>
