@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import InfoPanel from "../../components/InfoPanel";
-import Footer from "../../components/Footer";
+import LandingGreeting from "../../components/LandingGreeting";
 import CallToAction from "../../components/CallToAction";
 import Login from "../../components/Login";
-import LandingImage from "../../components/LandingImage";
 import Logo from "../../components/Logo";
+import LandingImage from "../../components/LandingImage";
+import InfoPanel from "../../components/InfoPanel";
+import Footer from "../../components/Footer";
 // import API from "../utils/API";
 
 class Landing extends Component {
@@ -53,10 +54,10 @@ class Landing extends Component {
   render() {
     return (
     <div>
-        <LandingImage />
-        <Logo />
-        <Login />
-        <CallToAction />
+        <div className="row bg-dark">
+          <LandingGreeting />
+          <LandingImage />
+        </div>
         <InfoPanel />
         <Footer />
     </div>

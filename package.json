@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.4.21",
+    "react-scripts": "^2.1.8"
+  },
+  "devDependencies": {},
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -22,18 +31,7 @@
   "bugs": {
     "url": "https://github.com/ethantatum/Project-Three/issues"
   },
-  "homepage": "https://github.com/ethantatum/Project-Three#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.1.0",
-    "express": "^4.16.4",
-    "if-env": "^1.0.4",
-    "is-empty": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.5.0",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "validator": "^10.11.0"
-  }
+
+  "homepage": "https://github.com/ethantatum/Project-Three#readme"
+
 }
