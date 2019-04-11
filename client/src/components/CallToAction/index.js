@@ -1,18 +1,14 @@
 import React from 'react';
 import './style.css';
 
-function SignUpBtns () {
+function CallToActionBtns () {
     return (
-        <div className="main-buttons">
-            <button variant="primary" size="lg">
-                Log In
-            </button>
-            <button variant="secondary" size="lg">
-                Sign-Up
-            </button>
+        <div class="ui teal large buttons">
+            <button class="ui button">Login</button>
+            <div class="or"></div>
+            <button class="ui button">Sign-Up</button>
         </div>
-
     )
 }
 
-export default SignUpBtns;
+export default CallToActionBtns;

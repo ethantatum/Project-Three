@@ -5,6 +5,7 @@ import CallToAction from "../../components/CallToAction";
 import Login from "../../components/Login";
 import LandingImage from "../../components/LandingImage";
 import Logo from "../../components/Logo";
+import NavMenu from "../../components/Nav";
 // import API from "../utils/API";
 
 class Landing extends Component {
@@ -53,6 +54,7 @@ class Landing extends Component {
   render() {
     return (
     <div>
+        <NavMenu />
         <LandingImage />
         <Logo />
         <Login />
