@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import Logo from "../components/Logo";
 import Welcome from "../Welcome";
-import Login from "../Login";
+import Login from "../Login";   
 
 class LandingGreeting extends Component {
     constructor(props) {
