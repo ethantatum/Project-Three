@@ -7,7 +7,7 @@ class SignUpForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state ={
+        this.state = {
             username: "",
             password: "",
             image: "",
@@ -15,9 +15,7 @@ class SignUpForm extends Component {
                 firstName: "",
                 lastName: ""
             },
-            child: "",
-            address: "",
-            phone: ""
+            isTeacher: false
         };
     }
 
@@ -37,6 +35,34 @@ class SignUpForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
     }
+
+    // SAVE FOR PARENT OPTIONS COMPONENT
+    // <Dropdown>
+    //     <DropdownItem />
+    // </Dropdown>
+    // <div className="ui inverted divider"></div>
+    // <div className="ui inverted left icon input">
+    //     <input
+    //         type="text"
+    //         placeholder="Address"
+    //         value={this.state.address}
+    //         onChange={this.handleChange}
+    //         name="address"
+    //     ></input>
+    // <i className="home icon"></i>
+    // </div>
+    // <div className="ui inverted divider"></div>
+    // <div className="ui inverted left icon input">
+    //     <input
+    //         type="text"
+    //         placeholder="Cell Number"
+    //         value={this.state.phone}
+    //         onChange={this.handleChange}
+    //         name="phone"
+    //     ></input>
+    // <i className="mobile alternate icon"></i>
+    // </div>
+    // <div className="ui inverted divider"></div>
 
     render() {
         return (
@@ -65,7 +91,7 @@ class SignUpForm extends Component {
                     </div>
                     <div className="ui inverted divider"></div>
                     <div className="ui inverted left icon input">
-                        <input 
+                        <input
                             type="text"
                             placeholder="Image link (optional)"
                             value={this.state.image}
@@ -76,7 +102,7 @@ class SignUpForm extends Component {
                     </div>
                     <div className="ui inverted divider"></div>
                     <div className="ui inverted left icon input">
-                        <input 
+                        <input
                             type="text"
                             placeholder="First Name"
                             value={this.state.name.firstName}
@@ -86,7 +112,7 @@ class SignUpForm extends Component {
                         <i className="keyboard icon"></i>
                     </div>
                     <div className="ui inverted left icon input ml-3">
-                        <input 
+                        <input
                             type="text"
                             placeholder="Last Name"
                             value={this.state.name.lastName}
@@ -96,37 +122,21 @@ class SignUpForm extends Component {
                         <i className="keyboard icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
-                    <Dropdown>
-                        <DropdownItem />
-                    </Dropdown>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
+                    <div className="ui checkbox">
                         <input 
-                            type="text"
-                            placeholder="Address"
-                            value={this.state.address}
+                            type="checkbox" 
+                            name="isTeacher"
+                            value={this.state.isTeacher}
                             onChange={this.handleChange}
-                            name="address"
                         ></input>
-                        <i className="home icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input 
-                            type="text"
-                            placeholder="Cell Number"
-                            value={this.state.phone}
-                            onChange={this.handleChange}
-                            name="phone"
-                        ></input>
-                        <i className="mobile alternate icon"></i>
+                            <label className="text-white">I am a teacher</label>
                     </div>
                     <div className="ui inverted divider"></div>
                     <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Register</button>
                 </form>
             </div>
-        )
-    }
-}
-
+                )
+            }
+        }
+        
 export default SignUpForm;
