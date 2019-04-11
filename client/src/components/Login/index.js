@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logo from "../Logo";
 import "./style.css";
 
 class Login extends Component {
@@ -19,7 +20,7 @@ class Login extends Component {
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -30,30 +31,36 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Login">
-                <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted left icon input">
-                        <input autoFocus
-                            type="text"
-                            placeholder="Username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                        <i className="user outline icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                        <i className="lock icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
-                </form>
+            <div className="Login col-12">
+                <div className="container-fluid bg-dark p-3">
+                    <Logo />
+                    <form className="ui inverted segment" onSubmit={this.handleSubmit}>
+                        <div className="ui inverted left icon input">
+                            <input autoFocus
+                                type="text"
+                                placeholder="Username"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                                name="username"
+                            ></input>
+                            <i className="user outline icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <div className="ui inverted left icon input">
+                            <input
+                                type="text"
+                                placeholder="Password"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                name="password"
+                            />
+                            <i className="lock icon"></i>
+                        </div>
+                        <div className="ui inverted divider"></div>
+                        <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
+                        <button className="ui inverted red button" type="submit">Cancel</button>
+                    </form>
+                </div>
             </div>
         )
     }
