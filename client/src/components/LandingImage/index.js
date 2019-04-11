@@ -7,8 +7,7 @@ import image4 from "./images/4.jpg";
 
 function LandingImage() {
   return (
-    <div className="row" id="landingCarousel">
-      <div className="col-6">
+      <div className="col-6" id="landingCarousel">
         <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
@@ -26,7 +25,6 @@ function LandingImage() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

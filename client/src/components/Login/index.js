@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logo from "../Logo";
 import "./style.css";
 
 class Login extends Component {
@@ -19,7 +20,7 @@ class Login extends Component {
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -31,6 +32,7 @@ class Login extends Component {
     render() {
         return (
                 <div className="col-6">
+                    <Logo />
                     <div className="Login">
                         <form className="ui inverted segment" onSubmit={this.handleSubmit}>
                             <div className="ui inverted left icon input">
