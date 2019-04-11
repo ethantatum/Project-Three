@@ -1,20 +1,15 @@
 import React from "react";
 import Logo from "../Logo";
+import "./style.css";
 import SignUpBtns from "../SignUpBtns";
 
 function Welcome(props) {
     return (
         <div className="col-12">
-            <div className="container-fluid p-3">
                 <Logo />
+            <div className="container-fluid p-3" id="test">
                 <p className="text-justify text-white px-5 my-4 welcome-text">
-                    Minim cillum adipisicing quis qui.
-                    Veniam pariatur consequat tempor officia ad ipsum aute occaecat commodo eu nostrud laborum.
-                    Qui adipisicing officia labore labore sint excepteur.
-                    Aliqua veniam amet officia quis dolore magna magna pariatur.
-                    Et pariatur incididunt et reprehenderit est laborum et exercitation mollit.
-                    Minim cillum adipisicing quis qui.
-                    Veniam pariatur consequat tempor officia ad ipsum aute occaecat commodo eu nostrud laborum.
+                Care Connect serves as a communication platform for teachers, parents and caretakers. It helps with tracking progress towards personal and educational goals and tracking behaviors that occur during the day.
                 </p>
                 <div className="two ui buttons my-5">
                     <button className="large ui green button ml-2" onClick={props.handleLogin}>
