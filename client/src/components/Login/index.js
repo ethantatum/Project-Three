@@ -30,31 +30,33 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Login">
-                <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted left icon input">
-                        <input autoFocus
-                            type="text"
-                            placeholder="Username"
-                            value={this.state.username}
-                            onChange={this.handleChange}
-                        />
-                        <i className="user outline icon"></i>
+                <div className="col-6">
+                    <div className="Login">
+                        <form className="ui inverted segment" onSubmit={this.handleSubmit}>
+                            <div className="ui inverted left icon input">
+                                <input autoFocus
+                                    type="text"
+                                    placeholder="Username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                />
+                                <i className="user outline icon"></i>
+                            </div>
+                            <div className="ui inverted divider"></div>
+                            <div className="ui inverted left icon input">
+                                <input
+                                    type="text"
+                                    placeholder="Password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                />
+                                <i className="lock icon"></i>
+                            </div>
+                            <div className="ui inverted divider"></div>
+                            <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
+                        </form>
                     </div>
-                    <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                        <i className="lock icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
-                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
-                </form>
-            </div>
+                </div>
         )
     }
 }

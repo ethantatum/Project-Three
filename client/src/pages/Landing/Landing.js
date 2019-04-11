@@ -53,9 +53,9 @@ class Landing extends Component {
   render() {
     return (
     <div>
-        <LandingImage />
         <Logo />
         <Login />
+        <LandingImage />
         <CallToAction />
         <InfoPanel />
         <Footer />
