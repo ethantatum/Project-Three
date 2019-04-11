@@ -24,7 +24,7 @@ class LandingGreeting extends Component {
 
     render() {
         const loginClicked = this.state.loginClicked;
-        // const signupClicked = this.state.signupClicked;
+        const signupClicked = this.state.signupClicked;
         let container;
 
         if (loginClicked) {
