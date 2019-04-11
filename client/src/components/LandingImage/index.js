@@ -7,7 +7,7 @@ import image4 from "./images/4.jpg";
 
 function LandingImage() {
   return (
-      <div className="col-6" id="landingCarousel">
+      <div className="col-md-6 col-xs-12" id="landingCarousel">
         <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">

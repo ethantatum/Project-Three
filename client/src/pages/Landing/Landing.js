@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import LandingGreeting from "../../components/LandingGreeting";
 import CallToAction from "../../components/CallToAction";
 import Login from "../../components/Login";
 import Logo from "../../components/Logo";
-// import LandingGreeting from "../../components/LandingGreeting";
 import LandingImage from "../../components/LandingImage";
 import InfoPanel from "../../components/InfoPanel";
 import Footer from "../../components/Footer";
@@ -55,15 +55,11 @@ class Landing extends Component {
     return (
     <div>
         <div className="row">
-          <Login />
+          <LandingGreeting />
           <LandingImage />
         </div>
-        <div className="row">
         <InfoPanel />
-        </div>
-        <div className="row">
         <Footer />
-        </div>
     </div>
     );
   }
