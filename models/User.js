@@ -15,7 +15,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    isteacher: {
+    isTeacher: {
         type: Boolean,
         required: true
     },
