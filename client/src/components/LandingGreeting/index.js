@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import Logo from "../components/Logo";
 import Welcome from "../Welcome";
-import Login from "../Login";   
+import Login from "../Login"; 
+import SignUpForm from "../SignUpForm"  ;
 
 class LandingGreeting extends Component {
     constructor(props) {
@@ -15,22 +15,24 @@ class LandingGreeting extends Component {
     }
 
     handleLoginClick() {
-        this.setState({loginClicked: true});
+        return (this.state.loginClicked ? this.setState({loginClicked: false}) : this.setState({loginClicked: true}));
     }
 
     handleSignUpClick() {
-        this.setState({signupClicked: true})
+        return (this.state.signupClicked ? this.setState({signupClicked: false}) : this.setState({signupClicked: true}));
     }
 
     render() {
         const loginClicked = this.state.loginClicked;
-        // const signupClicked = this.state.signupClicked;
+        const signupClicked = this.state.signupClicked;
         let container;
 
         if (loginClicked) {
-            container = <Login />;
+            container = <Login handleLogin={this.handleLoginClick} />;
+        } else if (signupClicked) {
+            container = <SignUpForm handleLogin={this.handleSignUpClick} />;
         } else {
-            container = <Welcome />;
+            container = <Welcome handleLogin={this.handleLoginClick} handleSignUp={this.handleSignUpClick} />;
         }
 
         return (
