@@ -4,7 +4,7 @@ import "./style.css";
 class MessageInput extends Component {
     constructor(props) {
         super(props);
-        this.handlePostive = this.handlePostive.bind(this);
+        this.handlePositive = this.handlePositive.bind(this);
         this.handleNegative = this.handleNegative.bind(this);
         this.state = {
             messageTitle: "",
@@ -26,7 +26,7 @@ class MessageInput extends Component {
         });
     }
 
-    handlePostive() {
+    handlePositive() {
         return (this.state.positiveMessage ? this.setState({positiveMessage: false}) : this.setState({positiveMessage: true}));
     }
 
@@ -39,13 +39,13 @@ class MessageInput extends Component {
         event.preventDefault();
     }
     render() {
-        const positiveMessage =this.state.postiveMessage;
+        const positiveMessage =this.state.positiveMessage;
         const negativeMessage =this.state.negativeMessage;
 
         let imagePos;
         let imageNeg;
 
-        if(this.state.postiveMessage) {
+        if(this.state.positiveMessage) {
             imagePos = require('./images/positive-color.png');
         } else {
             imagePos = require('./images/positive-grey.png');
@@ -81,11 +81,11 @@ class MessageInput extends Component {
                     </div>
                     <div className="ui inverted divider"></div>
                     <label>
-                        <input type="radio" name="positivemessage" value={positiveMessage} onChange={this.handlePostive} />
+                        <input type="radio" name="positivemessage" value={positiveMessage} onClick={this.handlePositive} />
                         <img src={imagePos} />
                     </label>
                     <label>
-                        <input type="radio" name="negativemessage" value={negativeMessage}  onChange={this.handleNegative} />
+                        <input type="radio" name="negativemessage" value={negativeMessage}  onClick={this.handleNegative} />
                         <img src={imageNeg} />
                     </label>
                     <div className="ui inverted divider"></div>
