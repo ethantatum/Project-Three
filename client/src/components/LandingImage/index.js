@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.css";
 import image1 from "./images/1.jpg";
-import image2 from "./images/2.jpg";
 import image3 from "./images/3.jpg";
-import image4 from "./images/4.jpg";
+import image5 from "./images/5.jpg";
 
 function LandingImage() {
   return (
@@ -14,13 +13,10 @@ function LandingImage() {
               <img className="d-block w-100" src={image1} />
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={image2} />
-            </div>
-            <div className="carousel-item">
               <img className="d-block w-100" src={image3} />
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={image4} />
+              <img className="d-block w-100" src={image5} />
             </div>
           </div>
         </div>
