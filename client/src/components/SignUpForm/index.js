@@ -166,6 +166,7 @@ class SignUpForm extends Component {
                                 type="checkbox" 
                                 name="isTeacher"
                                 value={this.state.isTeacher}
+                                //toggle between false and true when check is clicked
                                 onChange={(e) => this.setState(prevState => ({isTeacher: !prevState.isTeacher}))}
                                 
                             />
