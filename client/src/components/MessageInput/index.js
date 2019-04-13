@@ -52,7 +52,7 @@ class MessageInput extends Component {
         return (
             <div className="container-fluid p-2">
                 <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted left icon input">
+                    <div className="ui inverted input">
                         <input autoFocus
                             type="text"
                             placeholder="Message Title"
@@ -60,10 +60,9 @@ class MessageInput extends Component {
                             onChange={this.handleChange}
                             name="messageTitle"
                         ></input>
-                        <i className="user outline icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
+                    <div className="ui inverted input">
                         <input 
                             type="text"
                             placeholder="Message Body"
@@ -71,15 +70,14 @@ class MessageInput extends Component {
                             onChange={this.handleChange}
                             name="messageBody"
                         ></input>
-                        <i className="user outline icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
                     <label>
-                        <input type="radio" name="positiveMessage" value={this.state.positiveMessage} handlePostive={this.handlePostive} />
+                        <input type="radio" name="positiveMessage" value={this.state.positiveMessage} handlepostive={this.handlePostive} />
                         <img src={imagePos} />
                     </label>
                     <label>
-                        <input type="radio" name="negativeMessage" value={this.state.negativeMessage}  handleNegative={this.handleNegative} />
+                        <input type="radio" name="negativeMessage" value={this.state.negativeMessage}  handlenegative={this.handleNegative} />
                         <img src={imageNeg} />
                     </label>
                     <div className="ui inverted divider"></div>

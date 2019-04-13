@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import faker from "faker";
+import MessageInput from "../../components/MessageInput";
 import MessageDisplay from "../../components/MessageDisplay";
 
 class Hub extends Component {
@@ -16,6 +17,7 @@ class Hub extends Component {
                     <h5 className="text-white ml-3">Messages ==></h5>
                 </div>
                 <div className="col-md-9">
+                    <MessageInput />
                     <MessageDisplay />
                 </div>
             </div>
