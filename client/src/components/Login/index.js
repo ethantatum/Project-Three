@@ -3,18 +3,18 @@ import Logo from "../Logo";
 import "./style.css";
 
 class Login extends Component {
-    // constructor(props) {
-    //     super(props);
-
-        state = {
-            username: "",
-            password: ""
+    constructor() {
+        super();
+        this.state = {
+            email: "",
+            password: "",
+            errors: {}
         };
-    // }
+    }
 
     // Helper function checks if there is any content in username/password input fields
     validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0;
+        return this.state.email.length > 0 && this.state.password.length > 0;
     }
 
     // Helper function that updates state to be the user inputs
@@ -27,9 +27,16 @@ class Login extends Component {
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-    }
+
+        const userData = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        console.log(userData);
+    };
 
     render() {
+        const { errors } = this.state;
         return (
             <div className="Login col-12">
                 <div className="container-fluid p-3">
@@ -38,11 +45,12 @@ class Login extends Component {
                         <div className="ui inverted left icon input">
                             <input autoFocus
                                 type="text"
-                                placeholder="Username"
-                                value={this.state.username}
+                                placeholder="Email"
+                                value={this.state.email}
                                 onChange={this.handleChange}
-                                name="username"
-                            ></input>
+                                error={errors.email}
+                                name="email"
+                            />
                             <i className="user outline icon"></i>
                         </div>
                         <div className="ui inverted divider"></div>
@@ -52,6 +60,7 @@ class Login extends Component {
                                 placeholder="Password"
                                 value={this.state.password}
                                 onChange={this.handleChange}
+                                error={errors.password}
                                 name="password"
                             />
                             <i className="lock icon"></i>
