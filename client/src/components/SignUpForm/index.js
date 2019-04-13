@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Logo from "../Logo";
 // import Dropdown from "../Dropdown";
 // import DropdownItem from "../DropdownItem";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import classnames from "classnames";
 import "./style.css";
 
 class SignUpForm extends Component {
@@ -16,6 +21,20 @@ class SignUpForm extends Component {
             errors: {}
         };
     }
+    componentDidMount() {
+        // If logged in and user navigates to Register page, should redirect them to dashboard
+        if (this.props.auth.isAuthenticated) {
+          this.props.history.push("/dashboard");
+        }
+      }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+    }
 
     // Helper function checks if there is any content in required input fields
     validateForm() {
@@ -25,9 +44,9 @@ class SignUpForm extends Component {
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.id]: event.target.value
         });
-    }
+    };
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
@@ -42,6 +61,7 @@ class SignUpForm extends Component {
         };
 
         console.log(newUser);
+        this.props.registerUser(newUser, this.props.history); 
     };
 
 
@@ -76,6 +96,7 @@ class SignUpForm extends Component {
 
     render() {
         const { errors } = this.state;
+
         return (
             <div className="SignUp col-12">
                 <div className="container-fluid p-3">
@@ -88,9 +109,13 @@ class SignUpForm extends Component {
                                 value={this.state.name}
                                 onChange={this.handleChange}
                                 error={errors.name}
-                                name="name"
+                                id="name"
+                                className={classnames("", {
+                                    invalid: errors.name
+                                })}
                             />
                             <i className="user outline icon"></i>
+                            <span className="red-text">{errors.name}</span>
                         </div>
                         <div className="ui inverted divider"></div>
                         <div className="ui inverted left icon input">
@@ -100,9 +125,13 @@ class SignUpForm extends Component {
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 error={errors.email}
-                                name="email"
+                                id="email"
+                                className={classnames("", {
+                                    invalid: errors.email
+                                })}
                             />
                             <i className="user outline icon"></i>
+                            <span className="red-text">{errors.email}</span>
                         </div>
                         <div className="ui inverted divider"></div>
                         <div className="ui inverted left icon input">
@@ -112,9 +141,13 @@ class SignUpForm extends Component {
                                 value={this.state.password}
                                 onChange={this.handleChange}
                                 error={errors.password}
-                                name="password"
+                                id="password"
+                                className={classnames("", {
+                                    invalid: errors.password
+                                })}
                             />
                             <i className="lock icon"></i>
+                            <span className="red-text">{errors.password}</span>
                         </div>
                         <div className="ui inverted divider"></div>
                         <div className="ui inverted left icon input">
@@ -124,9 +157,13 @@ class SignUpForm extends Component {
                                 value={this.state.password2}
                                 onChange={this.handleChange}
                                 error={errors.password2}
-                                name="password2"
+                                id="password2"
+                                className={classnames("", {
+                                    invalid: errors.password2
+                                })}
                             />
                             <i className="lock icon"></i>
+                            <span className="red-text">{errors.password2}</span>
                         </div>
                         <div className="ui inverted divider"></div>
                         {/* <div className="ui inverted divider"></div>
@@ -182,4 +219,15 @@ class SignUpForm extends Component {
             }
         }
         
-export default SignUpForm;
+        SignUpForm.propTypes = {
+            registerUser: PropTypes.func.isRequired,
+            auth: PropTypes.object.isRequired,
+            errors: PropTypes.object.isRequired
+        };
+
+        const mapStateToProps = state => ({
+            auth: state.auth,
+            errors: state.errors
+        });
+
+export default connect(mapStateToProps,{ registerUser })(withRouter(SignUpForm));

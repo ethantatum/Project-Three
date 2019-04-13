@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import Logo from "../Logo";
 import "./style.css";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
+import classnames from "classnames";
 
 class Login extends Component {
     constructor() {
@@ -12,6 +17,24 @@ class Login extends Component {
         };
     }
 
+    componentDidMount() {
+        // If logged in and user navigates to Login page, should redirect them to dashboard
+        if (this.props.auth.isAuthenticated) {
+          this.props.history.push("/dashboard");
+        }
+    }
+    //===========Redux=================
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+          this.props.history.push("/dashboard"); // push user to dashboard when they login
+        }
+        if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+    }
+    //=================================
     // Helper function checks if there is any content in username/password input fields
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
@@ -20,9 +43,9 @@ class Login extends Component {
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.id]: event.target.value
         });
-    }
+    };
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
@@ -33,6 +56,7 @@ class Login extends Component {
             password: this.state.password
         };
         console.log(userData);
+        this.props.loginUser(userData);
     };
 
     render() {
@@ -49,9 +73,16 @@ class Login extends Component {
                                 value={this.state.email}
                                 onChange={this.handleChange}
                                 error={errors.email}
-                                name="email"
+                                id="email"
+                                className={classnames("", {
+                                    invalid: errors.email || errors.emailnotfound
+                                })}
                             />
                             <i className="user outline icon"></i>
+                            <span className="red-text">
+                            {errors.email}
+                            {errors.emailnotfound}
+                            </span>
                         </div>
                         <div className="ui inverted divider"></div>
                         <div className="ui inverted left icon input">
@@ -61,9 +92,16 @@ class Login extends Component {
                                 value={this.state.password}
                                 onChange={this.handleChange}
                                 error={errors.password}
-                                name="password"
+                                id="password"
+                                className={classnames("", {
+                                    invalid: errors.password || errors.passwordincorrect
+                                })}
                             />
                             <i className="lock icon"></i>
+                            <span className="red-text">
+                            {errors.password}
+                            {errors.passwordincorrect}
+                            </span>
                         </div>
                         <div className="ui inverted divider"></div>
                         <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
@@ -75,4 +113,15 @@ class Login extends Component {
     }
 }
 
-export default Login;
+//==========Redux=================
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+auth: state.auth,
+errors: state.errors
+});
+//===============================
+export default connect(mapStateToProps,{ loginUser })(withRouter(Login));
