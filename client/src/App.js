@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp/SignUp";
 // import Hub from "./pages/Hub";
 // import NoMatch from "./pages/NoMatch";
 import './App.css';
-import NavMenu from './components/Nav';
+import navMenu from './components/Nav';
 
 class App extends Component {
   render() {
