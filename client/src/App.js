@@ -37,6 +37,9 @@ if (localStorage.jwtToken) {
     window.location.href = "./";
   }
 }
+import Hub from "./pages/Hub/Hub";
+// import NoMatch from "./pages/NoMatch";
+import './App.css';
 
 class App extends Component {
   render() {
