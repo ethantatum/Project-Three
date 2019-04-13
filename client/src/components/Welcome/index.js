@@ -9,7 +9,7 @@ function Welcome(props) {
                 <Logo />
             <div className="container-fluid p-3" id="test">
                 <p className="text-justify text-white px-5 my-4 welcome-text">
-                Care Connect serves as a communication platform for teachers, parents and caretakers. It helps with tracking progress towards personal and educational goals and tracking behaviors that occur during the day.
+                CareConnect serves as a communication platform for teachers, parents and caretakers of children with autism. CareConnect allows users to track a child's progress towards personal, educational, and behavioral goals. Users can leave notes of significant events that occured during the day and track behaviors as they occur.
                 </p>
                 <div className="two ui buttons my-5">
                     <button className="large ui green button ml-2" onClick={props.handleLogin}>
