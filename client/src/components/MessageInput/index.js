@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import "./style.css";
 
 class MessageInput extends Component {
-    state = {
-        messageTitle: "",
-        messageBody: "",
-        postiveMessage: false,
-        negativeMessage: false
-    };
+    constructor(props) {
+        super(props);
+        this.handlePostive = this.handlePostive.bind(this);
+        this.handleNegative = this.handleNegative.bind(this);
+        this.state = {
+            messageTitle: "",
+            messageBody: "",
+            positiveMessage: false,
+            negativeMessage: false
+        };
+    }
 
     // Helper function checks if there is any content in title/body input fields
     validateForm() {
@@ -22,7 +27,7 @@ class MessageInput extends Component {
     }
 
     handlePostive() {
-        return (this.state.postiveMessage ? this.setState({positiveMessage: false}) : this.setState({positiveMessage: true}));
+        return (this.state.positiveMessage ? this.setState({positiveMessage: false}) : this.setState({positiveMessage: true}));
     }
 
     handleNegative() {
@@ -34,6 +39,9 @@ class MessageInput extends Component {
         event.preventDefault();
     }
     render() {
+        const positiveMessage =this.state.postiveMessage;
+        const negativeMessage =this.state.negativeMessage;
+
         let imagePos;
         let imageNeg;
 
@@ -58,7 +66,7 @@ class MessageInput extends Component {
                             placeholder="Message Title"
                             value={this.state.messageTitle}
                             onChange={this.handleChange}
-                            name="messageTitle"
+                            name="messagetitle"
                         ></input>
                     </div>
                     <div className="ui inverted divider"></div>
@@ -68,16 +76,16 @@ class MessageInput extends Component {
                             placeholder="Message Body"
                             value={this.state.messageBody}
                             onChange={this.handleChange}
-                            name="messageBody"
+                            name="messagebody"
                         ></input>
                     </div>
                     <div className="ui inverted divider"></div>
                     <label>
-                        <input type="radio" name="positiveMessage" value={this.state.positiveMessage} handlepostive={this.handlePostive} />
+                        <input type="radio" name="positivemessage" value={positiveMessage} onChange={this.handlePostive} />
                         <img src={imagePos} />
                     </label>
                     <label>
-                        <input type="radio" name="negativeMessage" value={this.state.negativeMessage}  handlenegative={this.handleNegative} />
+                        <input type="radio" name="negativemessage" value={negativeMessage}  onChange={this.handleNegative} />
                         <img src={imageNeg} />
                     </label>
                     <div className="ui inverted divider"></div>
