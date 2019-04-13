@@ -60,7 +60,7 @@ class MessageInput extends Component {
         return (
             <div className="container-fluid p-2">
                 <form className="ui inverted segment" onSubmit={this.handleSubmit}>
-                    <div className="ui inverted input">
+                    <div className="ui huge fluid inverted input">
                         <input autoFocus
                             type="text"
                             placeholder="Message Title"
@@ -70,7 +70,7 @@ class MessageInput extends Component {
                         ></input>
                     </div>
                     <div className="ui inverted divider"></div>
-                    <div className="ui inverted input">
+                    <div className="ui huge fluid inverted input">
                         <input 
                             type="text"
                             placeholder="Message Body"
@@ -82,14 +82,14 @@ class MessageInput extends Component {
                     <div className="ui inverted divider"></div>
                     <label>
                         <input type="radio" name="positivemessage" value={positiveMessage} onClick={this.handlePositive} />
-                        <img src={imagePos} />
+                        <img src={imagePos} alt="smiling emoji" />
                     </label>
                     <label>
                         <input type="radio" name="negativemessage" value={negativeMessage}  onClick={this.handleNegative} />
-                        <img src={imageNeg} />
+                        <img src={imageNeg} alt="sad emoji" />
                     </label>
                     <div className="ui inverted divider"></div>
-                    <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Send</button>
+                    <button className="ui inverted green button" type="submit" disabled={!this.validateForm()}>Send</button>
                 </form>
             </div>
         )
