@@ -26,7 +26,7 @@ class Hub extends Component {
             // </div>
 
             //Behavior Frequency Display
-            <div className="row bg-dark">
+                <div className="row bg-dark">
                 <div className="col-md-3">
                     <img className="ml-3 mt-4 img-thumbnail" src={faker.image.avatar()} alt="avatar" /><br />
                     <h3 className="text-white ml-3">{faker.name.firstName()}</h3>
