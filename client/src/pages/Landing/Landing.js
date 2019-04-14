@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import LandingGreeting from "../../components/LandingGreeting";
-import CallToAction from "../../components/CallToAction";
-import Login from "../../components/Login";
-import Logo from "../../components/Logo";
+// import CallToAction from "../../components/CallToAction";
+// import Login from "../../components/Login";
+// import Logo from "../../components/Logo";
 import LandingImage from "../../components/LandingImage";
 import InfoPanel from "../../components/InfoPanel";
 import Footer from "../../components/Footer";
@@ -54,7 +54,7 @@ class Landing extends Component {
   render() {
     return (
     <div>
-        <div className="row bg-dark">
+        <div className="row bg-dark" id="landingTop">
           <LandingGreeting />
           <LandingImage />
         </div>
