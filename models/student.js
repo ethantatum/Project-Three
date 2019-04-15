@@ -5,10 +5,10 @@ const studentSchema = new Schema({
     name: { type: String, required: true },
     age: { type: Number, required: true },
     image: { type: String, default: "/assets/images/no-image.png"},
-    teacher: { type: String, required: true },
+    class: { type: String, required: true },
     parents: [{
         parent1: {
-            type: String, required: true
+            type: String
         },
         parent2: {
             type: String
