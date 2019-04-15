@@ -6,15 +6,15 @@ function InfoPanel() {
     <div className="mainCont">
         <div className="container infoCont">
             <div className="imgCont">
-            <img src={require('./images/com.svg')} />
+            <img src={require('./images/com.svg')} alt="svgImage"/>
             <p>Allows quick and easy communication between instructors and parents</p>
             </div>
             <div className="imgCont">
-            <img src={require('./images/hum.svg')}/>
+            <img src={require('./images/hum.svg')} alt="svgImage"/>
             <p>Easily track behaviors throughout the day</p>
             </div>
             <div className="imgCont">
-            <img src={require('./images/cal.svg')}/>
+            <img src={require('./images/cal.svg')} alt="svgImage"/>
             <p>Track reinforcerment frequency and effectiveness</p>
             </div>
         </div>

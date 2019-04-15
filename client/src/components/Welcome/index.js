@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../Logo";
 import "./style.css";
-import SignUpBtns from "../SignUpBtns";
+// import SignUpBtns from "../SignUpBtns";
 
 function Welcome(props) {
     return (

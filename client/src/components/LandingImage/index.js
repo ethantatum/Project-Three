@@ -10,13 +10,13 @@ function LandingImage() {
         <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={image1} />
+              <img className="d-block w-100" src={image1} alt="landingImage"/>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={image3} />
+              <img className="d-block w-100" src={image3} alt="landingImage"/>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={image5} />
+              <img className="d-block w-100" src={image5} alt="landingImage"/>
             </div>
           </div>
         </div>
