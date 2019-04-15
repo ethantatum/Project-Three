@@ -7,15 +7,15 @@ function InfoPanel() {
         <div className="container infoCont">
             <div className="imgCont">
             <img src={require('./images/com.svg')} />
-            <p>Allows for easier communication between  instructors and parents.</p>
+            <p>Allows quick and easy communication between instructors and parents</p>
             </div>
             <div className="imgCont">
             <img src={require('./images/hum.svg')}/>
-            <p>Made for teachers and caretakers to easily track behaviors.</p>
+            <p>Easily track behaviors throughout the day</p>
             </div>
             <div className="imgCont">
             <img src={require('./images/cal.svg')}/>
-            <p>Tracks when a reinforcer is given to a child and at what time they are given.</p>
+            <p>Track reinforcerment frequency and effectiveness</p>
             </div>
         </div>
     </div>
