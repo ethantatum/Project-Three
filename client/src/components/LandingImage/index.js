@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
-import image1 from "./images/1.jpg";
 import image3 from "./images/3.jpg";
 import image5 from "./images/5.jpg";
+import image7 from "./images/7.jpg";
 
 function LandingImage() {
   return (
@@ -10,13 +10,13 @@ function LandingImage() {
         <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={image1} alt="girl-reading" />
-            </div>
-            <div className="carousel-item">
-              <img className="d-block w-100" src={image3} alt="girl-writing" />
+              <img className="d-block w-100" src={image3} />
             </div>
             <div className="carousel-item">
               <img className="d-block w-100" src={image5} alt="girl-with-teacher" />
+            </div>
+            <div className="carousel-item">
+              <img className="d-block w-100" src={image7} />
             </div>
           </div>
         </div>
