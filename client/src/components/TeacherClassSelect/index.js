@@ -1,5 +1,12 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import {Dropdown} from "semantic-ui-react";
 
+const options = [
+    {key: "burgundy", text: "Burgundy", value: "burgundy"},
+    {key: "emerald", text: "Emerald", value: "emerald"},
+    {key: "paisley", text: "Paisley", value: "paisley"}
+
+]
 
 class TeacherClassSelect extends Component {
     state = {
@@ -11,18 +18,13 @@ class TeacherClassSelect extends Component {
     }
 
     render() {
-    return (
-        <form>
-            <select className="ui fluid search dropdown" multiple="">
-                <option value="" >Select Classroom</option>
-                <option value="Burgundy">Burgundy</option>
-                <option value="Emerald">Emerald</option>
-                <option value="Paisley">Paisley</option>
-            </select>
-            <button className="ui button" type="submit" onClick={}>Submit</button>
-        </form> 
-    )
-}
+        return (
+            <form className="mt-5">
+                <Dropdown placeholder='Classrooms' fluid multiple selection options={options} />
+                <button className="ui inverted button" type="submit" >Submit</button>
+            </form>
+        )
+    }
 }
 
 export default TeacherClassSelect;

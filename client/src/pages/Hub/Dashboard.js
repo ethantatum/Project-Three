@@ -52,7 +52,7 @@ class Dashboard extends Component {
           <h3 className="text-white ml-3">{user.name}</h3>
           <h5 className="text-white ml-3">Messages ==></h5>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-9 text-danger">
           <TeacherClassSelect />
           <BehaviorFrequency />
           <MessageInput />
