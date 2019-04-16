@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import faker from "faker";
 import Logo from "../../components/Logo";
+import NavToolbar from "../../components/NavToolbar";
+import NavSidebar from "../../components/NavSidebar";
+import NavBackdrop from "../../components/NavBackdrop";
 import TeacherClassSelect from "../../components/TeacherClassSelect";
 import BehaviorFrequency from "../../components/BehaviorFrequency";
 import MessageInput from "../../components/MessageInput";
@@ -21,7 +24,12 @@ class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
     return (
-      <div className="row bg-dark">
+      <React.Fragment>
+        <NavToolbar />
+        <NavBackdrop />
+        <NavSidebar />
+      
+      <div className="row bg-dark mt-5">
         <div className="col-md-3">
           <Logo />
           <div style={{ height: "25vh" }} className="container valign-wrapper text-white">
@@ -60,9 +68,11 @@ class Dashboard extends Component {
           <MessageDisplay />
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }
+
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired

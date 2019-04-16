@@ -1,4 +1,4 @@
-.hamburger-botton {
+.hamburger-button {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.hamburger-botton:focus {
+.hamburger-button:focus {
     outline: none;
 }
 
