@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
+// import classnames from "classnames";
 import "./style.css";
 
 class SignUpForm extends Component {
@@ -20,6 +20,8 @@ class SignUpForm extends Component {
             isTeacher: false,
             errors: {}
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
         // If logged in and user navigates to Register page, should redirect them to dashboard
@@ -30,10 +32,11 @@ class SignUpForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
+            this.setState({
+                errors: nextProps.errors
+            });
         }
+    
     }
 
     // Helper function checks if there is any content in required input fields
@@ -110,9 +113,9 @@ class SignUpForm extends Component {
                                 onChange={this.handleChange}
                                 error={errors.name}
                                 id="name"
-                                className={classnames("", {
-                                    invalid: errors.name
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.name
+                                // })}
                             />
                             <i className="user outline icon"></i>
                             <span className="red-text">{errors.name}</span>
@@ -126,9 +129,9 @@ class SignUpForm extends Component {
                                 onChange={this.handleChange}
                                 error={errors.email}
                                 id="email"
-                                className={classnames("", {
-                                    invalid: errors.email
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.email
+                                // })}
                             />
                             <i className="user outline icon"></i>
                             <span className="red-text">{errors.email}</span>
@@ -142,9 +145,9 @@ class SignUpForm extends Component {
                                 onChange={this.handleChange}
                                 error={errors.password}
                                 id="password"
-                                className={classnames("", {
-                                    invalid: errors.password
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.password
+                                // })}
                             />
                             <i className="lock icon"></i>
                             <span className="red-text">{errors.password}</span>
@@ -158,9 +161,9 @@ class SignUpForm extends Component {
                                 onChange={this.handleChange}
                                 error={errors.password2}
                                 id="password2"
-                                className={classnames("", {
-                                    invalid: errors.password2
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.password2
+                                // })}
                             />
                             <i className="lock icon"></i>
                             <span className="red-text">{errors.password2}</span>
