@@ -20,6 +20,8 @@ class SignUpForm extends Component {
             isTeacher: false,
             errors: {}
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
         // If logged in and user navigates to Register page, should redirect them to dashboard
@@ -30,10 +32,11 @@ class SignUpForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
+            this.setState({
+                errors: nextProps.errors
+            });
         }
+    
     }
 
     // Helper function checks if there is any content in required input fields
