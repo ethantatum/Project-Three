@@ -1,25 +1,28 @@
-import React from "react";
+import React, {Component} from "react";
 
-function TeacherClassSelect() {
+
+class TeacherClassSelect extends Component {
+    state = {
+        class: []
+    }
+
+    handleSelect() {
+
+    }
+
+    render() {
     return (
-        <div className="ui simple selection dropdown">
-            <input type="hidden" name="class" />
-            <i className="dropdown icon"></i>
-            <div className="left icon default text">Select Classroom</div>
-            <i className="school icon"></i>
-            <div className="menu">
-                <div className="item" >
-                    Burgundy
-                </div>
-                <div className="item" >
-                    Emerald
-                </div>
-                <div className="item" >
-                    Paisley
-                </div>
-            </div>
-        </div>
+        <form>
+            <select className="ui fluid search dropdown" multiple="">
+                <option value="" >Select Classroom</option>
+                <option value="Burgundy">Burgundy</option>
+                <option value="Emerald">Emerald</option>
+                <option value="Paisley">Paisley</option>
+            </select>
+            <button className="ui button" type="submit" onClick={}>Submit</button>
+        </form> 
     )
+}
 }
 
 export default TeacherClassSelect;

@@ -22,9 +22,9 @@ class BehaviorFrequency extends React.Component {
                 <div className="container-fluid p-2">
                     <h1>Behavior Frequency Counters</h1>
 
-                    <form class="form-inline">
+                    <form className="form-inline">
                         <h3>Observation Length (minutes): </h3>
-                        <select class="form-control">
+                        <select className="form-control">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -57,7 +57,7 @@ class BehaviorFrequency extends React.Component {
                             <option>30</option>
                         </select>
 
-                        <button type="button" class="btn btn-outline-light" id="beginBtn">Begin Observation</button>
+                        <button type="button" className="btn btn-outline-light" id="beginBtn">Begin Observation</button>
                     </form>
 
                     <CounterButtons
