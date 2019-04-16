@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import Logo from "../Logo";
 import "./style.css";
+//redux imports
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
-import classnames from "classnames";
+// import classnames from "classnames";
 
 class Login extends Component {
     constructor() {
@@ -74,9 +75,9 @@ class Login extends Component {
                                 onChange={this.handleChange}
                                 error={errors.email}
                                 id="email"
-                                className={classnames("", {
-                                    invalid: errors.email || errors.emailnotfound
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.email || errors.emailnotfound
+                                // })}
                             />
                             <i className="user outline icon"></i>
                             <span className="red-text">
@@ -93,17 +94,18 @@ class Login extends Component {
                                 onChange={this.handleChange}
                                 error={errors.password}
                                 id="password"
-                                className={classnames("", {
-                                    invalid: errors.password || errors.passwordincorrect
-                                })}
+                                // className={classnames("", {
+                                //     invalid: errors.password || errors.passwordincorrect
+                                // })}
                             />
                             <i className="lock icon"></i>
-                            <span className="red-text">
+                            <span>
                             {errors.password}
                             {errors.passwordincorrect}
                             </span>
                         </div>
                         <div className="ui inverted divider"></div>
+                        <div>{errors.passwordincorrect}</div>
                         <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
                         <button className="ui inverted red button" type="submit" onClick={this.props.handleLogin}>Cancel</button>
                     </form>

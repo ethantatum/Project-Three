@@ -13,7 +13,7 @@ function LandingImage() {
               <img className="d-block w-100" src={image3} />
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src={image5} />
+              <img className="d-block w-100" src={image5} alt="girl-with-teacher" />
             </div>
             <div className="carousel-item">
               <img className="d-block w-100" src={image7} />
