@@ -8,6 +8,7 @@ import TeacherClassSelect from "../../components/TeacherClassSelect";
 import BehaviorFrequency from "../../components/BehaviorFrequency";
 import MessageInput from "../../components/MessageInput";
 import MessageDisplay from "../../components/MessageDisplay";
+import "./style.css";
 
 
 
