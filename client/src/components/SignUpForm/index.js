@@ -36,7 +36,6 @@ class SignUpForm extends Component {
                 errors: nextProps.errors
             });
         }
-    
     }
 
     // Helper function checks if there is any content in required input fields
