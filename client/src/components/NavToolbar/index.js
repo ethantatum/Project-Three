@@ -10,13 +10,12 @@ const NavToolbar = props => (
             <div>
                 <NavSideButton click={props.barClickHandler}/>
             </div>
-            <div className="toolbar-logo">Logo
-                {<img src={require('../Logo/images/logo2b.png')} /> }
+            <div className="toolbar-logo">
+                {<img src={require('../Logo/images/logo2b.png')} alt="logo" /> }
             </div>
             <div className="spacer"></div>
             <div className="toolbar-items">
                 <ul>
-                    <li><a href="/"></a></li>
                     <li><a href="/">Log Out</a></li>
                 </ul>
             </div>

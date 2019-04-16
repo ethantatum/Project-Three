@@ -25,36 +25,36 @@ class BehaviorFrequency extends React.Component {
                     <form className="form-inline">
                         <h3>Observation Length (minutes): </h3>
                         <select className="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
+                            <option key="1">1</option>
+                            <option key="2">2</option>
+                            <option key="3">3</option>
+                            <option key="4">4</option>
+                            <option key="5">5</option>
+                            <option key="6">6</option>
+                            <option key="7">7</option>
+                            <option key="8">8</option>
+                            <option key="9">9</option>
+                            <option key="10">10</option>
+                            <option key="11">11</option>
+                            <option key="12">12</option>
+                            <option key="13">13</option>
+                            <option key="14">14</option>
+                            <option key="15">15</option>
+                            <option key="16">16</option>
+                            <option key="17">17</option>
+                            <option key="18">18</option>
+                            <option key="19">19</option>
+                            <option key="20">20</option>
+                            <option key="21">21</option>
+                            <option key="22">22</option>
+                            <option key="23">23</option>
+                            <option key="24">24</option>
+                            <option key="25">25</option>
+                            <option key="26">26</option>
+                            <option key="27">27</option>
+                            <option key="28">28</option>
+                            <option key="29">29</option>
+                            <option key="30">30</option>
                         </select>
 
                         <button type="button" className="btn btn-outline-light" id="beginBtn">Begin Observation</button>
