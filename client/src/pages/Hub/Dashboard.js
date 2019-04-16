@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import faker from "faker";
 import Logo from "../../components/Logo";
 import MessageInput from "../../components/MessageInput";
 import MessageDisplay from "../../components/MessageDisplay";
@@ -19,7 +20,8 @@ class Dashboard extends Component {
     return (
       <div className="row bg-dark">
         <div className="col-md-3">
-          <div style={{ height: "75vh" }} className="container valign-wrapper">
+          <Logo />
+          <div style={{ height: "25vh" }} className="container valign-wrapper text-white">
             <div className="row">
               <div className="col s12 center-align">
                 <h4>
@@ -37,16 +39,15 @@ class Dashboard extends Component {
                     marginTop: "1rem"
                   }}
                   onClick={this.onLogoutClick}
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3 text-white"
                 >
                   Logout
                 </button>
               </div>
             </div>
           </div>
-          <Logo />
           <img className="ml-3 mt-4 img-thumbnail" src={faker.image.avatar()} alt="avatar" /><br />
-          <h3 className="text-white ml-3">{faker.name.firstName()}</h3>
+          <h3 className="text-white ml-3">{user.name}</h3>
           <h5 className="text-white ml-3">Messages ==></h5>
         </div>
         <div className="col-md-9">
