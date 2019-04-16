@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import faker from "faker";
 import Logo from "../../components/Logo";
+import TeacherClassSelect from "../../components/TeacherClassSelect";
+import BehaviorFrequency from "../../components/BehaviorFrequency";
 import MessageInput from "../../components/MessageInput";
 import MessageDisplay from "../../components/MessageDisplay";
 
@@ -51,6 +53,8 @@ class Dashboard extends Component {
           <h5 className="text-white ml-3">Messages ==></h5>
         </div>
         <div className="col-md-9">
+          <TeacherClassSelect />
+          <BehaviorFrequency />
           <MessageInput />
           <MessageDisplay />
         </div>
