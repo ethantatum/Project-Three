@@ -6,7 +6,7 @@ function Logo() {
   return (
     <div className="row" id="logocomponent">
       <div className="col-12">
-        <img className="logo float-left" id="logo" src={logo} />
+        <img className="logo float-left" id="logo" src={logo} alt="logo" />
       </div>
     </div>
   );

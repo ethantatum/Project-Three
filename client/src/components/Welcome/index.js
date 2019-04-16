@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "../Logo";
 import "./style.css";
-import SignUpBtns from "../SignUpBtns";
 
 function Welcome(props) {
     return (
@@ -9,7 +8,7 @@ function Welcome(props) {
                 <Logo />
             <div className="container-fluid p-3" id="test">
                 <p className="text-justify text-white px-5 my-4 welcome-text">
-                CareConnect serves as a communication platform for teachers, parents and caretakers of children with autism. CareConnect allows users to track a child's progress towards personal, educational, and behavioral goals. Users can leave notes of significant events that occured during the day and track behaviors as they occur.
+                CareConnect serves as a communication platform for teachers, parents, and caretakers of children with autism. CareConnect allows users to track a child's progress towards personal, educational, and behavioral goals. Users can leave notes of significant events that occured during the day and track behaviors as they occur.
                 </p>
                 <div className="two ui buttons my-5">
                     <button className="large ui green button ml-2" onClick={props.handleLogin}>

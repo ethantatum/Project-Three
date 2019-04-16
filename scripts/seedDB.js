@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models/Student");
+const db = require("../models");
 
 // This file empties the Students collection and inserts the students below
 
@@ -16,7 +16,7 @@ const studentSeed = [
         class: "Burgundy",
         // parents: [
         //     {
-        //         parent1: "Madilyn Kane"
+        //         parent1: ""
         //     }
         // ],
         behaviors: [
