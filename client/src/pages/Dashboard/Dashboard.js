@@ -16,6 +16,22 @@ import "./style.css";
 
 
 class Dashboard extends Component {
+
+  state = {
+    NavSidebarOpen: false
+  };
+
+  NavSidebarClickHandler = () => {
+    this.setState((prevState) => {
+      return{NavSidebarOpen: !prevState.NavSidebarOpen};
+    });
+  };
+
+  NavBackdropClickHandler =  () => {
+    this.setState({NavSidebarOpen: false});
+  };
+
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -23,11 +39,17 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    let backdrop;
+
+    if(this.state.NavSidebarOpen) {
+      backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
+    }
+
     return (
       <React.Fragment>
-        <NavToolbar />
-        <NavBackdrop />
-        <NavSidebar />
+        <NavToolbar clickHandler={this.NavSidebarClickHandler} />
+        <NavSidebar show={this.state.NavSidebarOpen} />
+        {backdrop}
       
       <div className="row bg-dark mt-5">
         <div className="col-md-3">

@@ -8,7 +8,7 @@ const NavToolbar = props => (
     <header className="toolbar">
         <nav className="toolbar-navigation">
             <div>
-                <NavSideButton click={props.barClickHandler}/>
+                <NavSideButton click={props.clickHandler}/>
             </div>
             <div className="toolbar-logo">
                 {<img src={require('../Logo/images/logo2b.png')} alt="logo" /> }
