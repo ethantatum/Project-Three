@@ -3,8 +3,9 @@
     top: 0;
     left: 0;
     position: fixed;
-    background: #80ff80;
+    background: #008400;
     height: 56px;
+    z-index: 300;
 }
 
 .toolbar-logo {
