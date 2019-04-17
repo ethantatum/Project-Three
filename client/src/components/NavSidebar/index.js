@@ -11,7 +11,10 @@ const NavSideBar = props => {
     return (
     <nav className={barClasses}>
         <ul>
-            <li><img src={faker.image.avatar()} alt="avatar"/></li>
+            <li>
+                <img className="ml-1 mt-1 img-thumbnail" src={faker.image.avatar()} alt="avatar"/><br />
+                <h4>{props.user}</h4>
+            </li>
             <li>
                 <a href="/">Students</a>
             </li>

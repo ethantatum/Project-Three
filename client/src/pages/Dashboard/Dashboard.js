@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import faker from "faker";
-import Logo from "../../components/Logo";
 import NavToolbar from "../../components/NavToolbar";
 import NavSidebar from "../../components/NavSidebar";
 import NavBackdrop from "../../components/NavBackdrop";
@@ -16,6 +15,22 @@ import "./style.css";
 
 
 class Dashboard extends Component {
+
+  state = {
+    NavSidebarOpen: false
+  };
+
+  NavSidebarClickHandler = () => {
+    this.setState((prevState) => {
+      return{NavSidebarOpen: !prevState.NavSidebarOpen};
+    });
+  };
+
+  NavBackdropClickHandler =  () => {
+    this.setState({NavSidebarOpen: false});
+  };
+
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -23,17 +38,22 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    let backdrop;
+
+    if(this.state.NavSidebarOpen) {
+      backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
+    }
+
     return (
       <React.Fragment>
-        <NavToolbar />
-        <NavBackdrop />
-        <NavSidebar />
+        <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
+        <NavSidebar show={this.state.NavSidebarOpen} user={user.name}/>
+        {backdrop}
       
       <div className="row bg-dark mt-5">
         <div className="col-md-3">
-          <Logo />
-          <div style={{ height: "25vh" }} className="container valign-wrapper text-white">
-            <div className="row">
+          {/* <div style={{ height: "25vh" }} className="container valign-wrapper text-white">
+            <div className="row mt-5">
               <div className="col s12 center-align">
                 <h4>
                   <b>Hey there,</b> {user.name.split(" ")[0]}
@@ -43,12 +63,6 @@ class Dashboard extends Component {
                   </p>
                 </h4>
                 <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
                   onClick={this.onLogoutClick}
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3 text-white"
                 >
@@ -56,10 +70,7 @@ class Dashboard extends Component {
                 </button>
               </div>
             </div>
-          </div>
-          <img className="ml-3 mt-4 img-thumbnail" src={faker.image.avatar()} alt="avatar" /><br />
-          <h3 className="text-white ml-3">{user.name}</h3>
-          <h5 className="text-white ml-3">Messages ==></h5>
+          </div> */}
         </div>
         <div className="col-md-9 text-danger">
           <TeacherClassSelect />
