@@ -8,6 +8,27 @@ const NavSideBar = props => {
         barClasses = 'side-bar open';
     }
 
+    let sideNavBarButtons;
+    if(props.isTeacher){
+        sideNavBarButtons = 
+        <div className="ui vertical buttons nav-buttons ml-5">
+          <button className="ui button">Classes</button>
+          <button className="ui button">Students</button>
+          <button className="ui button">Messages</button>
+          <button className="ui button">Notes</button>
+          <button className="ui button">Profile</button>
+        </div>
+    }
+    else if(!props.isTeacher){
+        sideNavBarButtons = 
+        <div className="ui vertical buttons nav-buttons ml-5">
+            <button className="ui button">My Students</button>
+            <button className="ui button">Reports</button>
+            <button className="ui button">Messages</button>
+            <button className="ui button">Profile</button>
+        </div>
+    }
+
     return (
         <nav className={barClasses}>
             <ul>
@@ -16,12 +37,13 @@ const NavSideBar = props => {
                     <h4>{props.user}</h4>
                 </li>
             </ul>
-            <div className="ui vertical buttons nav-buttons ml-5">
+            {/* <div className="ui vertical buttons nav-buttons ml-5">
                 <button className="ui button">Students</button>
                 <button className="ui button">Messages</button>
                 <button className="ui button">Notes</button>
                 <button className="ui button">Profile</button>
-            </div>
+            </div> */}
+            {sideNavBarButtons}
         </nav>
     );
 };

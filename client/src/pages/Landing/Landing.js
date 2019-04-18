@@ -41,6 +41,7 @@ class Landing extends Component {
       } else {
           container = <Welcome handleLogin={this.handleLoginClick} handleSignUp={this.handleSignUpClick} />;
       }
+      
       return (
       <div>
           <div className="row bg-dark" id="landingTop">
