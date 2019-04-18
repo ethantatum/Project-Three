@@ -29,7 +29,6 @@ class Dashboard extends Component {
     this.setState({NavSidebarOpen: false});
   };
 
-
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -43,10 +42,13 @@ class Dashboard extends Component {
       backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
     }
 
+
+
+
     return (
       <React.Fragment>
         <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
-        <NavSidebar show={this.state.NavSidebarOpen} user={user.name}/>
+        <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher}/>
         {backdrop}
       
       <div className="row bg-dark mt-5">
@@ -90,7 +92,4 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+export default connect(mapStateToProps,{ logoutUser })(Dashboard);
