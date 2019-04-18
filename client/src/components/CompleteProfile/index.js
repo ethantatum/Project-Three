@@ -1,61 +1,92 @@
-import React, { Component } from "react";
-import TeacherClassSelect from "../TeacherClassSelect";
+import React, {Component} from "react";
+import { Dropdown } from "semantic-ui-react";
 import "./style.css";
 
+const options = [
+    { key: "burgundy", text: "Burgundy", value: "burgundy" },
+    { key: "emerald", text: "Emerald", value: "emerald" },
+    { key: "paisley", text: "Paisley", value: "paisley" }
+
+]
+
 class CompleteProfile extends Component {
-    state = {
-        name: {
-            firstName: "",
-            lastName: ""
-        },
-        image: "",
-        classroom: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: {
+                firstName: "",
+                lastName: ""
+            },
+            image: "",
+            classroom: [],
+            child: "",
+            address: "",
+            phone: ""
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Helper function checks if there is any content in required input fields
+    validateForm() {
+        return this.state.classroom.length > 0 || this.state.child.length > 0;
+    }
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
+    };
+
+    // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
+    handleSubmit = (event) => {
+        event.preventDefault();
     };
 
     render() {
         return (
             <div className="container m-3" >
-                <div className="ui inverted left icon input">
-                    <input
-                        type="text"
-                        placeholder="First Name"
-                        value={this.state.name.firstName}
-                        onChange={this.handleChange}
-                        name="firstName"
-                    ></input>
-                    <i className="keyboard icon"></i>
-                </div>
-                <div className="ui inverted left icon input ml-3">
-                    <input
-                        type="text"
-                        placeholder="Last Name"
-                        value={this.state.name.lastName}
-                        onChange={this.handleChange}
-                        name="lastName"
-                    ></input>
-                    <i className="keyboard icon"></i>
-                </div>
-                <div className="ui inverted divider"></div>
-                <div className="ui inverted left icon input">
-                    <input
-                        type="text"
-                        placeholder="Image link (optional)"
-                        value={this.state.image}
-                        onChange={this.handleChange}
-                        name="image"
-                    ></input>
-                    <i className="camera retro icon"></i>
-                </div>
-                <TeacherClassSelect />
+                <React.Fragment>
+                    <div className="ui inverted left icon input">
+                        <input
+                            type="text"
+                            placeholder="First Name"
+                            value={this.state.name.firstName}
+                            onChange={this.handleChange}
+                            name="name"
+                        ></input>
+                        <i className="keyboard icon"></i>
+                    </div>
+                    <div className="ui inverted left icon input ml-3">
+                        <input
+                            type="text"
+                            placeholder="Last Name"
+                            value={this.state.name.lastName}
+                            onChange={this.handleChange}
+                            name="name"
+                        ></input>
+                        <i className="keyboard icon"></i>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                    <div className="ui inverted left icon input">
+                        <input
+                            type="text"
+                            placeholder="Image link (optional)"
+                            value={this.state.image}
+                            onChange={this.handleChange}
+                            name="image"
+                        ></input>
+                        <i className="camera retro icon"></i>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                    <form className="mt-1">
+                        <Dropdown placeholder='Classrooms' compact multiple selection options={options} /><br />
+                        <button className="ui inverted button mt-2" type="submit" disabled={!this.validateForm()}>Submit</button>
+                    </form>
+                </React.Fragment>
             </div>
         )
+
     }
 }
 
