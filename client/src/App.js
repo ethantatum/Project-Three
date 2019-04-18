@@ -19,6 +19,7 @@ import './App.css';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./pages/Hub/Dashboard";
 
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -37,9 +38,6 @@ if (localStorage.jwtToken) {
     window.location.href = "./";
   }
 }
-import Hub from "./pages/Hub/Hub";
-// import NoMatch from "./pages/NoMatch";
-import './App.css';
 
 class App extends Component {
   render() {
