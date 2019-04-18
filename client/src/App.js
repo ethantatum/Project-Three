@@ -1,23 +1,27 @@
+//React imports
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-//redux
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./utils/setAuthToken";
-import { setCurrentUser, logoutUser } from "./actions/authActions";
+//component imports
+import Landing from "./pages/Landing/Landing";
+import PrivateRoute from "./components/private-route/PrivateRoute";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import './App.css';
+// import SignUp from "./pages/SignUp/SignUp";
+// import Hub from "./pages/Hub";
+// import NoMatch from "./pages/NoMatch";
+// import NavMenu from './components/Nav';
+// import Hub from "./pages/Hub/Hub";
+// import NoMatch from "./pages/NoMatch";
 
 //imports for REDUX
 import { Provider } from "react-redux";
 import store from "./store";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
+//passport for redux 
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
 
-import Landing from "./pages/Landing/Landing";
-// import SignUp from "./pages/SignUp/SignUp";
-// import Hub from "./pages/Hub";
-// import NoMatch from "./pages/NoMatch";
-import './App.css';
-// import NavMenu from './components/Nav';
-import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./pages/Hub/Dashboard";
 
 
 // Check for token to keep user logged in
@@ -52,7 +56,6 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             {/* <Route exact path="/SignUp" component={SignUp} /> */}
-            {/*<Route exact path="/Hub" component={Hub} /> */}
             {/* <Route exact path="/TeacherHub" component={TeacherHub} /> */}
             {/* <Route component={NoMatch} /> */}
           

@@ -9,7 +9,7 @@ export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/user/register", userData)
     //************* */
-    .then(res => history.push("/"))
+    .then(res => window.location.href = "./")
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -36,7 +36,7 @@ export const loginUser = userData => dispatch => {
       dispatch(setCurrentUser(decoded));
     })
     .catch(err =>{
-      console.log(err);
+      console.log(err.response);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
