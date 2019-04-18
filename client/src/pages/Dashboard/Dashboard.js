@@ -52,7 +52,7 @@ class Dashboard extends Component {
       <div className="row bg-dark mt-5">
         <div className="col-md-3"></div>
         <div className="col-md-9 mt-5">
-          <CompleteProfile />
+          <CompleteProfile isTeacher={user.isTeacher} />
           <BehaviorFrequency />
           <MessageInput />
           <MessageDisplay />

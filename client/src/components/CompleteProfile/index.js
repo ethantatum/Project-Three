@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Dropdown } from "semantic-ui-react";
+import ParentDropdown from "../ParentDropdown";
 import "./style.css";
 
 const options = [
@@ -44,6 +45,16 @@ class CompleteProfile extends Component {
     };
 
     render() {
+        let selector;
+
+        if(props.isTeacher) {
+            selector = <form className="mt-1">
+                            <Dropdown placeholder='Classrooms' compact multiple selection options={options} /><br />
+                            <button className="ui inverted button mt-2" type="submit" disabled={!this.validateForm()}>Submit</button>
+                        </form>
+        } else {
+            selector = <ParentDropdown />
+        }
         return (
             <div className="container m-3" >
                 <React.Fragment>
@@ -79,10 +90,7 @@ class CompleteProfile extends Component {
                         <i className="camera retro icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
-                    <form className="mt-1">
-                        <Dropdown placeholder='Classrooms' compact multiple selection options={options} /><br />
-                        <button className="ui inverted button mt-2" type="submit" disabled={!this.validateForm()}>Submit</button>
-                    </form>
+                    {selector}
                 </React.Fragment>
             </div>
         )

@@ -8,7 +8,7 @@ import DropdownItem from "../DropdownItem";
 // Also, dropdown currently is showing up behind elements further down the page - change z-index?
 // Also, not sure how to move child icon to left of 'Select Child' field
 
-function Dropdown() {
+function ParentDropdown() {
     return (
         <div className="ui simple selection dropdown">
             <input type="hidden" name="student" />
@@ -22,4 +22,4 @@ function Dropdown() {
     )
 }
 
-export default Dropdown;
+export default ParentDropdown;
