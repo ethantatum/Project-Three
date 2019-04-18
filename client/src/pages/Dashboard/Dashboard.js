@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import faker from "faker";
 import NavToolbar from "../../components/NavToolbar";
 import NavSidebar from "../../components/NavSidebar";
 import NavBackdrop from "../../components/NavBackdrop";

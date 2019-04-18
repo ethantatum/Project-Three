@@ -20,8 +20,8 @@ class TeacherClassSelect extends Component {
     render() {
         return (
             <form className="mt-5">
-                <Dropdown placeholder='Classrooms' fluid multiple selection options={options} />
-                <button className="ui inverted button" type="submit" >Submit</button>
+                <Dropdown placeholder='Classrooms' compact multiple selection options={options} /><br />
+                <button className="ui inverted button mt-1" type="submit" >Submit</button>
             </form>
         )
     }
