@@ -19,12 +19,19 @@
 }
 
 .side-bar ul {
-    height: 100%;
+    height: 40%;
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center
 }
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
 
 .side-bar li {
     margin: 0.5rem 0;
