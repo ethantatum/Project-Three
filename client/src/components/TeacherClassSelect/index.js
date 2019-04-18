@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown } from "semantic-ui-react";
 
-const options = [
+const classOptions = [
     { key: "burgundy", text: "Burgundy", value: "burgundy" },
     { key: "emerald", text: "Emerald", value: "emerald" },
     { key: "paisley", text: "Paisley", value: "paisley" }
@@ -74,7 +74,7 @@ class TeacherClassSelect extends Component {
             </div>
             <div className="ui inverted divider"></div>
             <form className="mt-1">
-                <Dropdown placeholder='Classrooms' compact multiple selection options={options} /><br />
+                <Dropdown placeholder='Classrooms' compact multiple selection options={classOptions} /><br />
                 <button className="ui inverted button mt-2" type="submit" disabled={!this.validateForm()}>Submit</button>
             </form>
             </React.Fragment>
