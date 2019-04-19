@@ -3,12 +3,12 @@ import React, { Component } from "react";
 // import CallToAction from "../../components/CallToAction";
 // import Login from "../../components/Login";
 // import Logo from "../../components/Logo";
-import LandingImage from "../../components/LandingImage";
-import InfoPanel from "../../components/InfoPanel";
-import Footer from "../../components/Footer";
-import Welcome from "../../components/Welcome";
+import LandingImage from "../../components/LandingComponents/LandingImage";
+import InfoPanel from "../../components/LandingComponents/InfoPanelmponents/InfoPanel";
+import Footer from "../../components/LandingComponents/Footer";
+import Welcome from "../../components/LandingComponents/Welcome";
 import Login from "../../components/Login"; 
-import SignUpForm from "../../components/SignUpForm";
+import SignUpForm from "../../components/LandingComponents/SignUpForm";
 // import API from "../utils/API";
 
 class Landing extends Component {
