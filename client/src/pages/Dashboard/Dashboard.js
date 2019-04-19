@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import NavToolbar from "../../components/NavToolbar";
-import NavSidebar from "../../components/NavSidebar";
-import NavBackdrop from "../../components/NavBackdrop";
-import TeacherClassSelect from "../../components/TeacherClassSelect";
-import BehaviorFrequency from "../../components/BehaviorFrequency";
-import MessageInput from "../../components/MessageInput";
-import MessageDisplay from "../../components/MessageDisplay";
+import NavToolbar from "../../components/DashboardComponents/NavToolbar";
+import NavSidebar from "../../components/DashboardComponents/NavSidebar";
+import NavBackdrop from "../../components/DashboardComponents/NavBackdrop";
+// import TeacherClassSelect from "../../components/DashboardComponents/TeacherClassSelect";
+// import BehaviorFrequency from "../../components/BehaviorFrequency";
+import MessageInput from "../../components/DashboardComponents/MessageInput";
+// import MessageDisplay from "../../components/DashboardComponents/MessageDisplay";
 import "./style.css";
 
 
