@@ -11,7 +11,7 @@ const NavToolbar = props => (
                 <NavSideButton click={props.clickHandler} />
             </div>
             <div className="toolbar-logo">
-                {<img src={require('../Logo/images/logo2b.png')} alt="logo" />}
+                {<img src={require('../../LandingComponents/Logo/images/logo2b.png')} alt="logo" />}
             </div>
             <div className="spacer"></div>
             <div className="toolbar-items">

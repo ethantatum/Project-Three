@@ -4,10 +4,10 @@ import React, { Component } from "react";
 // import Login from "../../components/Login";
 // import Logo from "../../components/Logo";
 import LandingImage from "../../components/LandingComponents/LandingImage";
-import InfoPanel from "../../components/LandingComponents/InfoPanelmponents/InfoPanel";
+import InfoPanel from "../../components/LandingComponents/InfoPanel";
 import Footer from "../../components/LandingComponents/Footer";
 import Welcome from "../../components/LandingComponents/Welcome";
-import Login from "../../components/Login"; 
+import Login from "../../components/LandingComponents/Login"; 
 import SignUpForm from "../../components/LandingComponents/SignUpForm";
 // import API from "../utils/API";
 
