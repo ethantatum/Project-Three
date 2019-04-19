@@ -1,9 +1,11 @@
 import React from 'react';
 import './style.css';
 import faker from 'faker';
+import { Link } from 'react-router-dom'
 
-const NavSideBar = props => {
+const NavSideBar = (props) => {
     let barClasses = 'side-bar';
+
     if (props.show) {
         barClasses = 'side-bar open';
     }
@@ -11,22 +13,22 @@ const NavSideBar = props => {
     let sideNavBarButtons;
     if(props.isTeacher){
         sideNavBarButtons = 
-        <div className="ui vertical buttons nav-buttons ml-5">
-          <button className="ui button">Classes</button>
-          <button className="ui button">Students</button>
-          <button className="ui button">Messages</button>
-          <button className="ui button">Notes</button>
-          <button className="ui button">Profile</button>
-        </div>
+        <ul className="ml-5">
+          <li >Classes</li>
+          <li >Students</li>
+          <li><Link to={`${props.match.url}/messages`}>Messages</Link></li>
+          <li >Notes</li>
+          <li >Profile</li>
+        </ul>
     }
     else if(!props.isTeacher){
         sideNavBarButtons = 
-        <div className="ui vertical buttons nav-buttons ml-5">
-            <button className="ui button">My Students</button>
-            <button className="ui button">Reports</button>
-            <button className="ui button">Messages</button>
-            <button className="ui button">Profile</button>
-        </div>
+        <ul className="ml-5">
+            <li >My Students</li>
+            <li >Reports</li>
+            <li><Link to={`${props.match.url}/messages`}>Messages</Link></li>
+            <li >Profile</li>
+        </ul>
     }
 
     return (
@@ -37,12 +39,6 @@ const NavSideBar = props => {
                     <h4>{props.user}</h4>
                 </li>
             </ul>
-            {/* <div className="ui vertical buttons nav-buttons ml-5">
-                <button className="ui button">Students</button>
-                <button className="ui button">Messages</button>
-                <button className="ui button">Notes</button>
-                <button className="ui button">Profile</button>
-            </div> */}
             {sideNavBarButtons}
         </nav>
     );
