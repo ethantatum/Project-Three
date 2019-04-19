@@ -14,27 +14,37 @@ const NavSideBar = (props) => {
     if(props.isTeacher){
         sideNavBarButtons = 
         <ul className="ml-5">
-          <li >Classes</li>
-          <li >Students</li>
-          <li><Link to={`${props.match.url}/messages`}>Messages</Link></li>
-          <li >Notes</li>
-          <li >Profile</li>
+            <li>
+                <Link to={`${props.match.url}/classes`}>Classes</Link>
+            </li>
+            <li>
+                <Link to={`${props.match.url}/students`}>Students</Link>
+            </li>
+            <li>
+                <Link to={`${props.match.url}/messages`}>Messages</Link>
+            </li>
+            <li>
+                <Link to={`${props.match.url}/notes`}>Notes</Link>
+            </li>
+            <li>
+                <Link to={`${props.match.url}/profile`}>Profile</Link>
+            </li>
         </ul>
     }
     else if(!props.isTeacher){
         sideNavBarButtons = 
         <ul className="ml-5">
             <li>
-                My Students
+                <Link to={`${props.match.url}/students`}>My Students</Link>
             </li>
             <li>
-                Reports
+                <Link to={`${props.match.url}/reports`}>Reports</Link>
             </li>
             <li>
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
             </li>
             <li >
-                Profile
+                <Link to={`${props.match.url}/profle`}>Profile</Link>
             </li>
         </ul>
     }
