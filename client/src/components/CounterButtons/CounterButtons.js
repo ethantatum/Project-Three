@@ -107,11 +107,11 @@ function CounterButtons(props) {
             <h3>Negative Behaviors</h3>
             <div class="row">
                 <div class="col-md-8">
-                    {behaviors.filter(behavior => behavior.type === "negative").map(button => (
+                    {behaviors.filter(behavior => behavior.type === "negative").map((button, index) => (
                         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class={button.btnClass} onClick={props.handleDecrement}>-</button>
+                        <button type="button" class={button.btnClass} onClick={ () => props.handleDecrement(index)}>-</button>
                         <span class={button.colorClass}>{button.behavior}<br />{props.count}</span>
-                        <button type="button" class={button.btnClass} onClick={props.handleIncrement}>+</button>
+                        <button type="button" class={button.btnClass} onClick={ () => props.handleIncrement(index)}>+</button>
                         </div>
                     ))
                     }
