@@ -4,5 +4,5 @@ module.exports = {
     Parent: require("./Parent"),
     Student: require("./Student"),
     Teacher: require("./Teacher"),
-    Users: require("./Users")
+    User: require("./User")
 };
