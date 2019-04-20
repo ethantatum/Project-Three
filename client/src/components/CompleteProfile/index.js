@@ -13,7 +13,7 @@ const classOptions = [
 const childOptions = [
     { key: "Michael", text: "Michael", value: "Michael" },
     { key: "Emily", text: "Emily", value: "Emily" },
-    { key: "Jason", text: "Paisley", value: "paisley" }
+    { key: "Jason", text: "Jason", value: "Jason" }
 
 ]
 
@@ -33,9 +33,12 @@ class CompleteProfile extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDropdown = this.handleDropdown.bind(this);
+        this.validateTeacher = this.validateTeacher.bind(this);
+        this.validateParent = this.validateParent.bind(this);
+
     }
 
-   
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
@@ -43,7 +46,8 @@ class CompleteProfile extends Component {
         });
     };
 
-    handleDropdown = (e, { child }) => this.setState({ child });
+    // handleDropdown = (e, { child }) => this.setState({ child });
+    handleDropdown = (e) => this.setState({child: e.target.value});
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
@@ -65,12 +69,12 @@ class CompleteProfile extends Component {
 
         if(this.props.isTeacher) {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Classrooms' compact multiple selection options={classOptions} onChange={this.handleDropdown} /><br />
+                            <Dropdown placeholder='Classrooms' value={this.state.classroom} compact multiple selection options={classOptions} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateTeacher()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         } else {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Children' compact multiple selection options={childOptions} onChange={this.handleDropdown} /><br />
+                            <Dropdown placeholder='Children' value={this.state.child} compact multiple selection options={childOptions} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateParent()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         }
