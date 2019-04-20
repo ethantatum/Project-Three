@@ -21,18 +21,20 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior: "spitting",
-                frequency: 0,
-                btnClass: "btn btn-danger",
-                colorClass: "bg-danger",
+                behavior: "Spitting",
                 type: "negative"
             },
             {
-                behavior: "elopement",
-                frequency: 0,
-                btnClass: "btn btn-danger",
-                colorClass: "bg-danger",
+                behavior: "Elopement",
                 type: "negative"
+            },
+            {
+                behavior: "Property Destruction",
+                type: "negative"
+            },
+            {
+                behavior: "Responding to Demand",
+                type: "positive"
             }
         ]
     },
@@ -51,8 +53,38 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "yelling"
+                behavior: "Hitting",
+                type: "negative"
+            },
+            {        
+                behavior: "Scratching",
+                type: "negative"
+            },
+            {
+                behavior: "Biting",
+                type: "negative"
+            },
+            {
+                behavior: "Yelling",
+                type: "negative"
+            },
+            {
+                behavior: "Self Injury",
+                type: "negative"
+            },
+            {
+                behavior: "Making a Request",
+                type: "positive"
+            },
+            {
+                behavior: "Responding to Demand",
+                type: "positive"
+            },
+            {
+                behavior: "Answering a Question",
+                type: "positive"
             }
+
         ]
     },
     {
@@ -70,13 +102,16 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "biting"
+                behavior: "Yelling",
+                type: "negative"
             },
             {
-                behavior2: "spitting"
+                behavior: "Responding to Demand",
+                type: "positive"
             },
             {
-                behavior3: "hitting"
+                behavior: "Talking to Peer",
+                type: "positive"
             }
         ]
     },
@@ -92,7 +127,28 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "rocking"
+                behavior: "Hitting",
+                type: "negative"
+            },
+            {
+                behavior: "Kicking",
+                type: "negative"
+            },
+            {
+                behavior: "Elopement",
+                type: "negative"
+            },
+            {
+                behavior: "Yelling",
+                type: "negative"
+            },
+            {
+                behavior: "Making a Request",
+                type: "positive"
+            },
+            {
+                behavior: "Responding to Demand",
+                type: "positive"
             }
         ]
     },
@@ -111,7 +167,20 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "throwing"
+                behavior: "Making a Request",
+                type: "positive"
+            },
+            {
+                behavior: "Responding to Demand",
+                type: "positive"
+            },
+            {
+                behavior: "Answering a Question",
+                type: "positive"
+            },
+            {
+                behavior: "Talking to Peer",
+                type: "positive"
             }
         ]
     },
@@ -127,10 +196,20 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "rocking"
+                behavior: "Scratching",
+                type: "negative"
             },
             {
-                behavior2: "flapping"
+                behavior: "Biting",
+                type: "negative"
+            },
+            {
+                behavior: "Self Injury",
+                type: "negative"
+            },
+            {
+                behavior: "Responding to Demand",
+                type: "positive"
             }
         ]
     },
@@ -149,16 +228,20 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "biting"
+                behavior: "Spitting",
+                type: "negative"
             }, 
             {
-                behavior2: "hitting"
+                behavior: "Elopement",
+                type: "negative"
             },
             {
-                behavior3: "scratching"
+                behavior: "Yelling",
+                type: "negative"
             },
             {
-                behavior4: "throwing"
+                behavior: "Responding to Demand",
+                type: "positive"
             }
         ]
     },
@@ -177,10 +260,12 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "scratching"
+                behavior: "Elopement",
+                type: "negative"
             },
             {
-                behavior2: "biting"
+                behavior: "Responding to Demand",
+                type: "positive"
             }
         ]
     }

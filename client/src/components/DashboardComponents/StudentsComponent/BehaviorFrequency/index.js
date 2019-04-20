@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import CounterButtons from "../CounterButtons/CounterButtons.js";
+import AddBehavior from "../AddBehavior";
 
 class BehaviorFrequency extends React.Component {
 
@@ -23,6 +24,7 @@ class BehaviorFrequency extends React.Component {
                     <h1>Behavior Frequency Counters</h1>
 
                     <form className="form-inline">
+                        <i class="far fa-clock"></i>
                         <h3>Observation Length (minutes): </h3>
                         <select className="form-control">
                             <option key="1">1</option>
@@ -59,6 +61,8 @@ class BehaviorFrequency extends React.Component {
 
                         <button type="button" className="btn btn-outline-light" id="beginBtn">Begin Observation</button>
                     </form>
+
+                    <AddBehavior />
 
                     <CounterButtons
                         count={this.state.count}

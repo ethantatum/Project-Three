@@ -17,8 +17,6 @@ const studentSchema = new Schema({
     behaviors: [{
         behavior: { type: String, required: true },
         frequency: { type: Number, default: 0 },
-        btnClass: { type: String },
-        colorClass: {type: String },
         type: { type: String }
     }],
     commentArr: [{
