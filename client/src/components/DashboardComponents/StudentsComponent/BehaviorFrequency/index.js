@@ -23,6 +23,10 @@ class BehaviorFrequency extends React.Component {
                 <div className="container-fluid p-2">
                     <h1>Behavior Frequency Counters</h1>
 
+                    <AddBehavior />
+
+                    <hr></hr>
+
                     <form className="form-inline">
                         <i class="far fa-clock"></i>
                         <h3>Observation Length (minutes): </h3>
@@ -61,8 +65,6 @@ class BehaviorFrequency extends React.Component {
 
                         <button type="button" className="btn btn-outline-light" id="beginBtn">Begin Observation</button>
                     </form>
-
-                    <AddBehavior />
 
                     <CounterButtons
                         count={this.state.count}
