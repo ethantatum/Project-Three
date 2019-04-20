@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //component imports
 import Landing from "./pages/Landing/Landing";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./pages/Hub/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import './App.css';
 // import SignUp from "./pages/SignUp/SignUp";
 // import Hub from "./pages/Hub";
@@ -42,7 +42,6 @@ if (localStorage.jwtToken) {
   }
 }
 
-
 class App extends Component {
   render() {
     return (
@@ -50,13 +49,11 @@ class App extends Component {
     <Provider store={store}>
       <Router>
         <div>
-        
-            <Route exact path="/" component={Landing} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/" component={Landing} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
             </Switch>
             {/* <Route exact path="/SignUp" component={SignUp} /> */}
-            {/*<Route exact path="/Hub" component={Hub} /> */}
             {/* <Route exact path="/TeacherHub" component={TeacherHub} /> */}
             {/* <Route component={NoMatch} /> */}
           
