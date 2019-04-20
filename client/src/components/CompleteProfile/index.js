@@ -50,18 +50,28 @@ class CompleteProfile extends Component {
         event.preventDefault();
     };
 
+    // Helper function checks if there is any content in required input fields
+    validateTeacher() {
+        return this.state.classroom.length > 0;
+    }
+
+    // Helper function checks if there is any content in required input fields
+    validateParent() {
+        return this.state.child.length > 0;
+    }
+
     render() {
         let selector;
 
         if(this.props.isTeacher) {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Classrooms' compact multiple selection options={classOptions} /><br />
-                            <button className="ui inverted button mt-2" type="submit" onClick={this.handleSubmit} >Submit</button>
+                            <Dropdown placeholder='Classrooms' compact multiple selection options={classOptions} onChange={this.handleDropdown} /><br />
+                            <button className="ui inverted button mt-2" type="submit" disabled={!this.validateTeacher()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         } else {
             selector = <form className="mt-1">
                             <Dropdown placeholder='Children' compact multiple selection options={childOptions} onChange={this.handleDropdown} /><br />
-                            <button className="ui inverted button mt-2" type="submit" onClick={this.handleSubmit} >Submit</button>
+                            <button className="ui inverted button mt-2" type="submit" disabled={!this.validateParent()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         }
         return (
