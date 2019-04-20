@@ -6,7 +6,8 @@ const studentSchema = new Schema({
     age: { type: Number, required: true },
     image: { type: String, default: "/assets/images/no-image.png"},
     behaviors: [{
-        type: String
+        behavior: {type: String},
+        
     }],
     commentArr: [{
         type: Schema.Types.ObjectId,
