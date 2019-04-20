@@ -28,7 +28,7 @@ const { errors, isValid } = validateRegisterInput(req.body);
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
-            isTeacher: req.body.isTeacher
+            isTeacher: req.body.isTeacher,
         });
         // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
