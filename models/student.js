@@ -15,7 +15,11 @@ const studentSchema = new Schema({
         }
     }],
     behaviors: [{
-        type: String
+        behavior: { type: String, required: true },
+        frequency: { type: Number, default: 0 },
+        btnClass: { type: String },
+        colorClass: {type: String },
+        type: { type: String }
     }],
     commentArr: [{
         type: Schema.Types.ObjectId,

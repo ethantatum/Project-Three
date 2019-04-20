@@ -41,10 +41,6 @@ if (localStorage.jwtToken) {
     window.location.href = "./";
   }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> c7ca5406a39d1f9c639d0cfa03a6284ec62488da
 
 class App extends Component {
   render() {
