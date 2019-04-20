@@ -6,8 +6,11 @@ const studentSchema = new Schema({
     age: { type: Number, required: true },
     image: { type: String, default: "/assets/images/no-image.png"},
     behaviors: [{
-        behavior: {type: String},
-        
+        behavior: { type: String, required: true },
+        frequency: { type: Number, default: 0 },
+        btnClass: { type: String },
+        colorClass: {type: String },
+        type: { type: String }
     }],
     commentArr: [{
         type: Schema.Types.ObjectId,
