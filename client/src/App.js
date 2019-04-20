@@ -49,10 +49,9 @@ class App extends Component {
     <Provider store={store}>
       <Router>
         <div>
-        
-            <Route exact path="/" component={Landing} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/" component={Landing} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
             </Switch>
             {/* <Route exact path="/SignUp" component={SignUp} /> */}
             {/* <Route exact path="/TeacherHub" component={TeacherHub} /> */}
