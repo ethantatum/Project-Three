@@ -10,7 +10,7 @@ const classOptions = [
 ]
 
 
-
+let studentOptions;
 
 // const studentOptions = [
 //     { key: "Michael", text: "Michael", value: "Michael" },
@@ -46,18 +46,17 @@ class ProfileComponent extends Component {
     componentDidMount() {
         this.loadStudents();
     };
-    
-    let studentList = [];
 
     loadStudents = () => {
         API.getStudents()
-        .then(res => studentList.push(res.data))
+        .then(res => this.setState({ studentList: res.data }))
+        .then(console.log(this.state.studentList))
         .catch(err => console.log(err));
     };
 
-    const studentOptions = studentList.map(student => (
-        {key: {student.name}, text: {student.name}, value: {student.name} }
-    ))
+    studentOptions = this.state.studentList.map(student => (
+        {key: `${student.name}`, text: `${student.name}`, value: `${student.name}` }
+    ));
 
 
     // Helper function that updates state to be the user inputs
@@ -94,7 +93,7 @@ class ProfileComponent extends Component {
                         </form>
         } else {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Students' name="student" value={this.state.student} compact multiple selection options={this.studentOptions} onChange={this.handleDropdown} /><br />
+                            <Dropdown placeholder='Students' name="student" value={this.state.student} compact multiple selection options={studentOptions} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateParent()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         }
