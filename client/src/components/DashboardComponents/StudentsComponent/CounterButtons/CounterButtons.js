@@ -38,7 +38,7 @@ const behaviors = [
     },
     {
         id: 6,
-        behavior: "Elopement",
+        behavior: "Elopment",
         btnClass: "btn btn-danger",
         colorClass: "bg-danger",
         type: "negative"
@@ -110,7 +110,7 @@ function CounterButtons(props) {
                     {behaviors.filter(behavior => behavior.type === "negative").map(button => (
                         <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                         <button type="button" className={button.btnClass} onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className={button.colorClass}>{button.behavior}<br />{props.count}</span>
+                        <span className={button.colorClass}>{button.behavior}<br />{props.count}</span>
                         <button type="button" className={button.btnClass} onClick={props.handleIncrement}>+</button>
                         </div>
                     ))
@@ -124,7 +124,7 @@ function CounterButtons(props) {
                     {behaviors.filter(behavior => behavior.type === "positive").map(button => (
                         <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                         <button type="button" className={button.btnClass} onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className={button.colorClass}>{button.behavior}<br />{props.count}</span>
+                        <span className={button.colorClass}>{button.behavior}<br />{props.count}</span>
                         <button type="button" className={button.btnClass} onClick={props.handleIncrement}>+</button>
                         </div>
                     ))
