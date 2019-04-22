@@ -21,10 +21,18 @@ const studentSeed = [
         // ],
         behaviors: [
             {
-                behavior1: "spitting"
+                behavior: "spitting",
+                frequency: 0,
+                btnClass: "btn btn-danger",
+                colorClass: "bg-danger",
+                type: "negative"
             },
             {
-                behavior2: "elopement"
+                behavior: "elopement",
+                frequency: 0,
+                btnClass: "btn btn-danger",
+                colorClass: "bg-danger",
+                type: "negative"
             }
         ]
     },
