@@ -9,16 +9,18 @@ const classOptions = [
 ]
 
 class TeacherClassSelect extends Component {
-    state = {
-        constructor(props {
-            super(props);
-        })
-        name: {
-            firstName: "",
-            lastName: ""
-        },
-        image: "",
-        classroom: []
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            
+            name: {
+                firstName: "",
+                lastName: ""
+            },
+            image: "",
+            classroom: []
+        }
     }
 
     // Helper function checks if there is any content in required input fields
