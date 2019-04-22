@@ -5,7 +5,7 @@ import "./style.css";
 //redux imports
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions";
+import { loginUser } from "../../../actions/authActions";
 // import classnames from "classnames";
 
 class Login extends Component {
