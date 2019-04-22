@@ -59,7 +59,7 @@ export const setUserLoading = () => {
   };
 };
 
-// Log user out
+// Log user out deletes token for local storage and the sets current user to empty array
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
