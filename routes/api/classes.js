@@ -3,6 +3,7 @@ const classController = require("../../controllers/classesController");
 
 // Matches with "/api/class"
 router.route("/")
-  .get(classController.findAll);
+  .get(classController.findAll)
+  .post(classController.create);
 
   module.exports = router;

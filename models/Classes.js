@@ -10,6 +10,6 @@ const classSchema = new Schema({
     }] 
 }, {strict: false});
 
-const Classes = mongoose.model("classes", classSchema);
+const Classes = mongoose.model("Classes", classSchema);
 
 module.exports = Classes;
