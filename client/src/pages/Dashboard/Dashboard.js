@@ -11,6 +11,7 @@ import NavBackdrop from "../../components/DashboardComponents/SideNav/NavBackdro
 import MessagesComponent from "../../components/DashboardComponents/MessagesComponent";
 import ProfileComponent from "../../components/DashboardComponents/ProfileComponent";
 import StudentsComponent from "../../components/DashboardComponents/StudentsComponent";
+import ClassComponent from "../../components/DashboardComponents/ClassesComponent";
 // import MessageDisplay from "../../components/DashboardComponents/MessageDisplay";
 import "./style.css";
 
@@ -35,6 +36,21 @@ class Dashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  //Tutoring session
+//   componentDidMount = () => {
+//     if (window.screen.width > 720){
+//       console.log("windows is greater than 1024")
+//         this.setState({
+//           NavSidebarOpen: true
+//         })
+//     } else {
+//       console.log("windows is less than 1024")
+//         this.setState({
+//           NavSidebarOpen: false
+//         });
+//     }
+// }
 
   render() {
     const { user } = this.props.auth;
@@ -61,6 +77,7 @@ class Dashboard extends Component {
               <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
               <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
               <Route exact path={`${match.path}/students`} component={StudentsComponent} />
+              <Route exact path={`${match.path}/classes`} component={ClassComponent} />
               {/* <Route exact path="/dashboard/notes" component={Landing} />
               <Route exact path="/dashboard/reports" component={Landing} />
               <Route exact path="/dashboard/profile" component={Landing} /> */}

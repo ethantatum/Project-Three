@@ -47,3 +47,9 @@
 .side-bar a:active {
     color: teal;
 }
+
+@media (min-width: 100px) {
+    .barClasses {
+        background: orange;
+    }
+}
