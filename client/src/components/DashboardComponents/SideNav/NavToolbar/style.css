@@ -3,7 +3,6 @@
     top: 0;
     left: 0;
     position: fixed;
-    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
     background: #008400;
     height: 56px;
     z-index: 300;
@@ -11,10 +10,6 @@
 
 .toolbar-logo {
     margin-left: 1rem;
-}
-
-.toolbar-logo img {
-    width: 180px;
 }
 
 .spacer {

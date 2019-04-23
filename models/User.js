@@ -47,8 +47,18 @@ const UserSchema = new Schema({
     school: {
         type: String,
         required: false
-    }, 
-    classes: [{ type: Schema.Types.ObjectId, ref: 'Class' }]
+    },
+    notes: [{
+        title: {
+            type: String,
+            required: true
+        },
+        body: {
+            type: String,
+            required: true
+        }
+    }], 
+    classes: [{ type: Schema.Types.ObjectId, ref: 'Classes' }]
   }, {strict: false});
 
 const User = mongoose.model("users", UserSchema);

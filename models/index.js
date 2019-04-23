@@ -1,8 +1,7 @@
 module.exports = {
     Comment: require("./Comment"),
     Message: require("./Message"),
-    Parent: require("./Parent"),
-    Student: require("./Student"),
-    Teacher: require("./Teacher"),
-    User: require("./User")
+    Student: require("./student"),
+    User: require("./User"),
+    Classes: require("./Classes")
 };

@@ -2,8 +2,8 @@ h1 {
     color: white;
     /* font-family: 'Alegreya', serif; */
     font-size: 3rem;
-    margin-bottom: 3%;
     text-align: center;
+    margin-bottom: 3%;
 }
 
 h3 {
@@ -11,6 +11,12 @@ h3 {
     /* font-family: 'Alegreya', serif; */
     font-size: 2rem;
     margin: 2% 0%;
+}
+
+.far {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
 
 #btnSpan {
@@ -39,5 +45,4 @@ h3 {
 
 .container-fluid {
     margin-bottom: 10rem;
-    margin-left: 25%;
 }
