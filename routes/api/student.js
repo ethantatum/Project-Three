@@ -5,7 +5,7 @@ const studentController = require("../../controllers/studentController");
 router.route("/")
     .get(studentController.findAll);
 
-router.route("/:id")
+router.route("/students/:id")
     .get(studentController.findById)
     .put(studentController.update);
 

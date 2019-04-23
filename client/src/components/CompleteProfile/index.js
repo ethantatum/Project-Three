@@ -10,7 +10,7 @@ const classOptions = [
 
 ]
 
-const childOptions = [
+const studentOptions = [
     { key: "Michael", text: "Michael", value: "Michael" },
     { key: "Emily", text: "Emily", value: "Emily" },
     { key: "Jason", text: "Jason", value: "Jason" }
@@ -27,7 +27,7 @@ class CompleteProfile extends Component {
             },
             image: "",
             classroom: [],
-            child: [],
+            student: [],
             address: "",
             phone: ""
         }
@@ -46,8 +46,8 @@ class CompleteProfile extends Component {
         });
     };
 
-    // handleDropdown = (e, { child }) => this.setState({ child });
-    handleDropdown = (e) => this.setState({child: e.target.value});
+    // handleDropdown = (e, { student }) => this.setState({ student });
+    handleDropdown = (e, {value}) => this.setState({student: value});
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
@@ -61,7 +61,7 @@ class CompleteProfile extends Component {
 
     // Helper function checks if there is any content in required input fields
     validateParent() {
-        return this.state.child.length > 0;
+        return this.state.student.length > 0;
     }
 
     render() {
@@ -74,7 +74,7 @@ class CompleteProfile extends Component {
                         </form>
         } else {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Children' value={this.state.child} compact multiple selection options={childOptions} onChange={this.handleDropdown} /><br />
+                            <Dropdown placeholder='Students' value={this.state.student} compact multiple selection options={studentOptions} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateParent()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         }
