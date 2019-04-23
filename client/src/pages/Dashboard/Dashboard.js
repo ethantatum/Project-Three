@@ -46,8 +46,6 @@ class Dashboard extends Component {
       backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
     }
 
-    console.log(match.url);
-    console.log(match.path);
     return (
       <React.Fragment>
         <Router>
