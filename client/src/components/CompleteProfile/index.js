@@ -17,7 +17,6 @@ const studentOptions = [
 
 ]
 
-
 class CompleteProfile extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +47,7 @@ class CompleteProfile extends Component {
     };
 
     // handleDropdown = (e, { student }) => this.setState({ student });
-    handleDropdown = (e) => this.setState({student: e.target.value});
+    handleDropdown = (e, {value}) => this.setState({student: value});
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {

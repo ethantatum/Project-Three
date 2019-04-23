@@ -6,6 +6,11 @@ export default {
     console.log("GetStudents from API");
     return axios.get("/api/students");
   },
+  
+  // Gets all classes
+  getclasses: function() {
+    return axios.get("/api/class");
+  },
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/students/" + id);
