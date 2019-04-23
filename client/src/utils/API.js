@@ -1,14 +1,14 @@
 import axios from "axios";
 
 export default {
-  // Gets all stduent
-  getStudents: function() {
+  // Gets all student
+  getStudents: () => {
     console.log("GetStudents from API");
     return axios.get("/api/students");
   },
   // Gets the student with the given id
   getStudent: function(id) {
-    return axios.get("/api/student/" + id);
+    return axios.get("/api/students/" + id);
   }
   // // Deletes the book with the given id
   // deleteBook: function(id) {

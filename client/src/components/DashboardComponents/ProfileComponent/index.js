@@ -40,7 +40,6 @@ class ProfileComponent extends Component {
         this.handleDropdown = this.handleDropdown.bind(this);
         this.validateTeacher = this.validateTeacher.bind(this);
         this.validateParent = this.validateParent.bind(this);
-        this.loadStudents = this.loadStudents.bind(this);
 
     }
     
