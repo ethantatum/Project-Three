@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Welcome from "../Welcome";
-import Login from "../Login"; 
+import Login from "../../Login"; 
 import SignUpForm from "../SignUpForm"  ;
 
 class LandingGreeting extends Component {
