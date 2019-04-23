@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
   // Gets all stduent
   getStudents: function() {
+    console.log("GetStudents from API");
     return axios.get("/api/students");
   },
   // Gets the student with the given id

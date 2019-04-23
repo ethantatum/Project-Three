@@ -2,7 +2,7 @@ const router = require("express").Router();
 const studentController = require("../../controllers/studentController");
 
 // Matches with "/api/students"
-router.route("/students")
+router.route("/")
     .get(studentController.findAll);
 
 router.route("/students/:id")

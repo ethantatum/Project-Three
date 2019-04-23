@@ -10,14 +10,14 @@ const classOptions = [
 ]
 
 
-let studentOptions;
+// let studentOptions;
 
-// const studentOptions = [
-//     { key: "Michael", text: "Michael", value: "Michael" },
-//     { key: "Emily", text: "Emily", value: "Emily" },
-//     { key: "Jason", text: "Jason", value: "Jason" }
+const studentOptions = [
+    { key: "Michael", text: "Michael", value: "Michael" },
+    { key: "Emily", text: "Emily", value: "Emily" },
+    { key: "Jason", text: "Jason", value: "Jason" }
 
-// ]
+]
 
 
 class ProfileComponent extends Component {
@@ -40,6 +40,7 @@ class ProfileComponent extends Component {
         this.handleDropdown = this.handleDropdown.bind(this);
         this.validateTeacher = this.validateTeacher.bind(this);
         this.validateParent = this.validateParent.bind(this);
+        this.loadStudents = this.loadStudents.bind(this);
 
     }
     
@@ -49,14 +50,14 @@ class ProfileComponent extends Component {
 
     loadStudents = () => {
         API.getStudents()
-        .then(res => this.setState({ studentList: res.data }))
-        .then(console.log(this.state.studentList))
+        .then(res => {console.log(res);
+             this.setState({ studentList: res.data }, () => (console.log(res.data)))})
         .catch(err => console.log(err));
     };
 
-    studentOptions = this.state.studentList.map(student => (
-        {key: `${student.name}`, text: `${student.name}`, value: `${student.name}` }
-    ));
+    // studentOptions = this.state.studentList.map(student => (
+    //     {key: {student.name}, text: {student.name}, value: {student.name} }
+    // ));
 
 
     // Helper function that updates state to be the user inputs
