@@ -3,7 +3,6 @@ import axios from "axios";
 export default {
   // Gets all student
   getStudents: () => {
-    console.log("GetStudents from API");
     return axios.get("/api/students");
   },
   
@@ -14,6 +13,11 @@ export default {
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/students/" + id);
+  },
+
+  // Adds student with given id to user db
+  updateUser: function(studentData) {
+    return axios.post("/api/users/", studentData);
   }
   // // Deletes the book with the given id
   // deleteBook: function(id) {

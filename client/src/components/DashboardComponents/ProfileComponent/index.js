@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Dropdown } from "semantic-ui-react";
 import API from "../../../utils/API";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
 const classOptions = [
     { key: "burgundy", text: "Burgundy", value: "burgundy" },
@@ -9,66 +11,56 @@ const classOptions = [
 
 ]
 
-
-// let studentOptions;
-
-const studentOptions = [
-    { key: "Michael", text: "Michael", value: "Michael" },
-    { key: "Emily", text: "Emily", value: "Emily" },
-    { key: "Jason", text: "Jason", value: "Jason" }
-
-]
-
-
 class ProfileComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: {
-                firstName: "",
-                lastName: ""
-            },
-            image: "",
-            classroom: [],
-            student: [],
-            address: "",
-            phone: "",
-            studentList: []
-        }
-
-
-        
-    }
+    state = {
+        name: {
+            firstName: "",
+            lastName: ""
+        },
+        image: "",
+        classroom: [],
+        student: [],
+        address: "",
+        phone: "",
+        studentList: []
+    }       
     
     componentDidMount() {
         this.loadStudents();
-    };
+    }
     
     loadStudents = () => {
         API.getStudents()
         .then(res => {console.log(res);
             this.setState({ studentList: res.data }, () => (console.log(res.data)))})
             .catch(err => console.log(err));
-        };
+        }
         
-    // const studentOptions = this.state.studentList.map(student => (
-    //     {key: {student.name}, text: {student.name}, value: {student.name}
-    // ));
-        
+    studentOptions = () => {
+        return this.state.studentList.map(student => (
+                {key: student._id, text: student.name, value: student._id}
+            ))
+        }     
 
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
-    };
+    }
 
     handleDropdown = (e, { value }) => this.setState({ student: value });
 
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-    };
+            let userInfo = {
+                firstName: this.state.name.firstName,
+                
+            }
+        API.updateUser()
+        .then()
+    }
 
     // Helper function checks if there is any content in required input fields
     validateTeacher = () => this.state.classroom.length > 0;
@@ -79,14 +71,14 @@ class ProfileComponent extends Component {
     render() {
         let selector;
 
-        if(this.props.isTeacher) {
+        if(this.props.user.isTeacher) {
             selector = <form className="mt-1">
                             <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} compact multiple selection options={classOptions} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateTeacher()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         } else {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Students' name="student" value={this.state.student} compact multiple selection options={studentOptions} onChange={this.handleDropdown} /><br />
+                            <Dropdown placeholder='Students' name="student" value={this.state.student} compact multiple selection options={this.studentOptions()} onChange={this.handleDropdown} /><br />
                             <button className="ui inverted button mt-2" type="submit" disabled={!this.validateParent()} onClick={this.handleSubmit} >Submit</button>
                         </form>
         }
@@ -133,4 +125,12 @@ class ProfileComponent extends Component {
     }
 }
 
-export default ProfileComponent;
+//adds redux state to this component's props
+function mapStateToProps(state) {
+    return {
+        user: state.auth.user
+    }
+}
+
+//connects this component to redux
+export default connect(mapStateToProps)(ProfileComponent);

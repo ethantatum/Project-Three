@@ -27,7 +27,7 @@ const NavSideBar = (props) => {
                 <Link to={`${props.match.url}/notes`}>Notes</Link>
             </li>
             <li>
-                <Link to={`${props.match.url}/profile`} isTeacher={props.isTeacher}>Profile</Link>
+                <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
         </ul>
     }
@@ -44,7 +44,7 @@ const NavSideBar = (props) => {
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
             </li>
             <li >
-                <Link to={`${props.match.url}/profile`} isTeacher={props.isTeacher}>Profile</Link>
+                <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
         </ul>
     }
