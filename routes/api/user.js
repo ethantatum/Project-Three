@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
-// Matches with "/api/students"
+// Matches with "/api/user"
 router.route("/:id")
-    .get(userController.findAll);
+    .get(userController.userData);
 
 router.route("/classes/:id")
-    .get(userController.findById);
+    .get(userController.populateClasses);
 
 module.exports = router;
