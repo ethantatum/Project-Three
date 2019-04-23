@@ -47,7 +47,17 @@ const UserSchema = new Schema({
     school: {
         type: String,
         required: false
-    }, 
+    },
+    notes: [{
+        title: {
+            type: String,
+            required: true
+        },
+        body: {
+            type: String,
+            required: true
+        }
+    }], 
     classes: [{ type: Schema.Types.ObjectId, ref: 'Class' }]
   }, {strict: false});
 

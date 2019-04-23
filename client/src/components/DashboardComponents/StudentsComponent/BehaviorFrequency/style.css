@@ -2,8 +2,8 @@ h1 {
     color: white;
     /* font-family: 'Alegreya', serif; */
     font-size: 3rem;
-    margin-bottom: 3%;
     text-align: center;
+    margin-bottom: 3%;
 }
 
 h3 {
@@ -45,5 +45,4 @@ h3 {
 
 .container-fluid {
     margin-bottom: 10rem;
-    margin-left: 25%;
 }

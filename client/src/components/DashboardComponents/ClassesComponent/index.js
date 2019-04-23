@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { Component } from "react";
+import "./style.css";
 
-function ClassesComponent(props) {
-    return (
-    <div>
-    </div>
-    );
+
+class ClassesComponent extends Component {
+    constructor() {
+        super();
+        this.state = {
+            classes: [],
+            className: "",
+            ClassTime: "",
+            
+        };
+    }
+
+    render() {
+        return (
+           <div>
+
+           </div>
+        )
+    }
 }
-
 export default ClassesComponent;
