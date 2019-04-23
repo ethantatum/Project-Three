@@ -58,7 +58,7 @@ const UserSchema = new Schema({
             required: true
         }
     }], 
-    classes: [{ type: Schema.Types.ObjectId, ref: 'Class' }]
+    classes: [{ type: Schema.Types.ObjectId, ref: 'Classes' }]
   }, {strict: false});
 
 const User = mongoose.model("users", UserSchema);
