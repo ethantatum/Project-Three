@@ -9,15 +9,17 @@ import TeacherClassSelect from "../../components/TeacherClassSelect";
 import BehaviorFrequency from "../../components/BehaviorFrequency";
 import MessageInput from "../../components/MessageInput";
 import MessageDisplay from "../../components/MessageDisplay";
+import Sidebar from "react-sidebar";
 import "./style.css";
 
 
 
 class Dashboard extends Component {
-
-  state = {
-    NavSidebarOpen: false
-  };
+  constructor(props) {
+    this.state = {
+      NavSidebarOpen: false
+    };
+  }
 
   NavSidebarClickHandler = () => {
     this.setState((prevState) => {
@@ -34,6 +36,21 @@ class Dashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  //Tutoring session
+//   componentDidMount = () => {
+//     if (window.screen.width > 720){
+//       console.log("windows is greater than 1024")
+//         this.setState({
+//           NavSidebarOpen: true
+//         })
+//     } else {
+//       console.log("windows is less than 1024")
+//         this.setState({
+//           NavSidebarOpen: false
+//         });
+//     }
+// }
 
   render() {
     const { user } = this.props.auth;

@@ -24,8 +24,3 @@ html {
     margin-top: "1rem";
     z-index: 999;
   }
-
-  .row {
-    transition: margin-left .5s;
-    padding: 16px;
-  }

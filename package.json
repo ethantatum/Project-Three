@@ -16,6 +16,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-scripts": "^2.1.8",
+    "react-sidebar": "^3.0.2",
     "semantic-ui-react": "^0.86.0",
     "validator": "^10.11.0"
   },
