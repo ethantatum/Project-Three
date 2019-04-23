@@ -69,7 +69,6 @@ class CompleteProfile extends Component {
     // Helper function checks if there is any content in required input fields
     validateTeacher = () => this.state.classroom.length > 0;
     
-
     // Helper function checks if there is any content in required input fields
     validateParent = () => this.state.student.length > 0;
     

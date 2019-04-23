@@ -35,29 +35,26 @@ class ProfileComponent extends Component {
             phone: "",
             studentList: []
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDropdown = this.handleDropdown.bind(this);
-        this.validateTeacher = this.validateTeacher.bind(this);
-        this.validateParent = this.validateParent.bind(this);
 
+
+        
     }
     
     componentDidMount() {
         this.loadStudents();
     };
-
+    
     loadStudents = () => {
         API.getStudents()
         .then(res => {console.log(res);
-             this.setState({ studentList: res.data }, () => (console.log(res.data)))})
-        .catch(err => console.log(err));
-    };
-
-    // studentOptions = this.state.studentList.map(student => (
-    //     {key: {student.name}, text: {student.name}, value: {student.name} }
+            this.setState({ studentList: res.data }, () => (console.log(res.data)))})
+            .catch(err => console.log(err));
+        };
+        
+    // const studentOptions = this.state.studentList.map(student => (
+    //     {key: {student.name}, text: {student.name}, value: {student.name}
     // ));
-
+        
 
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
@@ -74,14 +71,10 @@ class ProfileComponent extends Component {
     };
 
     // Helper function checks if there is any content in required input fields
-    validateTeacher() {
-        return this.state.classroom.length > 0;
-    }
-
+    validateTeacher = () => this.state.classroom.length > 0;
+    
     // Helper function checks if there is any content in required input fields
-    validateParent() {
-        return this.state.student.length > 0;
-    }
+    validateParent = () => this.state.student.length > 0;
 
     render() {
         let selector;
