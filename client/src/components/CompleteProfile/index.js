@@ -10,6 +10,8 @@ const classOptions = [
 
 ]
 
+// let studentOptions;
+
 const studentOptions = [
     { key: "Michael", text: "Michael", value: "Michael" },
     { key: "Emily", text: "Emily", value: "Emily" },
@@ -29,15 +31,32 @@ class CompleteProfile extends Component {
             classroom: [],
             student: [],
             address: "",
-            phone: ""
+            phone: "",
+            studentList: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDropdown = this.handleDropdown.bind(this);
         this.validateTeacher = this.validateTeacher.bind(this);
         this.validateParent = this.validateParent.bind(this);
+        this.loadStudents = this.loadStudents.bind(this);
 
     }
+
+    componentDidMount() {
+        this.loadStudents();
+    };
+
+    loadStudents = () => {
+        API.getStudents()
+        .then(res => {console.log(res);
+             this.setState({ studentList: res.data }, () => (console.log(res.data)))})
+        .catch(err => console.log(err));
+    };
+
+    // studentOptions = this.state.studentList.map(student => (
+    //     {key: {student.name}, text: {student.name}, value: {student.name} }
+    // ));
 
     // Helper function that updates state to be the user inputs
     handleChange = (event) => {
