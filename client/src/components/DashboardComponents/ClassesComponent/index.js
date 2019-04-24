@@ -1,40 +1,50 @@
 import React, { Component } from "react";
 import API from "../../../utils/API";
+import ClassContainer from "./ClassInfoContainer";
 import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 class ClassesComponent extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props)
         this.state = {
             classes: [],
             className: "",
             ClassTime: "",
-            
-        };
+        };    
     }
 
+
     componentDidMount = () => {
-        console.log(this.props.user);
         this.loadClasses();
       }
     
     loadClasses = () => {
     API.getTeacherClasses(this.props.user.id)
         .then(res =>
-        console.log(res)
-        )
+        {
+            console.log(res);
+            this.setState({ classes: res.data.classes, className: "", ClassTime: "" });
+        })
         .catch(err => console.log(err));
     };
     
 
     render() {
+        console.log(this.state.classes);
         return (
-           <div>
-
-           </div>
+            <div>
+                {this.state.classes.map(classRoom => (
+                    <ClassContainer 
+                        key={classRoom._id}
+                        name={classRoom.name}
+                        time={classRoom.time}
+                        studentArr={classRoom.studentArr}
+                    />
+                ))}   
+            </div>
         )
     }
 }
