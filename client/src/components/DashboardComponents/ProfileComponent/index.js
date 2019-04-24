@@ -99,12 +99,12 @@ class ProfileComponent extends Component {
 
         if(this.props.user.isTeacher) {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} compact multiple selection options={classOptions} onChange={this.handleTeacherDropdown} /><br />
+                            <h6 className="text-white">Please select your classroom(s) below to continue</h6>
+                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} fluid multiple selection options={classOptions} onChange={this.handleTeacherDropdown} />
                         </form>
         } else {
             selector = <form className="mt-1">
-                            <Dropdown placeholder='Students' name="student" value={this.state.student} compact multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} /><br />
-                            <div className="ui inverted left icon input">
+                            <div className="ui fluid inverted left icon input">
                                 <input
                                     type="text"
                                     placeholder="Address"
@@ -115,7 +115,7 @@ class ProfileComponent extends Component {
                                 <i className="home icon"></i>
                             </div>
                             <div className="ui inverted divider"></div>
-                            <div className="ui inverted left icon input">
+                            <div className="ui fluid inverted left icon input">
                                 <input
                                     type="text"
                                     placeholder="Phone"
@@ -126,12 +126,14 @@ class ProfileComponent extends Component {
                                 <i className="mobile alternate icon"></i>
                             </div>
                             <div className="ui inverted divider"></div>
+                            <h6 className="text-white">Please select your child(ren) below to continue</h6>
+                            <Dropdown placeholder='Students' name="student" value={this.state.student} fluid multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} />
                         </form>
         }
         return (
-            <div className="container m-3" >
+            <div className="container m-3 pt-5 pl-5" >
                 <React.Fragment>
-                    <div className="ui inverted left icon input">
+                    <div className="ui fluid inverted left icon input">
                         <input
                             type="text"
                             placeholder="Name"
@@ -142,7 +144,7 @@ class ProfileComponent extends Component {
                         <i className="keyboard icon"></i>
                     </div>
                     <div className="ui inverted divider"></div>
-                    <div className="ui inverted left icon input">
+                    <div className="ui fluid inverted left icon input">
                         <input
                             type="text"
                             placeholder="Image link (optional)"
