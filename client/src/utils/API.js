@@ -15,9 +15,9 @@ export default {
     return axios.get("/api/students/" + id);
   },
 
-  // Adds student with given id to user db
-  updateUser: function(studentData) {
-    return axios.post("/api/users/", studentData);
+  // Adds profile completion data to user db
+  updateUser: function(id, userData) {
+    return axios.post(`/api/users/${id}`, userData);
   }
   // // Deletes the book with the given id
   // deleteBook: function(id) {
