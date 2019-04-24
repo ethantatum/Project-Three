@@ -49,23 +49,21 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <Router>
-        <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
-        <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
-        {backdrop}
-      
-        <div className="row bg-dark mt-5">
-          <div className="col-md-9">  
-              {/* <Route exact path="/dashboard/class" component={Landing} />
-              <Route exact path="/dashboard/students" component={Landing} /> */}
-              <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
-              <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
-              <Route exact path={`${match.path}/students`} component={StudentsComponent} />
-              <Route exact path={`${match.path}/classes`} component={ClassComponent} />
-              {/* <Route exact path="/dashboard/notes" component={Landing} />
-              <Route exact path="/dashboard/reports" component={Landing} />
-              <Route exact path="/dashboard/profile" component={Landing} /> */}
+          <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
+          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
+          {backdrop}
+  
+          <div className="componentContainer">
+                {/* <Route exact path="/dashboard/class" component={Landing} />
+                <Route exact path="/dashboard/students" component={Landing} /> */}
+                <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
+                <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
+                <Route exact path={`${match.path}/students`} component={StudentsComponent} />
+                <Route exact path={`${match.path}/classes`} component={ClassComponent} />
+                {/* <Route exact path="/dashboard/notes" component={Landing} />
+                <Route exact path="/dashboard/reports" component={Landing} />
+                <Route exact path="/dashboard/profile" component={Landing} /> */}
           </div>
-      </div>
       </Router>
       </React.Fragment>
     );

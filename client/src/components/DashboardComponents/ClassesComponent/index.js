@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../../utils/API";
 import ClassContainer from "./ClassInfoContainer";
+import CardComponent from "../CardComponent"
 import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
@@ -35,16 +36,19 @@ class ClassesComponent extends Component {
     render() {
         console.log(this.state.classes);
         return (
-            <div>
-                {this.state.classes.map(classRoom => (
-                    <ClassContainer 
-                        key={classRoom._id}
-                        name={classRoom.name}
-                        time={classRoom.time}
-                        studentArr={classRoom.studentArr}
-                    />
-                ))}   
-            </div>
+            <CardComponent headerText = "Classes">
+                <div className="mainClassCont">
+                    {this.state.classes.map(classRoom => (
+                        <ClassContainer 
+                            key={classRoom._id}
+                            name={classRoom.name}
+                            time={classRoom.time}
+                            studentArr={classRoom.studentArr}
+                        />
+                    ))}   
+                </div>
+            </CardComponent>
+
         )
     }
 }
