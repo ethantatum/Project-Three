@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../../utils/API";
 import ClassContainer from "./ClassInfoContainer";
 import CardComponent from "../CardComponent"
+import AddClass from "./AddClass";
 import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
@@ -46,8 +47,10 @@ class ClassesComponent extends Component {
                             studentArr={classRoom.studentArr}
                         />
                     ))}   
+                    <AddClass />
                 </div>
             </CardComponent>
+
 
         )
     }

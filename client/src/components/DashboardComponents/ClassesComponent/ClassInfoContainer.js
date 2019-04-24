@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 const ClassInfoContainer = (props) => {
-    console.log(props);
     return (
         <div className="classInfo">
             <h2>{props.name}</h2>
