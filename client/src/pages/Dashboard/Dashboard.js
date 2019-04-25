@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
@@ -54,6 +54,7 @@ class Dashboard extends Component {
           {backdrop}
   
           <div className="componentContainer">
+              <Switch>
                 {/* <Route exact path="/dashboard/class" component={Landing} />
                 <Route exact path="/dashboard/students" component={Landing} /> */}
                 <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
@@ -63,6 +64,7 @@ class Dashboard extends Component {
                 {/* <Route exact path="/dashboard/notes" component={Landing} />
                 <Route exact path="/dashboard/reports" component={Landing} />
                 <Route exact path="/dashboard/profile" component={Landing} /> */}
+              </Switch>
           </div>
       </Router>
       </React.Fragment>
