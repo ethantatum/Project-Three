@@ -73,7 +73,7 @@ class ProfileComponent extends Component {
                     phone: this.state.phone
                 }
             }
-        API.updateUser((this.props.user._id), userData)
+        API.updateUser((this.props.user.id), userData)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     }
@@ -86,7 +86,7 @@ class ProfileComponent extends Component {
         if(this.props.user.isTeacher) {
             selector = <form className="mt-1">
                             <h6 className="text-white">Please select your classroom(s) below to continue</h6>
-                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} fluid multiple selection options={this.classOptions()} onChange={this.handleTeacherDropdown} />
+                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classes} fluid multiple selection options={this.classOptions()} onChange={this.handleTeacherDropdown} />
                         </form>
         } else {
             selector = <form className="mt-1">
@@ -113,7 +113,7 @@ class ProfileComponent extends Component {
                             </div>
                             <div className="ui inverted divider"></div>
                             <h6 className="text-white">Please select your child(ren) below to continue</h6>
-                            <Dropdown placeholder='Students' name="student" value={this.state.student} fluid multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} />
+                            <Dropdown placeholder='Students' name="student" value={this.state.children} fluid multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} />
                         </form>
         }
         return (

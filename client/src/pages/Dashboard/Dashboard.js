@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import API from "../../utils/API";
 import NavToolbar from "../../components/DashboardComponents/SideNav/NavToolbar";
 import NavSidebar from "../../components/DashboardComponents/SideNav/NavSidebar";
 import NavBackdrop from "../../components/DashboardComponents/SideNav/NavBackdrop";
@@ -19,7 +20,8 @@ import "./style.css";
 
 class Dashboard extends Component {
   state = {
-    NavSidebarOpen: false
+    NavSidebarOpen: false,
+    userImage: ""
   };
 
   NavSidebarClickHandler = () => {
@@ -36,6 +38,16 @@ class Dashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  componentDidUpdate() {
+    this.getImage();
+  }
+
+  getImage = () => {
+    API.getUserData(this.props.auth.user.id)
+    .then(res => {this.setState({ userImage: res.data.image })})
+    .catch(err => console.log(err));
+  }
 
   //Tutoring session
 //   componentDidMount = () => {
@@ -61,11 +73,12 @@ class Dashboard extends Component {
       backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
     }
 
+  
     return (
       <React.Fragment>
         <Router>
           <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
-          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
+          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match} userImage={this.state.userImage}/>
           {backdrop}
   
           <div className="componentContainer">

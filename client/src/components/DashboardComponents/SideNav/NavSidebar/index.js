@@ -1,7 +1,10 @@
 import React from 'react';
 import './style.css';
-import faker from 'faker';
+// import faker from 'faker';
+
 import { Link } from 'react-router-dom'
+
+
 
 const NavSideBar = (props) => {
     let barClasses = 'side-bar';
@@ -10,6 +13,7 @@ const NavSideBar = (props) => {
         barClasses = 'side-bar open';
     }
 
+    
     let sideNavBarButtons;
     if(props.isTeacher){
         sideNavBarButtons = 
@@ -53,7 +57,7 @@ const NavSideBar = (props) => {
         <nav className={barClasses}>
             <ul>
                 <li>
-                    <img className="ml-1 mt-1 img-thumbnail" src={faker.image.avatar()} alt="avatar" /><br />
+                    <img className="ml-1 mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
                     <h4>{props.user}</h4>
                 </li>
             </ul>
