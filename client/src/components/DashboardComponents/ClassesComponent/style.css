@@ -7,7 +7,7 @@
     background: rgb(65, 65, 65);
     color: white;
     height: 180px;
-    width: 400px;
+    width: 350px;
     margin-bottom: 40px;
 }
 .classInfo > h2,h3,h4{
@@ -15,5 +15,5 @@
 }
 .mainClassCont {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
