@@ -45,7 +45,7 @@ const NavSideBar = (props) => {
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
             </li>
             <li >
-                <Link to={`${props.match.url}/profle`}>Profile</Link>
+                <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
         </ul>
     }

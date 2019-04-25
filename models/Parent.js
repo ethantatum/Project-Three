@@ -9,7 +9,7 @@ const parentSchema = new Schema({
       firstName: { type: String, required: true },
       lastName: { type: String, required: true }
     },
-    child: { type: String, required: true},
+    student: { type: String, required: true},
     address: { type: String },
     phone: {
         type: String,

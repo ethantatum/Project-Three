@@ -1,20 +1,53 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getstudents: function() {
-    return axios.get("/api/books");
+  //=============== API calls for classes ==================//
+  // Gets all classes
+  getClasses: function() {
+    return axios.get("/api/class");
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  createClass: function(classData) {
+    return axios.post("/api/class", classData);
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  //=============== API calls for teachers ==================//
+  // Gets classes within teacher
+  getTeacherClasses: function(teacherID) {
+    return axios.get("/api/user/classes/" + teacherID);
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  //=============== API call to get complete user information ==================//
+  getUserData: function(userID) {
+    return axios.get("/api/user/" + userID);
+  },
+  // Adds profile completion data to user db
+  updateUser: function(id, userData) {
+    return axios.post(`/api/users/${id}`, userData);
+  },
+  //=============== API calls for students ==================//
+
+  // Gets all student
+  getStudents: () => {
+    return axios.get("/api/students");
+  },
+  // Gets the student with the given id
+  getStudent: function(id) {
+    return axios.get("/api/students/" + id);
   }
+
 };
+  // // Deletes the book with the given id
+  // deleteBook: function(id) {
+  //   return axios.delete("/api/books/" + id);
+  // },
+  // // Saves a book to the database
+  // saveBook: function(bookData) {
+  //   return axios.post("/api/books", bookData);
+  // }
+
+  // // Gets the book with the given id
+  // getBook: function(id) {
+  //   return axios.get("/api/books/" + id);
+  // },
+  // // Deletes the book with the given id
+  // deleteBook: function(id) {
+  //   return axios.delete("/api/books/" + id);
+  // },

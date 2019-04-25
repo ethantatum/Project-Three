@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
@@ -11,6 +11,7 @@ import NavBackdrop from "../../components/DashboardComponents/SideNav/NavBackdro
 import MessagesComponent from "../../components/DashboardComponents/MessagesComponent";
 import ProfileComponent from "../../components/DashboardComponents/ProfileComponent";
 import StudentsComponent from "../../components/DashboardComponents/StudentsComponent";
+import ClassComponent from "../../components/DashboardComponents/ClassesComponent";
 // import MessageDisplay from "../../components/DashboardComponents/MessageDisplay";
 import "./style.css";
 
@@ -60,27 +61,26 @@ class Dashboard extends Component {
       backdrop = <NavBackdrop click={this.NavBackdropClickHandler} />
     }
 
-    console.log(match.url);
-    console.log(match.path);
     return (
       <React.Fragment>
         <Router>
-        <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
-        <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
-        {backdrop}
-      
-        <div className="row mt-5">
-          <div className="col-md-9">  
-              {/* <Route exact path="/dashboard/class" component={Landing} />
-              <Route exact path="/dashboard/students" component={Landing} /> */}
-              <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
-              <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
-              <Route exact path={`${match.path}/students`} component={StudentsComponent} />
-              {/* <Route exact path="/dashboard/notes" component={Landing} />
-              <Route exact path="/dashboard/reports" component={Landing} />
-              <Route exact path="/dashboard/profile" component={Landing} /> */}
+          <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
+          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
+          {backdrop}
+  
+          <div className="componentContainer">
+              <Switch>
+                {/* <Route exact path="/dashboard/class" component={Landing} />
+                <Route exact path="/dashboard/students" component={Landing} /> */}
+                <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
+                <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
+                <Route exact path={`${match.path}/students`} component={StudentsComponent} />
+                <Route exact path={`${match.path}/classes`} component={ClassComponent} />
+                {/* <Route exact path="/dashboard/notes" component={Landing} />
+                <Route exact path="/dashboard/reports" component={Landing} />
+                <Route exact path="/dashboard/profile" component={Landing} /> */}
+              </Switch>
           </div>
-      </div>
       </Router>
       </React.Fragment>
     );

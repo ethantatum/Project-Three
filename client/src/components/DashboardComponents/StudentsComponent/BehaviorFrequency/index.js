@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import CounterButtons from "../CounterButtons/CounterButtons.js";
+import AddBehavior from "../AddBehavior";
 
 class BehaviorFrequency extends React.Component {
 
@@ -22,7 +23,12 @@ class BehaviorFrequency extends React.Component {
                 <div className="container-fluid p-2">
                     <h1>Behavior Frequency Counters</h1>
 
+                    <AddBehavior />
+
+                    <hr></hr>
+
                     <form className="form-inline">
+                        <i class="far fa-clock"></i>
                         <h3>Observation Length (minutes): </h3>
                         <select className="form-control">
                             <option key="1">1</option>
