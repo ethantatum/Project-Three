@@ -27,12 +27,12 @@ class ProfileComponent extends Component {
         this.props.user.isTeacher ? this.loadClasses() : this.loadStudents();
     }
     
-    // loadClasses = () => {
-    //     API.getclasses()
-    //     .then(res => {console.log(res);
-    //         this.setState({ classList: res.data }, () => (console.log(res.data)))})
-    //         .catch(err => console.log(err));
-    //     }
+    loadClasses = () => {
+        API.getClasses()
+        .then(res => {console.log(res);
+            this.setState({ classList: res.data }, () => (console.log(res.data)))})
+            .catch(err => console.log(err));
+        }
 
     loadStudents = () => {
         API.getStudents()
@@ -41,11 +41,11 @@ class ProfileComponent extends Component {
             .catch(err => console.log(err));
         }
 
-    // classOptions = () => {
-    //     return this.state.classList.map(classroom => (
-    //         {key: classroom._id, text: classroom.name, value: classroom._id}
-    //     ))
-    // }
+    classOptions = () => {
+        return this.state.classList.map(classroom => (
+            {key: classroom._id, text: classroom.name, value: classroom._id}
+        ))
+    }
         
     studentOptions = () => {
         return this.state.studentList.map(student => (
@@ -100,7 +100,7 @@ class ProfileComponent extends Component {
         if(this.props.user.isTeacher) {
             selector = <form className="mt-1">
                             <h6 className="text-white">Please select your classroom(s) below to continue</h6>
-                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} fluid multiple selection options={classOptions} onChange={this.handleTeacherDropdown} />
+                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} fluid multiple selection options={this.classOptions()} onChange={this.handleTeacherDropdown} />
                         </form>
         } else {
             selector = <form className="mt-1">
