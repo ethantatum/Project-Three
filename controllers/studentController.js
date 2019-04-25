@@ -20,5 +20,12 @@ module.exports = {
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  addBehavior: function(req, res) {
+    console.log(req.body);
+    db.Student
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { behaviors: req.body }}, {new: true })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };

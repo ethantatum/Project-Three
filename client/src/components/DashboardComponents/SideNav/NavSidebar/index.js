@@ -1,9 +1,6 @@
 import React from 'react';
 import './style.css';
-// import faker from 'faker';
-
 import { Link } from 'react-router-dom'
-
 
 
 const NavSideBar = (props) => {

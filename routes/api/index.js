@@ -8,7 +8,6 @@ const userRoutes = require("./user");
 router.use("/auth", authRoutes);
 router.use("/student", studentRoutes);
 router.use("/user", userRoutes);
-router.use("/students", studentRoutes);
 router.use("/class", classRoutes);
 
 module.exports = router;

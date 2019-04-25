@@ -26,11 +26,11 @@ export default {
 
   // Gets all student
   getStudents: () => {
-    return axios.get("/api/students");
+    return axios.get("/api/student");
   },
   // Gets the student with the given id
   getStudent: function(id) {
-    return axios.get("/api/students/" + id);
+    return axios.get("/api/student/" + id);
   }
 
 };
