@@ -83,12 +83,6 @@ class ProfileComponent extends Component {
         // .then()
     }
 
-    // Helper function checks if there is any content in required input fields
-    // validateTeacher = () => this.state.classes.length > 0;
-    
-    // Helper function checks if there is any content in required input fields
-    // validateParent = () => this.state.children.length > 0;
-
     validateButton = () => this.state.classes.length > 0 || this.state.children.length > 0;
 
     render() {
