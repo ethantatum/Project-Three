@@ -2,20 +2,25 @@
     height: 100%;
     background: white;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
-    background-color: #008400;
+    background-color: rgb(14, 163, 250);
     position: fixed;
     top: 0;
     left: 0;
-    width: 15%;
+    width: 12%;
     max-width: 400px;
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
 }
 
+.teacher-btns {
+    padding-left: 0;
+    content: center;
+}
+
 .side-bar.open {
     transform: translateX(0);
-    background-color: #008400;
+    background-color: rgb(14, 163, 250);
 }
 
 .side-bar ul {
@@ -23,33 +28,46 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: -75px;
+    margin-top: 25px;
+    margin-left: 25px;
 }
 
 .nav-buttons {
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: left;
 }
-
 
 .side-bar li {
     margin: 0.5rem 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.side-bar h4 {
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.side-bar img {
+    border-radius: 50%;
+    /* padding-right: 25px; */
 }
 
 .side-bar a {
-    color: orange;
+    color: white;
     text-decoration: none;
     font-size: 1.2rem;
+    text-align: center;
+    padding-left: 0px;
 }
 
 .side-bar a:hover,
 .side-bar a:active {
     color: teal;
-}
-
-@media (min-width: 100px) {
-    .barClasses {
-        background: orange;
-    }
 }

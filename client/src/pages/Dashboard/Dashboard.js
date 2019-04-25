@@ -69,7 +69,7 @@ class Dashboard extends Component {
         <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match}/>
         {backdrop}
       
-        <div className="row bg-dark mt-5">
+        <div className="row mt-5">
           <div className="col-md-9">  
               {/* <Route exact path="/dashboard/class" component={Landing} />
               <Route exact path="/dashboard/students" component={Landing} /> */}

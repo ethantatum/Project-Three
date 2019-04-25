@@ -1,4 +1,5 @@
 import React from "react";
+import './CounterButtons.css'
 
 const behaviors = [
     {

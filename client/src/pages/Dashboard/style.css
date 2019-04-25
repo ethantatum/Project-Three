@@ -11,7 +11,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100%;
+    background-color: rgb(216, 213, 213);
   }
+
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

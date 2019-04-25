@@ -1,5 +1,5 @@
 h1 {
-    color: white;
+    color: black;
     /* font-family: 'Alegreya', serif; */
     font-size: 3rem;
     margin-bottom: 3%;
@@ -7,10 +7,16 @@ h1 {
 }
 
 h3 {
-    color: white;
+    color: black;
     /* font-family: 'Alegreya', serif; */
     font-size: 2rem;
     margin: 2% 0%;
+    text-align: center;
+}
+
+form.form-inline {
+    text-align: center;
+    padding-left: 325px;
 }
 
 #btnSpan {
