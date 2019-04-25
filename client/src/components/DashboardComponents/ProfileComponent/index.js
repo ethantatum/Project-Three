@@ -13,7 +13,6 @@ const classOptions = [
 
 class ProfileComponent extends Component {
     state = {
-        name: "",
         image: "",
         classes: [],
         children: [],
@@ -69,13 +68,11 @@ class ProfileComponent extends Component {
         //     let userData;
         //     if(this.props.user.isTeacher) {
         //         userData = {
-        //             name: this.state.name,
         //             image: this.state.image,
         //             classes: this.state.classes
         //         }
         //     } else {
         //         userData = {
-        //             name: this.state.name,
         //             image: this.state.image,
         //             children: this.state.children,
         //             address: this.state.address,
@@ -133,17 +130,6 @@ class ProfileComponent extends Component {
         return (
             <div className="container m-3 pt-5 pl-5" >
                 <React.Fragment>
-                    <div className="ui fluid inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                            name="name"
-                        ></input>
-                        <i className="keyboard icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
                     <div className="ui fluid inverted left icon input">
                         <input
                             type="text"

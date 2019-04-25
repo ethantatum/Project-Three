@@ -17,7 +17,7 @@ export default {
 
   // Adds profile completion data to user db
   updateUser: function(id, userData) {
-    return axios.post(`/api/users/${id}`, userData);
+    return axios.post(`/api/users/:${id}`, userData);
   }
   // // Deletes the book with the given id
   // deleteBook: function(id) {
