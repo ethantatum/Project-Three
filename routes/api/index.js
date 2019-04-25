@@ -7,8 +7,9 @@ const userRoutes = require("./user");
 // User, Student routes
 router.use("/auth", authRoutes);
 router.use("/student", studentRoutes);
-router.use("/class", classRoutes);
 router.use("/user", userRoutes);
+router.use("/students", studentRoutes);
+router.use("/class", classRoutes);
 
 module.exports = router;
 

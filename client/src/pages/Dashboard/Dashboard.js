@@ -37,6 +37,21 @@ class Dashboard extends Component {
     this.props.logoutUser();
   };
 
+  //Tutoring session
+//   componentDidMount = () => {
+//     if (window.screen.width > 720){
+//       console.log("windows is greater than 1024")
+//         this.setState({
+//           NavSidebarOpen: true
+//         })
+//     } else {
+//       console.log("windows is less than 1024")
+//         this.setState({
+//           NavSidebarOpen: false
+//         });
+//     }
+// }
+
   render() {
     const { user } = this.props.auth;
     const { match } = this.props;
