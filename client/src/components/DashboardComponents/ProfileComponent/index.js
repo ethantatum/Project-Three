@@ -4,12 +4,6 @@ import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
-const classOptions = [
-    { key: "burgundy", text: "Burgundy", value: "burgundy" },
-    { key: "emerald", text: "Emerald", value: "emerald" },
-    { key: "paisley", text: "Paisley", value: "paisley" }
-
-]
 
 class ProfileComponent extends Component {
     state = {
@@ -65,22 +59,23 @@ class ProfileComponent extends Component {
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-        //     let userData;
-        //     if(this.props.user.isTeacher) {
-        //         userData = {
-        //             image: this.state.image,
-        //             classes: this.state.classes
-        //         }
-        //     } else {
-        //         userData = {
-        //             image: this.state.image,
-        //             children: this.state.children,
-        //             address: this.state.address,
-        //             phone: this.state.phone
-        //         }
-        //     }
-        // API.updateUser((this.props.user._id), userData)
-        // .then()
+            let userData;
+            if(this.props.user.isTeacher) {
+                userData = {
+                    image: this.state.image,
+                    classes: this.state.classes
+                }
+            } else {
+                userData = {
+                    image: this.state.image,
+                    children: this.state.children,
+                    address: this.state.address,
+                    phone: this.state.phone
+                }
+            }
+        API.updateUser((this.props.user._id), userData)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
     }
 
     validateButton = () => this.state.classes.length > 0 || this.state.children.length > 0;

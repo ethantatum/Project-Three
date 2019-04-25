@@ -20,7 +20,7 @@ export default {
   },
   // Adds profile completion data to user db
   updateUser: function(id, userData) {
-    return axios.post(`/api/users/${id}`, userData);
+    return axios.post(`/api/user/${id}`, userData);
   },
   //=============== API calls for students ==================//
 
