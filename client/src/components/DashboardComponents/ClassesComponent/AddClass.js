@@ -3,7 +3,7 @@ import "./style.css";
 
 const AddClass = (props) => {
     return (
-        <div className="classInfo">
+        <div className="classInfo" role="button" onClick={props.handleAddClick}>
             {props.children}
         </div>
     )

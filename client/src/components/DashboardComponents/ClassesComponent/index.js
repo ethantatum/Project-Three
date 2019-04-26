@@ -3,39 +3,69 @@ import API from "../../../utils/API";
 import ClassContainer from "./ClassInfoContainer";
 import CardComponent from "../CardComponent"
 import AddClass from "./AddClass";
+import { Input, FormBtn } from "./ClassForm";
 import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 class ClassesComponent extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super();
         this.state = {
             classes: [],
             className: "",
-            ClassTime: "",
+            classTime: "",
+            addClass: false
         };    
     }
 
-
     componentDidMount = () => {
         this.loadClasses();
-      }
+    };
     
     loadClasses = () => {
     API.getTeacherClasses(this.props.user.id)
         .then(res =>
         {
             console.log(res);
-            this.setState({ classes: res.data.classes, className: "", ClassTime: "" });
+            this.setState({ classes: res.data.classes, className: "", classTime: "" });
         })
         .catch(err => console.log(err));
     };
     
+    // handleAddClick = () => {
+    //     return (this.state.addClass ? this.setState({addClass: false}) : this.setState({addClass: true}));
+    // };
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log("clicked btn");
+        
+        if (this.state.className && this.state.classTime) {
+            console.log("Its true");
+        API.createClass(this.props.user.id, {
+            name: this.state.className,
+            time: this.state.classTime
+        })
+        .then((res) => {
+            console.log(res);
+            this.loadClasses();
+            this.setState({addClass: false});
+        })
+        .catch(err => console.log(err));
+        
+        }
+    };
 
     render() {
-        console.log(this.state.classes);
+        
         return (
             <CardComponent headerText = "Classes">
                 <div className="mainClassCont">
@@ -46,8 +76,37 @@ class ClassesComponent extends Component {
                             time={classRoom.time}
                             studentArr={classRoom.studentArr}
                         />
-                    ))}   
-                    <AddClass />
+                    ))}
+                    <AddClass handleAddClick = {() => this.setState({addClass: true})}>
+                    {this.state.addClass ? (
+                        <div className="addClassCont">
+                            <form>
+                                <Input
+                                    id="className"
+                                    value={this.state.className}
+                                    onChange={this.handleChange}
+                                    name="name"
+                                    placeholder="Class Name (required)"
+                                />
+                                <Input
+                                    id="classTime"
+                                    value={this.state.classTime}
+                                    onChange={this.handleChange}
+                                    name="time"
+                                    placeholder="Class Time (required)"
+                                />
+                                <FormBtn
+                                    disabled={!(this.state.className && this.state.classTime)}
+                                    onClick={this.handleSubmit}
+                                >
+                                    Add Class
+                                </FormBtn>
+                            </form>
+                        </div>
+                        ) : (
+                        <img src={require('./images/add.svg')} alt="Add Class" /> 
+                    )}
+                    </AddClass>
                 </div>
             </CardComponent>
 
