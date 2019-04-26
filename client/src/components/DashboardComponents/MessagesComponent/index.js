@@ -4,18 +4,16 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import MessageInput from "./MessageInput";
 import MessageDisplay from "./MessageDisplay";
-import API from '../../../utils/API';
-
 
 
 class MessageComponent extends Component {
-    state ={
+    state = {
         messageTitle: "",
         messageBody: "",
         positiveMessage: false,
         negativeMessage: false,
+        // DON'T THINK WE'LL NEED 'messageTo' IN STATE, AS IT SHOULD ALWAYS BE THE STUDENT ID OF THE CARD WE'RE IN
         messageTo: "",
-        messageFrom: this.props.user.id,
         messageArray: []
     }
 
@@ -32,10 +30,43 @@ class MessageComponent extends Component {
     // Helper function checks if there is any content in title/body input fields
     validateForm = () => this.state.messageTitle.length > 0 && this.state.messageBody.length > 0;
 
+    // Adds boolean to positive/negative message in state, changes emoji
+    handlePositive = () => this.state.positiveMessage ? this.setState({positiveMessage: false}) : this.setState({positiveMessage: true, negativeMessage: false});
+    
+    handleNegative = () => this.state.negativeMessage ? this.setState({negativeMessage: false}) : this.setState({negativeMessage: true, positiveMessage: false});
+
+    // Helper function that updates state to be the user inputs
+    handleChange = (event) => this.setState({ [event.target.name]: event.target.value });
+
+    // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
+    handleSubmit = (event) => {
+        event.preventDefault();
+        // let newMessage = {
+        //     messageTitle: this.state.messageTitle,
+        //     messageBody: this.state.messageBody,
+        //     positiveMessage: this.state.positiveMessage,
+        //     negativeMessage: this.state.negativeMessage,
+        //     messageFrom: this.props.user.id
+        // };
+        // API.sendMessage((this.state.messageTo), newMessage)
+        //     .then(res => console.log(res))
+        //     .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <div>
-                <MessageInput />
+                <MessageInput>
+                    messageTitle={this.state.messageTitle}
+                    messageBody={this.state.messageBody}
+                    positiveMessage={this.state.positiveMessage}
+                    negativeMessage={this.state.negativeMessage}
+                    validateForm={this.validateForm}
+                    handlePositive={this.handlePositive}
+                    handleNegative={this.handleNegative}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                </MessageInput>
                 <MessageDisplay />
             </div>
         );
