@@ -8,22 +8,22 @@ class AddBehavior extends React.Component {
         return (
             <React.Fragment>
                 <p>
-                    <button class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="fas fa-plus"></i><h3>Add New Behavior </h3>
+                    <button className="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <i className="fas fa-plus"></i><h3>Add New Behavior </h3>
                     </button>
-                </p>
-                <div class="collapse" id="collapseExample">
+                </p> 
+                <div className="collapse" id="collapseExample">
                     <form className="form-inline">
 
-                        <div class="form-row align-items-center">
-                            <div class="col-sm-3 my-1">
-                                <label class="sr-only" for="inlineFormInputName">Behavior</label>
-                                <input type="text" class="form-control" id="inlineFormInputName" placeholder="Add New Behavior"></input>
+                        <div className="form-row align-items-center">
+                            <div className="col-sm-3 my-1">
+                                <label className="sr-only" >Behavior</label>
+                                <input type="text" className="form-control" id="inlineFormInputName" placeholder="Add New Behavior"></input>
                             </div>
                         </div>
-                        <div class="col-auto my-1">
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                <option selected>Behavior Type</option>
+                        <div className="col-auto my-1">
+                            <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                <option defaultValue>Behavior Type</option>
                                 <option value="positive">Positive</option>
                                 <option value="negative">Negative</option>
                             </select>
