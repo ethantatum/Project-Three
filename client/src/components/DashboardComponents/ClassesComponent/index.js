@@ -3,7 +3,7 @@ import API from "../../../utils/API";
 import ClassContainer from "./ClassInfoContainer";
 import CardComponent from "../CardComponent"
 import AddClass from "./AddClass";
-import { Input, FormBtn } from "./ClassForm";
+import { Input, FormBtn, CancelBtn } from "./ClassForm";
 import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
@@ -34,9 +34,9 @@ class ClassesComponent extends Component {
         .catch(err => console.log(err));
     };
     
-    // handleAddClick = () => {
-    //     return (this.state.addClass ? this.setState({addClass: false}) : this.setState({addClass: true}));
-    // };
+    handleCancel = () => {
+        this.setState({addClass: false});
+    };
 
     handleChange = (event) => {
         this.setState({
@@ -59,8 +59,7 @@ class ClassesComponent extends Component {
             this.loadClasses();
             this.setState({addClass: false});
         })
-        .catch(err => console.log(err));
-        
+        .catch(err => console.log(err));  
         }
     };
 
@@ -77,7 +76,7 @@ class ClassesComponent extends Component {
                             studentArr={classRoom.studentArr}
                         />
                     ))}
-                    <AddClass handleAddClick = {() => this.setState({addClass: true})}>
+                    <AddClass handleAddClick = {() => {if(this.state.addClass === false){this.setState({addClass: true})}}}>
                     {this.state.addClass ? (
                         <div className="addClassCont">
                             <form>
@@ -95,13 +94,19 @@ class ClassesComponent extends Component {
                                     name="time"
                                     placeholder="Class Time (required)"
                                 />
+
                                 <FormBtn
                                     disabled={!(this.state.className && this.state.classTime)}
                                     onClick={this.handleSubmit}
+                                    type="submit"
                                 >
                                     Add Class
                                 </FormBtn>
+
                             </form>
+                            <CancelBtn handleCancelClick = {() => this.setState({addClass: false})}>
+                                    Cancel
+                            </CancelBtn>
                         </div>
                         ) : (
                         <img src={require('./images/add.svg')} alt="Add Class" /> 

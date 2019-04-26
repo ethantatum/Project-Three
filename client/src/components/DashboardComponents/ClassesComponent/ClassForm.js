@@ -17,3 +17,11 @@ export function FormBtn(props) {
     </button>
   );
 }
+
+export const CancelBtn = (props) => {
+  return (
+    <button  type="button" style={{ float: "right", marginBottom: 10, marginRight: 5 }} onClick={props.handleCancelClick} className="btn btn-danger">
+      {props.children}
+    </button>
+  );
+}
