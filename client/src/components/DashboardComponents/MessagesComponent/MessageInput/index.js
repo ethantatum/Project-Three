@@ -92,7 +92,7 @@ const MessageInput = (props) => {
                             <img src={imageNeg} alt="sad emoji" title="Challenge..." />
                         </label>
                     <div className="ui inverted divider"></div>
-                    <button className="ui inverted green button" type="submit" disabled={!props.validateForm()}>Send</button>
+                    {/* <button className="ui inverted green button" type="submit" disabled={!props.validateForm()}>Send</button> */}
                 </form>
             </div>
         )
