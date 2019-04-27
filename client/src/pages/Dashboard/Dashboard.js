@@ -7,7 +7,7 @@ import API from "../../utils/API";
 import NavToolbar from "../../components/DashboardComponents/SideNav/NavToolbar";
 import NavSidebar from "../../components/DashboardComponents/SideNav/NavSidebar";
 import NavBackdrop from "../../components/DashboardComponents/SideNav/NavBackdrop";
-import MessagesComponent from "../../components/DashboardComponents/MessagesComponent";
+import CommentComponent from "../../components/DashboardComponents/CommentComponent";
 import ProfileComponent from "../../components/DashboardComponents/ProfileComponent";
 import StudentsComponent from "../../components/DashboardComponents/StudentsComponent";
 import ClassComponent from "../../components/DashboardComponents/ClassesComponent";
@@ -63,7 +63,7 @@ class Dashboard extends Component {
   
           <div className="componentContainer">
               <Switch>
-                <Route exact path={`${match.path}/messages`} component={MessagesComponent} />
+                <Route exact path={`${match.path}/messages`} component={CommentComponent} />
                 <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
                 <Route exact path={`${match.path}/students`} component={StudentsComponent} />
                 <Route exact path={`${match.path}/classes`} component={ClassComponent} />

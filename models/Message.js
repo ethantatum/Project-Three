@@ -7,6 +7,8 @@ const messageSchema = new Schema ({
     messageBody: { type: String, required: true },
     messageTo: { type: String, required: true },
     messageFrom: { type: String, required: true },
+    positiveMessage: {type: Boolean, default: false},
+    negativeMessage: {type: Boolean, default: false},
     time: Date
 });
 
