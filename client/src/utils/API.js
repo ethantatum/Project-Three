@@ -13,6 +13,10 @@ export default {
   getStudentsInClass: (classID) => {
     return axios.get("/api/class/students/" + classID);
   },
+  // Gets all student in a all classes
+  getStudentsInAllClasses: (userID) => {
+    return axios.get("/api/user/allstudents/" + userID);
+  },
   //=============== API calls for teachers ==================//
   // Gets classes within teacher
   getTeacherClasses: function(teacherID) {
