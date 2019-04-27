@@ -15,6 +15,7 @@ router.route("/behavior/:id")
     .get(studentController.getBehavior);
     
 router.route("/comments/:id")
-    .get(studentController.findById);
+    .get(studentController.findById)
+    .put(studentController.addComment);
 
 module.exports = router;
