@@ -11,7 +11,8 @@ router.route("/:id")
     .put(studentController.update);
 
 router.route("/behavior/:id")
-    .put(studentController.addBehavior);
+    .put(studentController.addBehavior)
+    .get(studentController.getBehavior);
     
 router.route("/comments/:id")
     .get(studentController.findById);

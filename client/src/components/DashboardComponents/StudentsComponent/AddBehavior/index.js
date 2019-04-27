@@ -28,7 +28,7 @@ class AddBehavior extends React.Component {
                                 <option value="negative">Negative</option>
                             </select>
                         </div>
-                        <button type="button" className="btn btn-outline-light" id="AddBehavBtn">Create Behavior</button>
+                        <button type="button" className="btn btn-dark" id="AddBehavBtn">Create Behavior</button>
                     </form>
                 </div>
             </React.Fragment>
