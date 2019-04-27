@@ -6,8 +6,8 @@ export default {
   getClasses: function() {
     return axios.get("/api/class");
   },
-  createClass: function(classData) {
-    return axios.post("/api/class", classData);
+  createClass: function(userID, classData) {
+    return axios.post("/api/class/" + userID, classData);
   },
   //=============== API calls for teachers ==================//
   // Gets classes within teacher
