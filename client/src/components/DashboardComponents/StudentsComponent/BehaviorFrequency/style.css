@@ -41,10 +41,6 @@ form.form-inline {
     display: flex;
 }
 
-.form-control {
-    margin: 0px 0px 13px 13px;
-}
-
 #beginBtn {
     margin: 0px 0px 13px 50px;
 }

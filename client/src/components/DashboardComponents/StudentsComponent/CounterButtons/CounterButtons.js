@@ -81,13 +81,12 @@ function CounterButtons(props) {
             <div className="row">
                 <div className="col-md-8">
                     {behaviors.filter(behavior => behavior.type === "negative").map(button => (
-                        <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className="bg-danger">{button.behavior}<br />{props.count}</span>
-                        <button type="button" className="btn btn-danger" onClick={props.handleIncrement}>+</button>
+                        <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
+                            <span id="btnSpan" className="bg-danger">{button.behavior}<br />{props.count}</span>
+                            <button type="button" className="btn btn-danger" onClick={props.handleIncrement}>+</button>
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
             </div>
 
@@ -95,10 +94,10 @@ function CounterButtons(props) {
             <div className="row">
                 <div className="col-md-8">
                     {behaviors.filter(behavior => behavior.type === "positive").map(button => (
-                        <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className="bg-success">{button.behavior}<br />{props.count}</span>
-                        <button type="button" className="btn btn-success" onClick={props.handleIncrement}>+</button>
+                        <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
+                            <span id="btnSpan" className="bg-success">{button.behavior}<br />{props.count}</span>
+                            <button type="button" className="btn btn-success" onClick={props.handleIncrement}>+</button>
                         </div>
                     ))
                     }

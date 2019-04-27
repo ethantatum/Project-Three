@@ -4,16 +4,9 @@ import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
-const classOptions = [
-    { key: "burgundy", text: "Burgundy", value: "burgundy" },
-    { key: "emerald", text: "Emerald", value: "emerald" },
-    { key: "paisley", text: "Paisley", value: "paisley" }
-
-]
 
 class ProfileComponent extends Component {
     state = {
-        name: "",
         image: "",
         classes: [],
         children: [],
@@ -66,31 +59,24 @@ class ProfileComponent extends Component {
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-        //     let userData;
-        //     if(this.props.user.isTeacher) {
-        //         userData = {
-        //             name: this.state.name,
-        //             image: this.state.image,
-        //             classes: this.state.classes
-        //         }
-        //     } else {
-        //         userData = {
-        //             name: this.state.name,
-        //             image: this.state.image,
-        //             children: this.state.children,
-        //             address: this.state.address,
-        //             phone: this.state.phone
-        //         }
-        //     }
-        // API.updateUser((this.props.user._id), userData)
-        // .then()
+            let userData;
+            if(this.props.user.isTeacher) {
+                userData = {
+                    image: this.state.image,
+                    classes: this.state.classes
+                }
+            } else {
+                userData = {
+                    image: this.state.image,
+                    children: this.state.children,
+                    address: this.state.address,
+                    phone: this.state.phone
+                }
+            }
+        API.updateUser((this.props.user.id), userData)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
     }
-
-    // Helper function checks if there is any content in required input fields
-    // validateTeacher = () => this.state.classes.length > 0;
-    
-    // Helper function checks if there is any content in required input fields
-    // validateParent = () => this.state.children.length > 0;
 
     validateButton = () => this.state.classes.length > 0 || this.state.children.length > 0;
 
@@ -100,7 +86,7 @@ class ProfileComponent extends Component {
         if(this.props.user.isTeacher) {
             selector = <form className="mt-1">
                             <h6 className="text-white">Please select your classroom(s) below to continue</h6>
-                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classroom} fluid multiple selection options={this.classOptions()} onChange={this.handleTeacherDropdown} />
+                            <Dropdown placeholder='Classrooms' name="classroom" value={this.state.classes} fluid multiple selection options={this.classOptions()} onChange={this.handleTeacherDropdown} />
                         </form>
         } else {
             selector = <form className="mt-1">
@@ -127,23 +113,12 @@ class ProfileComponent extends Component {
                             </div>
                             <div className="ui inverted divider"></div>
                             <h6 className="text-white">Please select your child(ren) below to continue</h6>
-                            <Dropdown placeholder='Students' name="student" value={this.state.student} fluid multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} />
+                            <Dropdown placeholder='Students' name="student" value={this.state.children} fluid multiple selection options={this.studentOptions()} onChange={this.handleParentDropdown} />
                         </form>
         }
         return (
             <div className="container m-3 pt-5 pl-5" >
                 <React.Fragment>
-                    <div className="ui fluid inverted left icon input">
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                            name="name"
-                        ></input>
-                        <i className="keyboard icon"></i>
-                    </div>
-                    <div className="ui inverted divider"></div>
                     <div className="ui fluid inverted left icon input">
                         <input
                             type="text"

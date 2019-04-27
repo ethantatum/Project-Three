@@ -6,8 +6,8 @@ export default {
   getClasses: function() {
     return axios.get("/api/class");
   },
-  createClass: function(classData) {
-    return axios.post("/api/class", classData);
+  createClass: function(userID, classData) {
+    return axios.post("/api/class/" + userID, classData);
   },
   //=============== API calls for teachers ==================//
   // Gets classes within teacher
@@ -20,17 +20,17 @@ export default {
   },
   // Adds profile completion data to user db
   updateUser: function(id, userData) {
-    return axios.post(`/api/users/${id}`, userData);
+    return axios.post(`/api/user/${id}`, userData);
   },
   //=============== API calls for students ==================//
 
   // Gets all student
   getStudents: () => {
-    return axios.get("/api/students");
+    return axios.get("/api/student");
   },
   // Gets the student with the given id
   getStudent: function(id) {
-    return axios.get("/api/students/" + id);
+    return axios.get("/api/student/" + id);
   }
 
 };
