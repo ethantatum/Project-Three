@@ -42,6 +42,10 @@ export default {
 
   getComments: function(id) {
     return axios.get(`/api/student/comments/${id}`);
+  },
+
+  addComment: function(id, newComment) {
+    return axios.put(`/api/student/comments/${id}`, newComment);
   }
 
 };

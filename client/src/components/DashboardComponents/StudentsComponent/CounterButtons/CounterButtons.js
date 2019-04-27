@@ -77,9 +77,11 @@ const behaviors = [
 function CounterButtons(props) {
     return (
         <div>
-            <h3>Negative Behaviors</h3>
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-6">
+                    <div className="row behaviorTypeHeader">
+                    <h3>Negative Behaviors</h3>
+                    </div>
                     {behaviors.filter(behavior => behavior.type === "negative").map(button => (
                         <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                             <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
@@ -88,11 +90,12 @@ function CounterButtons(props) {
                         </div>
                     ))}
                 </div>
-            </div>
 
-            <h3>Positive Behaviors</h3>
-            <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-6">
+                    <div className="row behaviorTypeHeader">
+                    <h3>Positive Behaviors</h3>
+                    </div>
+
                     {behaviors.filter(behavior => behavior.type === "positive").map(button => (
                         <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                             <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
@@ -103,7 +106,7 @@ function CounterButtons(props) {
                     }
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
