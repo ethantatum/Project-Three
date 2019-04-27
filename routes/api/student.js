@@ -5,8 +5,12 @@ const studentController = require("../../controllers/studentController");
 router.route("/")
     .get(studentController.findAll);
 
-router.route("/students/:id")
+router.route("/:id")
+    .post(studentController.create)
     .get(studentController.findById)
     .put(studentController.update);
+
+router.route("/behavior/:id")
+    .put(studentController.addBehavior);
 
 module.exports = router;

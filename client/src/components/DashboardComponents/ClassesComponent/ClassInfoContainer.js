@@ -3,7 +3,7 @@ import "./style.css";
 
 const ClassInfoContainer = (props) => {
     return (
-        <div className="classInfo">
+        <div className="classInfo" onClick={props.clickClass}>
             <h2>{props.name}</h2>
             <h3>{props.time}</h3>
             <h4>{props.studentArr.length} Students</h4>

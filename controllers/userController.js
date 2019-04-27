@@ -13,6 +13,22 @@ module.exports = {
       .populate('classes')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  getStudentsInAllClasses: function(req, res) {
+    db.User
+    .findById(req.params.id)
+    .populate({
+      path: "classes",
+      populate: { path: 'studentArr'}
+    })
+    .then(dbModel => res.json(dbModel.classes))
+    .catch(err => res.status(422).json(err));
+  },
+  updateUser: function(req, res) {
+    db.User
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 //   update: function(req, res) {
 //     db.Student
