@@ -40,7 +40,6 @@
   },
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:3001/",
   "bugs": {
     "url": "https://github.com/ethantatum/Project-Three/issues"
   },
