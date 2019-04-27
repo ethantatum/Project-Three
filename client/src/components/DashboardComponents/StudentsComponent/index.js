@@ -63,7 +63,6 @@ class ClassesComponent extends Component {
                         ))}
                     </div>
                 </CardComponent>
-                <BehaviorFrequency />
             </div>
         );
     }
