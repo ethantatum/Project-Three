@@ -11,8 +11,11 @@ const studentSchema = new Schema({
         type: { type: String }
     }],
     commentArr: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
+        commentTitle: { type: String, required: true },
+        commentBody: { type: String, required: true },
+        positiveComment: Boolean,
+        negativeComment: Boolean,
+        commentFrom: { type: String, required: true}
     }] 
 }, {strict: false});
 

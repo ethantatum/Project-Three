@@ -26,8 +26,7 @@ module.exports = {
   findById: function(req, res) {
     db.Student
       .findById(req.params.id)
-      .populate('commentArr')
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel.commentArr))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
@@ -40,6 +39,13 @@ module.exports = {
     console.log(req.body);
     db.Student
       .findOneAndUpdate({ _id: req.params.id }, { $push: { behaviors: req.body }}, {new: true })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  addComment: function(req, res) {
+    console.log(req.body);
+    db.Student
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { commentArr: req.body }}, {new: true })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

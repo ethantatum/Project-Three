@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import API from "../../../utils/API";
+import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import CommentDisplay from "./CommentDisplay";
@@ -12,18 +12,19 @@ class CommentComponent extends Component {
         commentBody: "",
         positiveComment: false,
         negativeComment: false,
+        studentID: "5cb52e66777599273c693b72",
         commentArray: []
     }
 
-    // componentDidMount() {
-    //     this.loadComments();
-    // }
+    componentDidMount() {
+        this.loadComments();
+    }
 
-    // loadComments = () => {
-    //     API.getComments()
-    //     .then(res => this.setState({ commentArray: res.data}))
-    //     .catch(err => console.log(err));
-    // }
+    loadComments = () => {
+        API.getComments(this.state.studentID)
+        .then(res => this.setState({ commentArray: res.data}))
+        .catch(err => console.log(err));
+    }
 
     // Helper function checks if there is any content in title/body input fields
     validateForm = () => this.state.commentTitle.length > 0 && this.state.commentBody.length > 0;
@@ -39,17 +40,19 @@ class CommentComponent extends Component {
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-        // let newComment = {
-        //     commentTitle: this.state.commentTitle,
-        //     commentBody: this.state.commentBody,
-        //     positiveComment: this.state.positiveComment,
-        //     negativeComment: this.state.negativeComment,
-        //     commentFrom: this.props.user.id
-        // };
-        // API.sendComment((***STUDENT ID HERE***), newComment)
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err));
+        let newComment = {
+            commentTitle: this.state.commentTitle,
+            commentBody: this.state.commentBody,
+            positiveComment: this.state.positiveComment,
+            negativeComment: this.state.negativeComment,
+            commentFrom: this.props.user.id
+        };
+        API.addComment((this.state.studentID), newComment)
+            .then(res => {console.log(res); this.resetInput()})
+            .catch(err => console.log(err));
     }
+
+    resetInput = () => this.setState({ commentTitle: "", commentBody: "", positiveComment: false, negativeComment: false });
 
     render() {
         const positiveComment = this.state.positiveComment;
@@ -106,13 +109,11 @@ class CommentComponent extends Component {
                             <img src={imageNeg} alt="sad emoji" title="Challenge..." />
                         </label>
                     <div className="ui inverted divider"></div>
-                    <button className="ui inverted green button" type="submit" disabled={!this.validateForm()}>Send</button>
+                    <button className="ui inverted green button" type="submit" disabled={!this.validateForm()} onClick={this.handleSubmit}>Send</button>
                 </form>
             </div>
             <div className="container p-2">
-                <CommentDisplay>
-                    commentArray={this.state.commentArray}
-                </CommentDisplay>
+                <CommentDisplay commentArray={this.state.commentArray} />
             </div>
             </React.Fragment>
         )
