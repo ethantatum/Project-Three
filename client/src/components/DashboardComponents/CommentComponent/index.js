@@ -6,34 +6,32 @@ import CommentDisplay from "./CommentDisplay";
 import "./style.css";
 
 
-class MessageComponent extends Component {
+class CommentComponent extends Component {
     state = {
-        messageTitle: "",
-        messageBody: "",
-        positiveMessage: false,
-        negativeMessage: false,
-        // DON'T THINK WE'LL NEED 'messageTo' IN STATE, AS IT SHOULD ALWAYS BE THE STUDENT ID OF THE CARD WE'RE IN
-        messageTo: "",
-        messageArray: []
+        commentTitle: "",
+        commentBody: "",
+        positiveComment: false,
+        negativeComment: false,
+        commentArray: []
     }
 
     // componentDidMount() {
-    //     this.loadMessages();
+    //     this.loadComments();
     // }
 
-    // loadMessages = () => {
+    // loadComments = () => {
     //     API.getComments()
-    //     .then(res => this.setState({ messageArray: res.data}))
+    //     .then(res => this.setState({ commentArray: res.data}))
     //     .catch(err => console.log(err));
     // }
 
     // Helper function checks if there is any content in title/body input fields
-    validateForm = () => this.state.messageTitle.length > 0 && this.state.messageBody.length > 0;
+    validateForm = () => this.state.commentTitle.length > 0 && this.state.commentBody.length > 0;
 
-    // Adds boolean to positive/negative message in state, changes emoji
-    handlePositive = () => this.state.positiveMessage ? this.setState({positiveMessage: false}) : this.setState({positiveMessage: true, negativeMessage: false});
+    // Adds boolean to positive/negative comment in state, changes emoji
+    handlePositive = () => this.state.positiveComment ? this.setState({positiveComment: false}) : this.setState({positiveComment: true, negativeComment: false});
     
-    handleNegative = () => this.state.negativeMessage ? this.setState({negativeMessage: false}) : this.setState({negativeMessage: true, positiveMessage: false});
+    handleNegative = () => this.state.negativeComment ? this.setState({negativeComment: false}) : this.setState({negativeComment: true, positiveComment: false});
 
     // Helper function that updates state to be the user inputs
     handleChange = (event) => this.setState({ [event.target.name]: event.target.value });
@@ -41,32 +39,32 @@ class MessageComponent extends Component {
     // Helper function that prevents page from loading - WILL ADD MORE FUNCTIONALITY
     handleSubmit = (event) => {
         event.preventDefault();
-        // let newMessage = {
-        //     messageTitle: this.state.messageTitle,
-        //     messageBody: this.state.messageBody,
-        //     positiveMessage: this.state.positiveMessage,
-        //     negativeMessage: this.state.negativeMessage,
-        //     messageFrom: this.props.user.id
+        // let newComment = {
+        //     commentTitle: this.state.commentTitle,
+        //     commentBody: this.state.commentBody,
+        //     positiveComment: this.state.positiveComment,
+        //     negativeComment: this.state.negativeComment,
+        //     commentFrom: this.props.user.id
         // };
-        // API.sendMessage((this.state.messageTo), newMessage)
+        // API.sendComment((***STUDENT ID HERE***), newComment)
         //     .then(res => console.log(res))
         //     .catch(err => console.log(err));
     }
 
     render() {
-        const positiveMessage = this.state.positiveMessage;
-        const negativeMessage = this.state.negativeMessage;
+        const positiveComment = this.state.positiveComment;
+        const negativeComment = this.state.negativeComment;
 
         let imagePos;
         let imageNeg;
 
-        if(positiveMessage) {
+        if(positiveComment) {
             imagePos = require('./images/positive-color2.png');
         } else {
             imagePos = require('./images/positive-grey2.png');
         }
 
-        if(negativeMessage) {
+        if(negativeComment) {
             imageNeg = require('./images/negative-color2.png');
         } else {
             imageNeg = require('./images/negative-grey2.png');
@@ -79,10 +77,10 @@ class MessageComponent extends Component {
                     <div className="ui huge fluid inverted input">
                         <input autoFocus
                             type="text"
-                            placeholder="Message Title"
-                            value={this.state.messageTitle}
+                            placeholder="Comment Title"
+                            value={this.state.commentTitle}
                             onChange={this.handleChange}
-                            name="messageTitle"
+                            name="commentTitle"
                         ></input>
                     </div>
                     <div className="ui inverted divider"></div>
@@ -91,20 +89,20 @@ class MessageComponent extends Component {
                             <textarea 
                                 className="fluid"
                                 type="text"
-                                placeholder="Message Body"
-                                value={this.state.messageBody}
+                                placeholder="Comment Body"
+                                value={this.state.commentBody}
                                 onChange={this.handleChange}
-                                name="messageBody"
+                                name="commentBody"
                             ></textarea>
                         </div>
                     </div>
                     <div className="ui inverted divider"></div>
                         <label>
-                            <input type="radio" name="positivemessage" value={positiveMessage} onClick={this.handlePositive} />
+                            <input type="radio" name="positiveComment" value={positiveComment} onClick={this.handlePositive} />
                             <img src={imagePos} alt="smiling emoji" title="Victory!" />
                         </label>
                         <label>
-                            <input type="radio" name="negativemessage" value={negativeMessage}  onClick={this.handleNegative} />
+                            <input type="radio" name="negativeComment" value={negativeComment}  onClick={this.handleNegative} />
                             <img src={imageNeg} alt="sad emoji" title="Challenge..." />
                         </label>
                     <div className="ui inverted divider"></div>
@@ -113,7 +111,7 @@ class MessageComponent extends Component {
             </div>
             <div className="container p-2">
                 <CommentDisplay>
-                    messageArray={this.state.messageArray}
+                    commentArray={this.state.commentArray}
                 </CommentDisplay>
             </div>
             </React.Fragment>
@@ -129,4 +127,4 @@ function mapStateToProps(state) {
 }
 
 //connects this component to redux
-export default connect(mapStateToProps)(MessageComponent);
+export default connect(mapStateToProps)(CommentComponent);
