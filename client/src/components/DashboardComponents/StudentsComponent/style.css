@@ -1,0 +1,10 @@
+.studentInfo {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background: rgb(65, 65, 65);
+    color: white;
+    height: 180px;
+    width: 90%;
+    margin: 0 auto 40px;
+}

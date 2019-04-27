@@ -16,6 +16,7 @@
 .teacher-btns {
     padding-left: 0;
     content: center;
+    margin-left: 0;
 }
 
 .side-bar.open {
@@ -33,6 +34,12 @@
     margin-bottom: -75px;
     margin-top: 25px;
     margin-left: 25px;
+}
+
+.side-bar ul .teacher-btns {
+    padding-left: 0;
+    content: center;
+    margin-left: 0;
 }
 
 .nav-buttons {

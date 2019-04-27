@@ -13,7 +13,7 @@ class ProfileComponent extends Component {
         address: "",
         phone: "",
         classList: [],
-        studentList: []
+        studentList: [] 
     }       
     
     componentDidMount() {

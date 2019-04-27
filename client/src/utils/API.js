@@ -9,6 +9,14 @@ export default {
   createClass: function(userID, classData) {
     return axios.post("/api/class/" + userID, classData);
   },
+  // Gets all student in a class
+  getStudentsInClass: (classID) => {
+    return axios.get("/api/class/students/" + classID);
+  },
+  // Gets all student in a all classes
+  getStudentsInAllClasses: (userID) => {
+    return axios.get("/api/user/allstudents/" + userID);
+  },
   //=============== API calls for teachers ==================//
   // Gets classes within teacher
   getTeacherClasses: function(teacherID) {
@@ -23,14 +31,17 @@ export default {
     return axios.post(`/api/user/${id}`, userData);
   },
   //=============== API calls for students ==================//
-
-  // Gets all student
-  getStudents: () => {
-    return axios.get("/api/student");
-  },
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/student/" + id);
+  },
+
+  getBehavior: function(id) {
+    return axios.get(`/api/student/behavior/${id}`);
+  },
+
+  getComments: function(id) {
+    return axios.get(`/api/student/comments/${id}`);
   }
 
 };
