@@ -34,6 +34,14 @@ export default {
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/student/" + id);
+  },
+
+  getBehavior: function(id) {
+    return axios.get(`/api/student/behavior/${id}`);
+  },
+
+  getComments: function(id) {
+    return axios.get(`/api/student/comments/${id}`);
   }
 
 };
