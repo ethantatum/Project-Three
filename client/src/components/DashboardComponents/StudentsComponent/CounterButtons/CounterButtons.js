@@ -76,34 +76,36 @@ const behaviors = [
 function CounterButtons(props) {
     return (
         <div>
-            <h3>Negative Behaviors</h3>
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-6">
+                    <div className="row behaviorTypeHeader">
+                    <h3>Negative Behaviors</h3>
+                    </div>
                     {behaviors.filter(behavior => behavior.type === "negative").map(button => (
-                        <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className="bg-danger">{button.behavior}<br />{props.count}</span>
-                        <button type="button" className="btn btn-danger" onClick={props.handleIncrement}>+</button>
+                        <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
+                            <span id="btnSpan" className="bg-danger">{button.behavior}<br />{props.count}</span>
+                            <button type="button" className="btn btn-danger" onClick={props.handleIncrement}>+</button>
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
-            </div>
 
-            <h3>Positive Behaviors</h3>
-            <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-6">
+                    <div className="row behaviorTypeHeader">
+                    <h3>Positive Behaviors</h3>
+                    </div>
+
                     {behaviors.filter(behavior => behavior.type === "positive").map(button => (
-                        <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
-                        <span id="btnSpan" className="bg-success">{button.behavior}<br />{props.count}</span>
-                        <button type="button" className="btn btn-success" onClick={props.handleIncrement}>+</button>
+                        <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                            <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
+                            <span id="btnSpan" className="bg-success">{button.behavior}<br />{props.count}</span>
+                            <button type="button" className="btn btn-success" onClick={props.handleIncrement}>+</button>
                         </div>
                     ))
                     }
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

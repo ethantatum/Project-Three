@@ -101,7 +101,7 @@ class SignUpForm extends Component {
 
         return (
             <div className="SignUp col-12">
-                <div className="container-fluid p-3">
+                <div className="p-3">
                     <Logo />
                     <form className="ui inverted segment" onSubmit={this.handleSubmit}>
                         <div className="ui inverted left icon input">

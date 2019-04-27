@@ -15,7 +15,7 @@ function InfoPanel() {
             </div>
             <div className="imgCont">
             <img src={require('./images/cal.svg')} alt="calendar" />
-            <p>Track reinforcerment frequency and effectiveness</p>
+            <p>Monitor your child's progress over time</p>
             </div>
         </div>
     </div>

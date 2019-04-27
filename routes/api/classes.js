@@ -4,5 +4,12 @@ const classController = require("../../controllers/classesController");
 // Matches with "/api/class"
 router.route("/")
   .get(classController.findAll);
+  
 
-  module.exports = router;
+router.route("/:id")
+  .post(classController.create);
+
+router.route("/students/:id")
+  .get(classController.getStudentInClass);
+
+module.exports = router;

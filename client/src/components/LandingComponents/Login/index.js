@@ -66,7 +66,6 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        console.log(userData);
         this.props.loginUser(userData);
     };
 
@@ -74,7 +73,7 @@ class Login extends Component {
         const { errors } = this.state;
         return (
             <div className="Login col-12">
-                <div className="container-fluid p-3">
+                <div className="p-3">
                     <Logo />
                     <form className="ui inverted segment" onSubmit={this.handleSubmit}>
                         <div className="ui inverted left icon input">

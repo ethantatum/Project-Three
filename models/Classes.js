@@ -6,10 +6,10 @@ const classSchema = new Schema({
     time: { type: String, required: true },
     studentArr: [{
         type: Schema.Types.ObjectId,
-        ref: 'student'
+        ref: 'Students'
     }] 
 }, {strict: false});
 
-const Classes = mongoose.model("classes", classSchema);
+const Classes = mongoose.model("Classes", classSchema);
 
 module.exports = Classes;
