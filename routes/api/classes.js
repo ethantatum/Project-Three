@@ -9,4 +9,7 @@ router.route("/")
 router.route("/:id")
   .post(classController.create);
 
+router.route("/students/:id")
+  .get(classController.getStudentInClass);
+
 module.exports = router;

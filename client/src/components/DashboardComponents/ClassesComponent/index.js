@@ -8,6 +8,7 @@ import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import {selectClass} from "../../../actions/appActions";
 
 class ClassesComponent extends Component {
     constructor() {
@@ -24,6 +25,7 @@ class ClassesComponent extends Component {
         this.loadClasses();
     };
     
+    //Loads the classes that belong to the account
     loadClasses = () => {
     API.getTeacherClasses(this.props.user.id)
         .then(res =>
@@ -34,22 +36,23 @@ class ClassesComponent extends Component {
         .catch(err => console.log(err));
     };
     
+    //function that runs when user clicks cancel button 
     handleCancel = () => {
         this.setState({addClass: false});
     };
 
+    //for form input
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
         });
     };
 
+    //function that runs when user clicks the forms submit button
     handleSubmit = event => {
         event.preventDefault();
-        console.log("clicked btn");
         
         if (this.state.className && this.state.classTime) {
-            console.log("Its true");
         API.createClass(this.props.user.id, {
             name: this.state.className,
             time: this.state.classTime
@@ -63,6 +66,18 @@ class ClassesComponent extends Component {
         }
     };
 
+    clickClass = (classData) => {
+    API.getStudentsInClass(classData._id)
+        .then(res => {
+            console.log(res);
+            this.props.selectClass(res);
+        })
+        .then( () => this.props.history.push("/dashboard/students"))
+        .catch(err => console.log(err));
+        // console.log(classData);
+        // this.props.selectClass(classData);
+    };
+
     render() {
         
         return (
@@ -71,9 +86,11 @@ class ClassesComponent extends Component {
                     {this.state.classes.map(classRoom => (
                         <ClassContainer 
                             key={classRoom._id}
+                            id={classRoom._id}
                             name={classRoom.name}
                             time={classRoom.time}
                             studentArr={classRoom.studentArr}
+                            clickClass={() => this.clickClass(classRoom)}
                         />
                     ))}
                     <AddClass handleAddClick = {() => {if(this.state.addClass === false){this.setState({addClass: true})}}}>
@@ -115,7 +132,6 @@ class ClassesComponent extends Component {
                 </div>
             </CardComponent>
 
-
         )
     }
 }
@@ -127,5 +143,9 @@ function mapStateToProps(state) {
     }
 }
 
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({selectClass: selectClass}, dispatch)
+}
+
 //connects this component to redux
-export default connect(mapStateToProps)(ClassesComponent);
+export default connect(mapStateToProps, matchDispatchToProps)(ClassesComponent);
