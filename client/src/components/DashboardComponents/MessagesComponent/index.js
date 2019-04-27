@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 // import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
-// import MessageInput from "./MessageInput";
-import MessageDisplay from "./MessageDisplay";
-import "./MessageInput/style.css";
+import CommentDisplay from "./CommentDisplay";
+import "./style.css";
 
 
 class MessageComponent extends Component {
@@ -23,7 +22,7 @@ class MessageComponent extends Component {
     // }
 
     // loadMessages = () => {
-    //     API.getMessages()
+    //     API.getComments()
     //     .then(res => this.setState({ messageArray: res.data}))
     //     .catch(err => console.log(err));
     // }
@@ -62,15 +61,15 @@ class MessageComponent extends Component {
         let imageNeg;
 
         if(positiveMessage) {
-            imagePos = require('./MessageInput/images/positive-color2.png');
+            imagePos = require('./images/positive-color2.png');
         } else {
-            imagePos = require('./MessageInput/images/positive-grey2.png');
+            imagePos = require('./images/positive-grey2.png');
         }
 
         if(negativeMessage) {
-            imageNeg = require('./MessageInput/images/negative-color2.png');
+            imageNeg = require('./images/negative-color2.png');
         } else {
-            imageNeg = require('./MessageInput/images/negative-grey2.png');
+            imageNeg = require('./images/negative-grey2.png');
         }
 
         return (
@@ -113,9 +112,9 @@ class MessageComponent extends Component {
                 </form>
             </div>
             <div className="container p-2">
-                <MessageDisplay>
+                <CommentDisplay>
                     messageArray={this.state.messageArray}
-                </MessageDisplay>
+                </CommentDisplay>
             </div>
             </React.Fragment>
         )

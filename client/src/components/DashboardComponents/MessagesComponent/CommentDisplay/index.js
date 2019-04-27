@@ -1,6 +1,6 @@
 import React from "react";
 
-function MessageDisplay(props) {
+function CommentDisplay(props) {
     
     // let container;
 
@@ -10,7 +10,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // } else if (props.negative) {
     //     container = <div className="ui negative message p-2">
@@ -18,7 +18,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // } else {
     //     container = <div className="ui violet message p-2">
@@ -26,7 +26,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // }
 
@@ -59,4 +59,4 @@ function MessageDisplay(props) {
     )
 }
 
-export default MessageDisplay;
+export default CommentDisplay;

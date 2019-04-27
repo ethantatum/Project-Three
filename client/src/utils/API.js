@@ -32,9 +32,14 @@ export default {
   getStudent: function(id) {
     return axios.get("/api/student/" + id);
   },
-  //=============== API calls for messages ================//
 
-  // Gets all messages for given student
+  getBehavior: function(id) {
+    return axios.get(`/api/student/behavior/${id}`);
+  },
+
+  getComments: function(id) {
+    return axios.get(`/api/student/comments/${id}`);
+  }
 
 };
   // // Deletes the book with the given id
