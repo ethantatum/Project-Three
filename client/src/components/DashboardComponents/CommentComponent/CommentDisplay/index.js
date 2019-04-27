@@ -1,6 +1,7 @@
 import React from "react";
 
-function MessageDisplay(props) {
+function CommentDisplay(props) {
+    
     // let container;
 
     // if (props.positive) {
@@ -9,7 +10,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // } else if (props.negative) {
     //     container = <div className="ui negative message p-2">
@@ -17,7 +18,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // } else {
     //     container = <div className="ui violet message p-2">
@@ -25,7 +26,7 @@ function MessageDisplay(props) {
     //         <div className="header">
     //             {props.title}
     //         </div>
-    //         <p>{props.message}</p>
+    //         <p>{props.comment}</p>
     //     </div>;
     // }
 
@@ -38,24 +39,24 @@ function MessageDisplay(props) {
                         <strong>This is a test header for a neutral message</strong>
                     </div>
                     <p>Test message goes here with some information</p>
-                </div>;
+                </div>
                 <div className="ui postive green message p-2">
                     <i className="close icon"></i>
                     <div className="header">
                         <strong>This is a test header for a postive message</strong>
                     </div>
                     <p>Test message goes here with some information</p>
-                </div>;
+                </div>
                 <div className="ui negative message p-2">
                     <i className="close icon"></i>
                     <div className="header">
                         This is a test header for a negative message
                     </div>
                     <p>Test message goes here with some information</p>
-                </div>;
+                </div>
             </div>
         </React.Fragment>
     )
 }
 
-export default MessageDisplay;
+export default CommentDisplay;
