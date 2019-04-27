@@ -35,9 +35,9 @@ function MessageDisplay(props) {
                 <div className="ui violet message p-2">
                     <i className="close icon"></i>
                     <div className="header">
-                        <strong>This is a test header for a neutral message</strong>
+                        <strong>{props.title}</strong>
                     </div>
-                    <p>Test message goes here with some information</p>
+                    <p>{props.message}</p>
                 </div>
                 <div className="ui postive green message p-2">
                     <i className="close icon"></i>
