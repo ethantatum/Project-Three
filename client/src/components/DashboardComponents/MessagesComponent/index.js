@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 // import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
-import MessageInput from "./MessageInput";
+// import MessageInput from "./MessageInput";
 import MessageDisplay from "./MessageDisplay";
+import "./MessageInput/style.css";
 
 
 class MessageComponent extends Component {
@@ -54,22 +55,70 @@ class MessageComponent extends Component {
     }
 
     render() {
+        const positiveMessage = this.state.positiveMessage;
+        const negativeMessage = this.state.negativeMessage;
+
+        let imagePos;
+        let imageNeg;
+
+        if(positiveMessage) {
+            imagePos = require('./MessageInput/images/positive-color2.png');
+        } else {
+            imagePos = require('./MessageInput/images/positive-grey2.png');
+        }
+
+        if(negativeMessage) {
+            imageNeg = require('./MessageInput/images/negative-color2.png');
+        } else {
+            imageNeg = require('./MessageInput/images/negative-grey2.png');
+        }
+
         return (
-            <div>
-                <MessageInput>
-                    messageTitle={this.state.messageTitle}
-                    messageBody={this.state.messageBody}
-                    positiveMessage={this.state.positiveMessage}
-                    negativeMessage={this.state.negativeMessage}
-                    validateForm={this.validateForm}
-                    handlePositive={this.handlePositive}
-                    handleNegative={this.handleNegative}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                </MessageInput>
-                <MessageDisplay />
+            <React.Fragment>
+            <div className="container p-2">
+                <form className="ui inverted segment" onSubmit={this.handleSubmit}>
+                    <div className="ui huge fluid inverted input">
+                        <input autoFocus
+                            type="text"
+                            placeholder="Message Title"
+                            value={this.state.messageTitle}
+                            onChange={this.handleChange}
+                            name="messageTitle"
+                        ></input>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                    <div className="ui huge fluid inverted input">
+                        <div className="field">
+                            <textarea 
+                                className="fluid"
+                                type="text"
+                                placeholder="Message Body"
+                                value={this.state.messageBody}
+                                onChange={this.handleChange}
+                                name="messageBody"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div className="ui inverted divider"></div>
+                        <label>
+                            <input type="radio" name="positivemessage" value={positiveMessage} onClick={this.handlePositive} />
+                            <img src={imagePos} alt="smiling emoji" title="Victory!" />
+                        </label>
+                        <label>
+                            <input type="radio" name="negativemessage" value={negativeMessage}  onClick={this.handleNegative} />
+                            <img src={imageNeg} alt="sad emoji" title="Challenge..." />
+                        </label>
+                    <div className="ui inverted divider"></div>
+                    <button className="ui inverted green button" type="submit" disabled={!this.validateForm()}>Send</button>
+                </form>
             </div>
-        );
+            <div className="container p-2">
+                <MessageDisplay>
+                    messageArray={this.state.messageArray}
+                </MessageDisplay>
+            </div>
+            </React.Fragment>
+        )
     }
 }
 

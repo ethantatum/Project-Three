@@ -31,7 +31,10 @@ export default {
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/student/" + id);
-  }
+  },
+  //=============== API calls for messages ================//
+
+  // Gets all messages for given student
 
 };
   // // Deletes the book with the given id
