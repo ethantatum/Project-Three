@@ -1,5 +1,4 @@
 h1 {
-    color: white;
     /* font-family: 'Alegreya', serif; */
     font-size: 3rem;
     text-align: center;
@@ -7,7 +6,6 @@ h1 {
 }
 
 h3 {
-    color: white;
     /* font-family: 'Alegreya', serif; */
     font-size: 2rem;
     margin: 2% 0%;
@@ -39,7 +37,7 @@ h3 {
     margin: 0px 0px 13px 50px;
 }
 
-.container-fluid {
+/* .container-fluid {
     margin-bottom: 10rem;
     margin-left: 25%;
-}
+} */

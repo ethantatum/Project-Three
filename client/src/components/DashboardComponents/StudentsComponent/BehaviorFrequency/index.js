@@ -19,7 +19,7 @@ class BehaviorFrequency extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="card w-75 cardCont">
                 <div className="container-fluid p-2">
                     <h1>Behavior Frequency Counters</h1>
 
