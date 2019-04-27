@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const studentController = require("../../controllers/studentController");
 
-// Matches with "/api/students"
+// Matches with "/api/student"
 router.route("/")
     .get(studentController.findAll);
 
@@ -14,6 +14,7 @@ router.route("/behavior/:id")
     .put(studentController.addBehavior);
     
 router.route("/comments/:id")
-    .get(studentController.findById);
+    .get(studentController.findById)
+    .put(studentController.addComment);
 
 module.exports = router;
