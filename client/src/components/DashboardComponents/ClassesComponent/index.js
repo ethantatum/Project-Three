@@ -67,8 +67,14 @@ class ClassesComponent extends Component {
     };
 
     clickClass = (classData) => {
-        console.log(classData);
-        this.props.selectClass(classData);
+    API.getStudentsInClass(classData._id)
+        .then(res => {
+            console.log(res);
+            this.props.selectClass(res);
+        })
+        .catch(err => console.log(err));
+        // console.log(classData);
+        // this.props.selectClass(classData);
     };
 
     render() {
@@ -124,7 +130,6 @@ class ClassesComponent extends Component {
                     </AddClass>
                 </div>
             </CardComponent>
-
 
         )
     }

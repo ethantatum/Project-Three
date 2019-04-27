@@ -7,6 +7,13 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    getStudentInClass: function(req, res) {
+        db.Classes
+        .findById(req.params.id)
+        .populate('studentArr')
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
     create: function(req, res) {
         db.Classes
             .create(req.body)

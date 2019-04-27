@@ -6,6 +6,7 @@ router.route("/")
     .get(studentController.findAll);
 
 router.route("/:id")
+    .post(studentController.create)
     .get(studentController.findById)
     .put(studentController.update);
 
