@@ -43,7 +43,7 @@ class Landing extends Component {
       }
       
       return (
-      <div>
+      <div id="landingPage">
           <div className="row bg-dark" id="landingTop">
           <div className="col-md-6 col-xs-12">
               {container}
@@ -51,7 +51,7 @@ class Landing extends Component {
           <LandingImage />
           </div>
           <InfoPanel />
-          <Footer />
+          {/* <Footer /> */}
       </div>
       );
       }
