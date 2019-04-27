@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
@@ -12,7 +13,6 @@ class ClassesComponent extends Component {
             students: [],
             firstname: "",
             lastname: "",
-
         };    
     }
 
@@ -24,8 +24,6 @@ class ClassesComponent extends Component {
         else{
             this.getAllStudents();
         }
-        
-    
     };
 
     //gets all the students from all the classes that belong to user
@@ -34,12 +32,11 @@ class ClassesComponent extends Component {
             .then(res => {
                 const studentArr = [];
                 console.log(res);
+                //loops through array of objects and extracts the student's array from each class
                 for(let i = 0; i < res.data.length; i++){
                     studentArr.push(res.data[i].studentArr);
                 }
-                // res.data.map(student => {
-                //     studentArr.push(student);
-                // });
+                //merges all the arrays within the studentArr
                 const mergedStudents = [].concat.apply([], studentArr);
                 console.log(mergedStudents);
                 return mergedStudents;
@@ -49,19 +46,26 @@ class ClassesComponent extends Component {
     };
 
     render(){
+        const { match } = this.props;   
+        console.log(match.path);                 
+            // let studentsDiv = <div>
+            //     {this.state.students.map(student => (
+            //     <StudentContainer 
+            //         key={student._id}
+            //         id={student._id}
+            //         firstname={student.firstname}
+            //         lastname={student.lastname}
+            //     /> 
+            //     ))}
+            // </div>;
         return (
             <div>
                 <CardComponent headerText = "Students">
-                    <div>
-                        {this.state.students.map(student => (
-                        <StudentContainer 
-                            key={student._id}
-                            id={student._id}
-                            firstname={student.firstname}
-                            lastname={student.lastname}
-                        /> 
-                        ))}
-                    </div>
+                    
+                        <Switch>
+                            {/* <Route exact path={`${match.path}`} component={studentsDiv}/>  */}
+                        </Switch>
+                     
                 </CardComponent>   
             </div>
         );

@@ -65,7 +65,7 @@ class Dashboard extends Component {
               <Switch>
                 <Route exact path={`${match.path}/messages`} component={CommentComponent} />
                 <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
-                <Route exact path={`${match.path}/students`} component={StudentsComponent} />
+                <Route path={`${match.path}/students`} component={StudentsComponent} />
                 <Route exact path={`${match.path}/classes`} component={ClassComponent} />
               </Switch>
           </div>
