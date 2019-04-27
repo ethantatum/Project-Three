@@ -13,7 +13,7 @@ const StudentContainer = (props) => {
             </div>
             <div id="studContButtons">
                 <button type="button" class="btn btn-light btn-lg studContBtn">Behaviors</button><br></br>
-                <button type="button" class="btn btn-light btn-lg studContBtn">Messages</button>
+                <button type="button" class="btn btn-light btn-lg studContBtn">Comments</button>
             </div>
         </div>
     )

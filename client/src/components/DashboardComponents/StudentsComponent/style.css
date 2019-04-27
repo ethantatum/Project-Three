@@ -6,7 +6,7 @@
     background: rgb(65, 65, 65);
     color: white;
     height: 180px;
-    width: 90%;
+    width: 60%;
     margin: 0 auto 40px;
 }
 
@@ -22,6 +22,7 @@
 
 .studContBtn {
     margin: 5px;
+    width: 9rem;
 }
 
 .studContBtn:hover {
