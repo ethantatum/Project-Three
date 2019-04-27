@@ -9,4 +9,7 @@ router.route("/:id")
 router.route("/classes/:id")
     .get(userController.populateClasses);
 
+router.route("/allstudents/:id")
+    .get(userController.getStudentsInAllClasses);
+
 module.exports = router;

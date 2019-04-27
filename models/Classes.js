@@ -6,7 +6,7 @@ const classSchema = new Schema({
     time: { type: String, required: true },
     studentArr: [{
         type: Schema.Types.ObjectId,
-        ref: 'student'
+        ref: 'Students'
     }] 
 }, {strict: false});
 
