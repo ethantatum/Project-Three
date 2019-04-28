@@ -108,7 +108,7 @@ class Login extends Component {
                                 // })}
                             />
                             <i className="lock icon"></i>
-                            <span>
+                            <span className="red-text">
                             {errors.password}
                             {errors.passwordincorrect}
                             </span>
