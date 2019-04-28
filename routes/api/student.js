@@ -12,7 +12,7 @@ router.route("/:id")
 
 router.route("/behavior/:id")
     .put(studentController.addBehavior)
-    .get(studentController.getBehavior);
+    // .get(studentController.getBehavior);
     
 router.route("/comments/:id")
     .get(studentController.findById)
