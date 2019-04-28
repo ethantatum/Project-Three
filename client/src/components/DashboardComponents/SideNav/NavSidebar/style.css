@@ -1,3 +1,4 @@
+/*Main sidebar*/
 .side-bar {
     height: 100%;
     background: white;
@@ -13,17 +14,16 @@
     transition: transform 0.3s ease-out;
 }
 
-.teacher-btns {
-    padding-left: 0;
-    content: center;
-    margin-left: 0;
-}
-
+/*Styles the open navbar*/
 .side-bar.open {
     transform: translateX(0);
     background-color: rgb(14, 163, 250);
+    white-space: normal;
+    overflow: hidden;
+    font-size: 18px;
 }
 
+/*Style the content inside the navbar when opened */
 .side-bar ul {
     height: 40%;
     list-style: none;
@@ -33,37 +33,14 @@
     padding-left: 0;
     margin-bottom: -75px;
     margin-top: 25px;
-    margin-left: 25px;
+    margin-left: 6px;
 }
 
-.side-bar ul .teacher-btns {
-    padding-left: 0;
-    content: center;
-    margin-left: 0;
-}
-
-.nav-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
-
+/* Style for links within the navbar*/
 .side-bar li {
     margin: 0.5rem 0;
     text-align: center;
     letter-spacing: 1px;
-}
-
-.side-bar h4 {
-    color: white;
-    border: none;
-    text-transform: uppercase;
-    font-size: 24px;
-}
-
-.side-bar img {
-    border-radius: 50%;
-    /* padding-right: 25px; */
 }
 
 .side-bar a {
@@ -74,6 +51,20 @@
     padding-left: 0px;
 }
 
+/*The login users name*/
+.side-bar h4 {
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+/*Users profile image*/
+.side-bar img {
+    border-radius: 50%;
+}
+
+/*Link styling*/
 .side-bar a:hover,
 .side-bar a:active {
     color: teal;

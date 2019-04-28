@@ -55,7 +55,7 @@ const NavSideBar = (props) => {
         <nav className={barClasses}>
             <ul>
                 <li>
-                    <img className="ml-1 mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
+                    <img className="mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
                     <h4>{props.user}</h4>
                 </li>
             </ul>
