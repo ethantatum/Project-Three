@@ -75,8 +75,8 @@ class CommentComponent extends Component {
 
         return (
             <React.Fragment>
-            <div className="container p-2">
-                <form className="ui inverted segment" onSubmit={this.handleSubmit}>
+            <div className="container p-2" id="commentDisplay">
+                <form className="ui inverted segment" id="commentBox" onSubmit={this.handleSubmit}>
                     <div className="ui huge fluid inverted input">
                         <input autoFocus
                             type="text"
@@ -90,7 +90,7 @@ class CommentComponent extends Component {
                     <div className="ui huge fluid inverted input">
                         <div className="field">
                             <textarea 
-                                className="fluid"
+                                className="fluid message"
                                 type="text"
                                 placeholder="Comment Body"
                                 value={this.state.commentBody}

@@ -12,8 +12,8 @@ const StudentContainer = (props) => {
                 {/* <h2>{props.class}</h2> */}
             </div>
             <div id="studContButtons">
-                <button type="button" class="btn btn-light btn-lg studContBtn">Behaviors</button><br></br>
-                <button type="button" class="btn btn-light btn-lg studContBtn">Comments</button>
+                <button type="button" className="btn btn-light btn-lg studContBtn">Behaviors</button><br></br>
+                <button type="button" className="btn btn-light btn-lg studContBtn">Comments</button>
             </div>
         </div>
     )

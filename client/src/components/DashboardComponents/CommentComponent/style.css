@@ -20,3 +20,15 @@
     background-color: white;
     border: 1px solid black;
 } */
+
+#commentDisplay {
+    margin-left: 20%;
+}
+
+#commentBox {
+    width: 80%;
+}
+
+.message {
+    width: 700px;
+}
