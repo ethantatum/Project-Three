@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import CounterButtons from "../CounterButtons/CounterButtons.js";
 import AddBehavior from "../AddBehavior";
+import CardComponent from "../../CardComponent";
 import API from "../../../../utils/API";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
@@ -17,7 +18,7 @@ class BehaviorFrequency extends React.Component {
 
     componentDidMount = () => {
         this.loadBehaviors();
-    };
+        };
     
     //Loads the Behaviors that belong to the current student
     loadBehaviors = () => {
@@ -40,7 +41,7 @@ class BehaviorFrequency extends React.Component {
 
     render() {
         return (
-            <div className="card w-75 cardCont">
+            <CardComponent headerText = {`Behaviors - `}>
                 <div className="container-fluid p-2">
                     <h1>Behavior Frequency Counters</h1>
 
@@ -54,7 +55,7 @@ class BehaviorFrequency extends React.Component {
                         handleIncrement={this.handleIncrement}
                         handleDecrement={this.handleDecrement} />
                 </div>
-            </div >
+            </CardComponent>
         );
     }
 }

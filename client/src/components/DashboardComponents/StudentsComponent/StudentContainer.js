@@ -13,7 +13,7 @@ const StudentContainer = (props) => {
                 {/* <h2>{props.class}</h2> */}
             </div>
             <div id="studContButtons">
-                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
+                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
                 <LinkButton type="button" className="btn btn-light btn-lg studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
             </div>
         </div>

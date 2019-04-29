@@ -46,14 +46,29 @@ class ClassesComponent extends Component {
             .catch(err => console.log(err))
     };
 
+    //function to show the correct header text
+    showHeaderText = (action, student) => {
+        // if(action && student){
+        //     return `${action} - ${student}`;
+        // }
+        if(this.props.selectedClass){
+            return `Students - ${this.props.selectedClass.name}`;
+        }
+        else{
+            return 'Students - All Students';
+        }
+        
+    }
+
     render(){
         const { match } = this.props;                  
 
         return (
             <div>
-                <CardComponent headerText = "Students">
+                
                         <Switch>
                             <Route exact path={`${match.path}`} render={(props) => 
+                            <CardComponent headerText = {this.showHeaderText()}>
                                 <div>
                                 {this.state.students.map(student => (
                                     <StudentContainer 
@@ -61,15 +76,17 @@ class ClassesComponent extends Component {
                                         id={student._id}
                                         firstname={student.firstname}
                                         lastname={student.lastname}
+                                        updateHeader={this.showHeaderText}
                                         match={match}
                                     /> 
                                 ))}
                                 </div>
+                            </CardComponent>       
                             }/> 
                             <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
                             <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
                         </Switch>  
-                </CardComponent>   
+               
             </div>
         );
     }
