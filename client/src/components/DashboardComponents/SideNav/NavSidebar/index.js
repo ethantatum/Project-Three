@@ -14,7 +14,8 @@ const NavSideBar = (props) => {
     let sideNavBarButtons;
     if(props.isTeacher){
         sideNavBarButtons = 
-        <ul className="ml-5">
+        //had to change botton className for styling
+        <ul className="teacher-btns">
             <li>
                 <Link to={`${props.match.url}/classes`}>Classes</Link>
             </li>
@@ -34,7 +35,7 @@ const NavSideBar = (props) => {
     }
     else if(!props.isTeacher){
         sideNavBarButtons = 
-        <ul className="ml-5">
+        <ul className="parent-btn">
             <li>
                 <Link to={`${props.match.url}/students`}>My Students</Link>
             </li>
@@ -54,7 +55,7 @@ const NavSideBar = (props) => {
         <nav className={barClasses}>
             <ul>
                 <li>
-                    <img className="ml-1 mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
+                    <img className="mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
                     <h4>{props.user}</h4>
                 </li>
             </ul>

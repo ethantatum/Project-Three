@@ -2,19 +2,40 @@ import React from "react";
 import "./style.css";
 import CounterButtons from "../CounterButtons/CounterButtons.js";
 import AddBehavior from "../AddBehavior";
+import API from "../../../../utils/API";
+// redux imports ===============================
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
 class BehaviorFrequency extends React.Component {
 
     state = {
-        count: 0
+        behavior: [],
+        frequency: 0,
+        type: ""
+    };
+
+    componentDidMount = () => {
+        this.loadBehaviors();
+    };
+    
+    //Loads the Behaviors that belong to the current student
+    loadBehaviors = () => {
+    API.getBehavior()
+        .then(res =>
+        {
+            console.log(res);
+            this.setState({ behavior: res.data });
+        })
+        .catch(err => console.log(err));
     };
 
     handleIncrement = () => {
-        this.setState({ count: this.state.count + 1 });
+        this.setState({ frequency: this.state.frequency + 1 });
     };
 
     handleDecrement = () => {
-        this.setState({ count: this.state.count - 1 });
+        this.setState({ frequency: this.state.frequency - 1 });
     };
 
     render() {
@@ -28,7 +49,8 @@ class BehaviorFrequency extends React.Component {
                     <hr></hr>
 
                     <CounterButtons
-                        count={this.state.count}
+                        frequency={this.state.frequency}
+                        behavior={this.state.behavior}
                         handleIncrement={this.handleIncrement}
                         handleDecrement={this.handleDecrement} />
                 </div>
