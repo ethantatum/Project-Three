@@ -10,15 +10,9 @@ mongoose.connect(
 
 const studentSeed = [
     {
-        name: "Alivia Kane",
-        age: 12,
+        firstname: "Alivia"
+        lastname: "Kane",
         image: "/assets/images/girl1.png",
-        class: "Burgundy",
-        // parents: [
-        //     {
-        //         parent1: ""
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Spitting",
@@ -39,18 +33,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Ellis Liu",
-        age: 7,
+        firstname: "Ellis",
+        lastname: "Liu",
         image: "/assets/images/boy1.png",
-        class: "Paisley",
-        // parents: [
-        //     {
-        //         parent1: "Allyson Liu"
-        //     },
-        //     {
-        //         parent2: "Henry Liu"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Hitting",
@@ -88,18 +73,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Elly Navarro",
-        age: 6,
+        firstname: "Elly",
+        lastname: "Navarro",
         image: "/assets/images/girl2.png",
-        class: "Paisley",
-        // parents: [
-        //     {
-        //         parent1: "Noelle Navarro"
-        //     },
-        //     {
-        //         parent2: "Emilio Navarro"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Yelling",
@@ -116,15 +92,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Matthew Humphreys",
-        age: 5,
+        firstname: "Matthew" 
+        lastname: "Humphreys",
         image: "/assets/images/boy2.png",
-        class: "Paisley",
-        // parents: [
-        //     {
-        //         parent1: "Megan Humphreys"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Hitting",
@@ -153,18 +123,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Reema Spears",
-        age: 10,
+        firstname: "Reema"
+        lastname: "Spears",
         image: "/assets/images/girl3.png",
-        class: "Emerald",
-        // parents: [
-        //     {
-        //         parent1: "Coretta Spears"
-        //     },
-        //     {
-        //         parent2: "Marvin Spears"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Making a Request",
@@ -185,15 +146,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Dean Reed",
-        age: 9,
+        firstname: "Dean"
+        lastname: "Reed",
         image: "/assets/images/boy3.png",
-        class: "Emerald",
-        // parents: [
-        //     {
-        //         parent1: "Jonathan Reed"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Scratching",
@@ -214,18 +169,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Melody Nguyen",
-        age: 13,
+        firstname: "Melody"
+        lastname: "Nguyen",
         image: "/assets/images/girl4.png",
-        class: "Burgundy",
-        // parents: [
-        //     {
-        //         parent1: "Trang Nguyen"
-        //     },
-        //     {
-        //         parent2: "Duy Nguyen"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Spitting",
@@ -246,18 +192,9 @@ const studentSeed = [
         ]
     },
     {
-        name: "Zakariah Joseph",
-        age: 9,
+        firstname: "Zakariah",
+        lastname: "Joseph",
         image: "/assets/images/boy4.png",
-        class: "Emerald",
-        // parents: [
-        //     {
-        //         parent1: "Vonda Joseph"
-        //     },
-        //     {
-        //         parent2: "Floyd Joseph"
-        //     }
-        // ],
         behaviors: [
             {
                 behavior: "Elopement",
