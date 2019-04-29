@@ -63,6 +63,7 @@ class ClassesComponent extends Component {
                         ))}
                     </div>
                 </CardComponent>
+
             </div>
         );
     }
