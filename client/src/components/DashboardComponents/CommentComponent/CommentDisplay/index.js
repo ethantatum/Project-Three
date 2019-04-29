@@ -21,6 +21,7 @@ function CommentDisplay(props) {
                         <i className="close icon"></i>
                         <div className="header">
                             <strong>{comment.commentTitle}</strong>
+                            <h6>{time}</h6>
                         </div>
                         <p>{comment.commentBody}</p>
                     </div>)
