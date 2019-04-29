@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
 import BehaviorFrequency from "./BehaviorFrequency";
+import CommentComponent from "../CommentComponent";
 import API from '../../../utils/API';
 
 class ClassesComponent extends Component {
@@ -12,7 +14,6 @@ class ClassesComponent extends Component {
             students: [],
             firstname: "",
             lastname: "",
-
         };    
     }
 
@@ -24,8 +25,6 @@ class ClassesComponent extends Component {
         else{
             this.getAllStudents();
         }
-        
-    
     };
 
     //gets all the students from all the classes that belong to user
@@ -34,12 +33,11 @@ class ClassesComponent extends Component {
             .then(res => {
                 const studentArr = [];
                 console.log(res);
+                //loops through array of objects and extracts the student's array from each class
                 for(let i = 0; i < res.data.length; i++){
                     studentArr.push(res.data[i].studentArr);
                 }
-                // res.data.map(student => {
-                //     studentArr.push(student);
-                // });
+                //merges all the arrays within the studentArr
                 const mergedStudents = [].concat.apply([], studentArr);
                 console.log(mergedStudents);
                 return mergedStudents;
@@ -48,22 +46,47 @@ class ClassesComponent extends Component {
             .catch(err => console.log(err))
     };
 
+    //function to show the correct header text
+    showHeaderText = (action, student) => {
+        // if(action && student){
+        //     return `${action} - ${student}`;
+        // }
+        if(this.props.selectedClass){
+            return `Students - ${this.props.selectedClass.name}`;
+        }
+        else{
+            return 'Students - All Students';
+        }
+        
+    }
+
     render(){
+        const { match } = this.props;                  
+
         return (
             <div>
-                <CardComponent headerText = "Students">
-                    <div>
-                        {this.state.students.map(student => (
-                        <StudentContainer 
-                            key={student._id}
-                            id={student._id}
-                            firstname={student.firstname}
-                            lastname={student.lastname}
-                        /> 
-                        ))}
-                    </div>
-                </CardComponent>
-
+                
+                        <Switch>
+                            <Route exact path={`${match.path}`} render={(props) => 
+                            <CardComponent headerText = {this.showHeaderText()}>
+                                <div>
+                                {this.state.students.map(student => (
+                                    <StudentContainer 
+                                        key={student._id}
+                                        id={student._id}
+                                        firstname={student.firstname}
+                                        lastname={student.lastname}
+                                        updateHeader={this.showHeaderText}
+                                        match={match}
+                                    /> 
+                                ))}
+                                </div>
+                            </CardComponent>       
+                            }/> 
+                            <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
+                            <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
+                        </Switch>  
+               
             </div>
         );
     }
