@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
 import BehaviorFrequency from "./BehaviorFrequency";
+import CommentComponent from "../CommentComponent";
 import API from '../../../utils/API';
 
 class ClassesComponent extends Component {
@@ -46,8 +47,7 @@ class ClassesComponent extends Component {
     };
 
     render(){
-        const { match } = this.props;   
-        console.log(match.path);                 
+        const { match } = this.props;                  
             // let studentsDiv = <div>
             //     {this.state.students.map(student => (
             //     <StudentContainer 
@@ -61,11 +61,23 @@ class ClassesComponent extends Component {
         return (
             <div>
                 <CardComponent headerText = "Students">
-                    
                         <Switch>
-                            {/* <Route exact path={`${match.path}`} component={studentsDiv}/>  */}
-                        </Switch>
-                     
+                            <Route exact path={`${match.path}`} render={(props) => 
+                                <div>
+                                {this.state.students.map(student => (
+                                    <StudentContainer 
+                                        key={student._id}
+                                        id={student._id}
+                                        firstname={student.firstname}
+                                        lastname={student.lastname}
+                                        match={match}
+                                    /> 
+                                ))}
+                                </div>
+                            }/> 
+                            <Route path={`${match.path}/behaviors/:studentId`} component={BehaviorFrequency}/>
+                            <Route path={`${match.path}/comments/:studentId`} component={CommentComponent}/>
+                        </Switch>  
                 </CardComponent>   
             </div>
         );
