@@ -21,7 +21,6 @@ class CommentComponent extends Component {
 
     componentDidMount = () => {
         this.loadComments();
-        console.log(this.props.match.params.studentID);
     }
 
     loadComments = () => {
