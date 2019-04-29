@@ -48,16 +48,7 @@ class ClassesComponent extends Component {
 
     render(){
         const { match } = this.props;                  
-            // let studentsDiv = <div>
-            //     {this.state.students.map(student => (
-            //     <StudentContainer 
-            //         key={student._id}
-            //         id={student._id}
-            //         firstname={student.firstname}
-            //         lastname={student.lastname}
-            //     /> 
-            //     ))}
-            // </div>;
+
         return (
             <div>
                 <CardComponent headerText = "Students">
@@ -75,8 +66,8 @@ class ClassesComponent extends Component {
                                 ))}
                                 </div>
                             }/> 
-                            <Route path={`${match.path}/behaviors/:studentId`} component={BehaviorFrequency}/>
-                            <Route path={`${match.path}/comments/:studentId`} component={CommentComponent}/>
+                            <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
+                            <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
                         </Switch>  
                 </CardComponent>   
             </div>

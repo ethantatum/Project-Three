@@ -7,17 +7,21 @@ import "./style.css";
 
 
 class CommentComponent extends Component {
-    state = {
-        commentTitle: "",
-        commentBody: "",
-        positiveComment: false,
-        negativeComment: false,
-        studentID: "5cb52e66777599273c693b72",
-        commentArray: []
+    constructor(props) {
+        super(props)
+        this.state = {
+            commentTitle: "",
+            commentBody: "",
+            positiveComment: false,
+            negativeComment: false,
+            studentID: props.match.params.studentID,
+            commentArray: []
+        };
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.loadComments();
+        console.log(this.props.match.params.studentID);
     }
 
     loadComments = () => {
