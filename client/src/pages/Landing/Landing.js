@@ -5,10 +5,10 @@ import React, { Component } from "react";
 // import Logo from "../../components/Logo";
 import LandingImage from "../../components/LandingComponents/LandingImage";
 import InfoPanel from "../../components/LandingComponents/InfoPanel";
-import Footer from "../../components/LandingComponents/Footer";
 import Welcome from "../../components/LandingComponents/Welcome";
 import Login from "../../components/LandingComponents/Login"; 
 import SignUpForm from "../../components/LandingComponents/SignUpForm";
+import './style.css';
 // import API from "../utils/API";
 
 class Landing extends Component {
@@ -43,15 +43,14 @@ class Landing extends Component {
       }
       
       return (
-      <div id="landingPage">
-          <div className="row bg-dark" id="landingTop">
+      <div className="bg-dark" id="landingPage">
+          <div className="row" id="landingTop">
           <div className="col-md-6 col-xs-12">
               {container}
           </div>
           <LandingImage />
           </div>
           <InfoPanel />
-          {/* <Footer /> */}
       </div>
       );
       }

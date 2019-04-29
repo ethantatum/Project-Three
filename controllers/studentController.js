@@ -26,7 +26,7 @@ module.exports = {
   findById: function(req, res) {
     db.Student
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel.commentArr))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {

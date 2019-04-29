@@ -97,7 +97,7 @@ class Login extends Component {
                         <div className="ui inverted divider"></div>
                         <div className="ui inverted left icon input">
                             <input
-                                type="text"
+                                type="password"
                                 placeholder="Password"
                                 value={this.state.password}
                                 onChange={this.handleChange}
@@ -108,7 +108,7 @@ class Login extends Component {
                                 // })}
                             />
                             <i className="lock icon"></i>
-                            <span>
+                            <span className="red-text">
                             {errors.password}
                             {errors.passwordincorrect}
                             </span>
