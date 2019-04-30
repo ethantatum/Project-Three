@@ -3,26 +3,31 @@ import API from "../../../utils/API";
 // import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import CommentDisplay from "./CommentDisplay";
+import CardComponent from "../CardComponent";
 import "./style.css";
 
 
 class CommentComponent extends Component {
-    state = {
-        commentTitle: "",
-        commentBody: "",
-        positiveComment: false,
-        negativeComment: false,
-        studentID: "5cb52e66777599273c693b72",
-        commentArray: []
+    constructor(props) {
+        super(props)
+        this.state = {
+            commentTitle: "",
+            commentBody: "",
+            positiveComment: false,
+            negativeComment: false,
+            studentID: props.match.params.studentID,
+            studentName: "",
+            commentArray: []
+        };
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.loadComments();
     }
 
     loadComments = () => {
         API.getComments(this.state.studentID)
-        .then(res => this.setState({ commentArray: res.data}))
+        .then(res => {this.setState({ commentArray: res.data.commentArr, studentName: `${res.data.firstname} ${res.data.lastname}`}); console.log(res)})
         .catch(err => console.log(err));
     }
 
@@ -48,7 +53,11 @@ class CommentComponent extends Component {
             commentFrom: this.props.user.id
         };
         API.addComment((this.state.studentID), newComment)
-            .then(res => {console.log(res); this.resetInput()})
+            .then(res => {
+                console.log(res); 
+                this.resetInput()
+                this.loadComments();
+            })
             .catch(err => console.log(err));
     }
 
@@ -74,7 +83,7 @@ class CommentComponent extends Component {
         }
 
         return (
-            <React.Fragment>
+            <CardComponent headerText = {`Comments - ${this.state.studentName}`}>
             <div className="container p-2" id="commentDisplay">
                 <form className="ui inverted segment" id="commentBox" onSubmit={this.handleSubmit}>
                     <div className="ui huge fluid inverted input">
@@ -115,7 +124,7 @@ class CommentComponent extends Component {
             <div className="container p-2">
                 <CommentDisplay commentArray={this.state.commentArray} />
             </div>
-            </React.Fragment>
+            </CardComponent>
         )
     }
 }
