@@ -5,8 +5,8 @@ import AddBehavior from "../AddBehavior";
 import CardComponent from "../../CardComponent";
 import API from "../../../../utils/API";
 // redux imports ===============================
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
+// import {bindActionCreators} from "redux";
+// import {connect} from "react-redux";
 
 class BehaviorFrequency extends React.Component {
     constructor(props) {
