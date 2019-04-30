@@ -28,7 +28,7 @@ class ProfileComponent extends Component {
         }
 
     loadStudents = () => {
-        API.getStudents()
+        API.getstudents()
         .then(res => {console.log(res);
             this.setState({ studentList: res.data }, () => (console.log(res.data)))})
             .catch(err => console.log(err));
@@ -42,7 +42,7 @@ class ProfileComponent extends Component {
         
     studentOptions = () => {
         return this.state.studentList.map(student => (
-                {key: student._id, text: student.name, value: student._id}
+                {key: student._id, text: `${student.lastname} ${student.firstname}`, value: student._id}
             ))
         }     
 

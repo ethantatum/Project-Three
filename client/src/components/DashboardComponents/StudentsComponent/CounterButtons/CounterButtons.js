@@ -1,4 +1,5 @@
 import React from "react";
+import './CounterButtons.css'
 
 const behaviors = [
     {
@@ -81,10 +82,10 @@ function CounterButtons(props) {
                     <div className="row behaviorTypeHeader">
                     <h3>Negative Behaviors</h3>
                     </div>
-                    {behaviors.filter(behavior => behavior.type === "negative").map(button => (
+                    {behaviors.filter(behavior => props.type === "negative").map(button => (
                         <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                             <button type="button" className="btn btn-danger" onClick={props.handleDecrement}>-</button>
-                            <span id="btnSpan" className="bg-danger">{button.behavior}<br />{props.count}</span>
+                            <span id="btnSpan" className="bg-danger">{props.behavior}<br />{props.frequency}</span>
                             <button type="button" className="btn btn-danger" onClick={props.handleIncrement}>+</button>
                         </div>
                     ))}
@@ -95,10 +96,10 @@ function CounterButtons(props) {
                     <h3>Positive Behaviors</h3>
                     </div>
 
-                    {behaviors.filter(behavior => behavior.type === "positive").map(button => (
+                    {behaviors.filter(behavior => props.type === "positive").map(button => (
                         <div key={button.id} className="btn-group btn-group-lg" role="group" aria-label="Basic example">
                             <button type="button" className="btn btn-success" onClick={props.handleDecrement}>-</button>
-                            <span id="btnSpan" className="bg-success">{button.behavior}<br />{props.count}</span>
+                            <span id="btnSpan" className="bg-success">{props.behavior}<br />{props.frequency}</span>
                             <button type="button" className="btn btn-success" onClick={props.handleIncrement}>+</button>
                         </div>
                     ))

@@ -1,4 +1,5 @@
 import React from "react";
+import LinkButton from './LinkButton';
 import "./style.css";
 
 const StudentContainer = (props) => {
@@ -8,12 +9,13 @@ const StudentContainer = (props) => {
                 <img src={props.image}></img>
             </div> */}
             <div id="studContName">
-                <h2>{props.firstname} {props.lastname}</h2>
+                <h2 className="text-white">{props.firstname} {props.lastname}</h2>
+                <img className="img-thumbnail img-fluid" src={props.image} />
                 {/* <h2>{props.class}</h2> */}
             </div>
             <div id="studContButtons">
-                <button type="button" class="btn btn-light btn-lg studContBtn">Behaviors</button><br></br>
-                <button type="button" class="btn btn-light btn-lg studContBtn">Comments</button>
+                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
+                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
             </div>
         </div>
     )
