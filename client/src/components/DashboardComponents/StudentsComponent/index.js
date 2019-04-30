@@ -76,6 +76,7 @@ class ClassesComponent extends Component {
                                         id={student._id}
                                         firstname={student.firstname}
                                         lastname={student.lastname}
+                                        image={student.image}
                                         updateHeader={this.showHeaderText}
                                         match={match}
                                     /> 
