@@ -45,6 +45,10 @@ export default {
     return axios.get(`/api/student/behavior/${id}`);
   },
 
+  addBehavior: function(id, newBehavior) {
+    return axios.put(`/api/student/behavior/${id}`, newBehavior);
+  },
+
   getComments: function(id) {
     return axios.get(`/api/student/comments/${id}`);
   },

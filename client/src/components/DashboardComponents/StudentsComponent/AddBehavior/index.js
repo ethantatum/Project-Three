@@ -13,23 +13,24 @@ class AddBehavior extends React.Component {
                     </button>
                </p> 
                 <div className="collapse" id="collapseExample">
+                  
                     <form className="form-inline">
-
                         <div className="form-row">
                             <div className="col-sm-3 my-1">
                                 <label className="sr-only" >Behavior</label>
-                                <input type="text" className="form-control" id="inlineFormInputName" placeholder="Add New Behavior"></input>
+                                <input id="behaviorName" value={this.props.behaviorState} onChange={this.props.handleChange} type="text" className="form-control" placeholder="Add New Behavior"></input>
                             </div>
                         </div>
                         <div className="col-auto my-1">
-                            <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <select className="custom-select mr-sm-2" id="type" value={this.props.typeState} onChange={this.props.handleChange}>
                                 <option defaultValue>Behavior Type</option>
                                 <option value="positive">Positive</option>
                                 <option value="negative">Negative</option>
                             </select>
                         </div>
-                        <button type="button" className="btn btn-dark" id="AddBehavBtn">Create Behavior</button>
+                        <button type="submit" className="btn btn-dark" id="AddBehavBtn" disabled={!(this.props.behaviorState && this.props.typeState)} onClick={this.props.handleSubmit}>Create Behavior</button>
                     </form>
+                 
                 </div>
             </React.Fragment>
         );
