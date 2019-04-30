@@ -10,7 +10,7 @@ mongoose.connect(
 
 const studentSeed = [
     {
-        firstname: "Alivia"
+        firstname: "Alivia",
         lastname: "Kane",
         image: "/assets/images/girl1.png",
         behaviors: [
@@ -92,7 +92,7 @@ const studentSeed = [
         ]
     },
     {
-        firstname: "Matthew" 
+        firstname: "Matthew", 
         lastname: "Humphreys",
         image: "/assets/images/boy2.png",
         behaviors: [
@@ -123,7 +123,7 @@ const studentSeed = [
         ]
     },
     {
-        firstname: "Reema"
+        firstname: "Reema",
         lastname: "Spears",
         image: "/assets/images/girl3.png",
         behaviors: [
@@ -146,7 +146,7 @@ const studentSeed = [
         ]
     },
     {
-        firstname: "Dean"
+        firstname: "Dean",
         lastname: "Reed",
         image: "/assets/images/boy3.png",
         behaviors: [
@@ -169,7 +169,7 @@ const studentSeed = [
         ]
     },
     {
-        firstname: "Melody"
+        firstname: "Melody",
         lastname: "Nguyen",
         image: "/assets/images/girl4.png",
         behaviors: [
