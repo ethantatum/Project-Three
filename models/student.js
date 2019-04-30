@@ -15,7 +15,8 @@ const studentSchema = new Schema({
         commentBody: { type: String, required: true },
         positiveComment: Boolean,
         negativeComment: Boolean,
-        commentFrom: { type: String, required: true}
+        commentFrom: { type: String, required: true},
+        time: Date
     }] 
 }, {strict: false});
 

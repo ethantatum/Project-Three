@@ -12,6 +12,7 @@
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
@@ -43,5 +44,6 @@
   "bugs": {
     "url": "https://github.com/ethantatum/Project-Three/issues"
   },
-  "homepage": "https://github.com/ethantatum/Project-Three#readme"
+  "homepage": "https://github.com/ethantatum/Project-Three#readme",
+  "keywords": []
 }
