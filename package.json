@@ -4,8 +4,6 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "dependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
     "bcrypt": "^3.0.5",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.0",
