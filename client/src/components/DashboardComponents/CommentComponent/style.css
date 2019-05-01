@@ -1,5 +1,4 @@
 .container {
-    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -22,13 +21,13 @@
 } */
 
 #commentDisplay {
-    margin-left: 20%;
+    /* margin-left: 20%; */
 }
 
 #commentBox {
-    width: 80%;
+    /* width: 80%; */
 }
 
 .message {
-    width: 700px;
+    /* width: 700px; */
 }
