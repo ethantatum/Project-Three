@@ -50,7 +50,8 @@ class CommentComponent extends Component {
             commentBody: this.state.commentBody,
             positiveComment: this.state.positiveComment,
             negativeComment: this.state.negativeComment,
-            commentFrom: this.props.user.id
+            commentFrom: this.props.user.id,
+            time: new Date
         };
         API.addComment((this.state.studentID), newComment)
             .then(res => {
@@ -71,25 +72,26 @@ class CommentComponent extends Component {
         let imageNeg;
 
         if (positiveComment) {
-            imagePos = require('./images/positive-color2.png');
+            imagePos = require('./images/positivenew-color2.png');
         } else {
-            imagePos = require('./images/positive-grey2.png');
+            imagePos = require('./images/positivenew-grey2.png');
         }
 
         if (negativeComment) {
-            imageNeg = require('./images/negative-color2.png');
+            imageNeg = require('./images/negativenew-color2.png');
         } else {
-            imageNeg = require('./images/negative-grey2.png');
+            imageNeg = require('./images/negativenew-grey2.png');
         }
 
         return (
             <CardComponent headerText={`Comments-${this.state.studentName}`}>
-                <div className="container-fluid" id="commentDisplay">
+                <div>
+                    <h4 className="font-weight-bold font-weight-italic">Enter a Comment</h4>
                     <form className="container-fluid ui inverted segment" id="commentBox" onSubmit={this.handleSubmit}>
                         <div className="ui huge fluid inverted input">
-                            <input autoFocus
+                            <input 
                                 type="text"
-                                placeholder="Comment Title"
+                                placeholder="Title"
                                 value={this.state.commentTitle}
                                 onChange={this.handleChange}
                                 name="commentTitle"
@@ -100,7 +102,7 @@ class CommentComponent extends Component {
                             <textarea
                                 className="container-fluid"
                                 type="text"
-                                placeholder="Comment Body"
+                                placeholder="Comment"
                                 value={this.state.commentBody}
                                 onChange={this.handleChange}
                                 name="commentBody"
@@ -108,12 +110,13 @@ class CommentComponent extends Component {
 
                         </div>
                         <div className="ui inverted divider"></div>
-                        <div>
-                            <label >
+                        <h5 className=" ml-2 text-white">Message Type</h5>
+                        <div className="row">
+                            <label className="col-xs-12 col-md-6">
                                 <input type="radio" name="positiveComment" value={positiveComment} onClick={this.handlePositive} />
                                 <img src={imagePos} alt="smiling emoji" title="Victory!" />
                             </label>
-                            <label className="float-right ">
+                            <label className="col-xs-12 col-md-6">
                                 <input type="radio" name="negativeComment" value={negativeComment} onClick={this.handleNegative} />
                                 <img src={imageNeg} alt="sad emoji" title="Challenge..." />
                             </label>
@@ -122,9 +125,10 @@ class CommentComponent extends Component {
                             <button className="ui inverted green button" type="submit" disabled={!this.validateForm()} onClick={this.handleSubmit}>Post</button>
                 </form>
             </div>
-                    <div className="container p-2">
-                        <CommentDisplay commentArray={this.state.commentArray} />
-                    </div>
+            <div className="mt-3">
+                <h4 className="font-weight-bold font-weight-italic">Previous Comments</h4>
+                <CommentDisplay commentArray={this.state.commentArray} />
+            </div>
             </CardComponent>
                 )
             }

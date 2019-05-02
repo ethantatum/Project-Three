@@ -5,25 +5,29 @@ import moment from "moment";
 function CommentDisplay(props) {
 
     return (
-        <div className="container p-2">
+        <div>
             {props.commentArray.map(comment => {
                 let commentStyle;
+                let commentIcon;
                 if (comment.positiveComment) {
-                    commentStyle = "ui positive message p-2";
+                    commentStyle = "ui large green message p-2";
+                    commentIcon = "smile outline icon";
                 } else if (comment.negativeComment) {
-                    commentStyle = "ui negative message p-2";
+                    commentStyle = "ui large red message p-2";
+                    commentIcon = "frown outline icon";
                 } else {
-                    commentStyle = "ui violet message p-2";
+                    commentStyle = "ui large violet message p-2";
+                    commentIcon = "meh outline icon";
                 }
-                let time = moment(comment.time).startOf('day').fromNow();
+                let time = moment(comment.time).fromNow();
                 return (
                     <div className={commentStyle}>
-                        <i className="close icon"></i>
+                        <i className={commentIcon}></i>
                         <div className="header">
                             <strong>{comment.commentTitle}</strong>
                             <h6>{time}</h6>
                         </div>
-                        <p>{comment.commentBody}</p>
+                        <p><strong>{comment.commentBody}</strong></p>
                     </div>)
             })}
         </div>
