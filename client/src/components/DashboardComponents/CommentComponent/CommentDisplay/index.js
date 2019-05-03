@@ -21,7 +21,7 @@ function CommentDisplay(props) {
                 }
                 let time = moment(comment.time).fromNow();
                 return (
-                    <div className={commentStyle}>
+                    <div className={commentStyle} key={comment.commentTitle}>
                         <i className={commentIcon}></i>
                         <div className="header">
                             <strong>{comment.commentTitle}</strong>

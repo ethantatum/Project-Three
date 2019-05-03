@@ -69,18 +69,18 @@ class ClassesComponent extends Component {
                         <Switch>
                             <Route exact path={`${match.path}`} render={(props) => 
                             <CardComponent headerText = {this.showHeaderText()}>
-                                <div>
-                                {this.state.students.map(student => (
-                                    <StudentContainer 
-                                        key={student._id}
-                                        id={student._id}
-                                        firstname={student.firstname}
-                                        lastname={student.lastname}
-                                        image={student.image}
-                                        updateHeader={this.showHeaderText}
-                                        match={match}
-                                    /> 
-                                ))}
+                                <div className="container bg-warning py-3">
+                                    {this.state.students.map(student => (
+                                        <StudentContainer 
+                                            key={student._id}
+                                            id={student._id}
+                                            firstname={student.firstname}
+                                            lastname={student.lastname}
+                                            image={student.image}
+                                            updateHeader={this.showHeaderText}
+                                            match={match}
+                                        /> 
+                                    ))}
                                 </div>
                             </CardComponent>       
                             }/> 

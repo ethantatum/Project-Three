@@ -1,21 +1,19 @@
 import React from "react";
 import LinkButton from './LinkButton';
-import "./style.css";
+// import "./style.css";
 
 const StudentContainer = (props) => {
     return (
-        <div className="row studentInfo" >
-            {/* <div className="col-4">
-                <img src={props.image}></img>
-            </div> */}
-            <div id="studContName">
-                <h2 className="text-white">{props.firstname} {props.lastname}</h2>
-                <img className="img-thumbnail img-fluid" src={props.image} alt="avatar" />
-                {/* <h2>{props.class}</h2> */}
-            </div>
-            <div id="studContButtons">
-                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
-                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
+        <div className="container bg-primary studentInfo" >
+            <div className="row bg-danger" id="studContName">
+                <div className="py-2 col-xs-12 col-sm-6">
+                    <h3 className="d-flex justify-content-center text-white">{props.firstname} {props.lastname}</h3>
+                    <img className="d-flex justify-content-center img-thumbnail img-fluid" src={props.image} alt="avatar" />
+                </div>
+                <div className="py-2 col-xs-12 col-sm-6" id="studContButtons">
+                    <LinkButton type="button" className="btn btn-light btn-lg d-flex justify-content-center studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
+                    <LinkButton type="button" className="btn btn-light btn-lg d-flex justify-content-center studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
+                </div>
             </div>
         </div>
     )

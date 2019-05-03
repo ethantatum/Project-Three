@@ -51,7 +51,7 @@ class CommentComponent extends Component {
             positiveComment: this.state.positiveComment,
             negativeComment: this.state.negativeComment,
             commentFrom: this.props.user.id,
-            time: new Date
+            time: new Date()
         };
         API.addComment((this.state.studentID), newComment)
             .then(res => {
