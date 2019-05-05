@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
@@ -23,6 +23,7 @@ class ClassesComponent extends Component {
             this.setState({students: this.props.selectedClass.studentArr});
         }
         else{
+            console.log("get all students");
             this.getAllStudents();
         }
     };
@@ -58,14 +59,14 @@ class ClassesComponent extends Component {
             return 'Students - All Students';
         }
         
-    }
+    };
 
     render(){
-        const { match } = this.props;                  
+        const { match } = this.props;     
 
         return (
             <div>
-                
+            
             <Switch>
                 <Route exact path={`${match.path}`} render={(props) => 
                 <CardComponent headerText = {this.showHeaderText()}>
