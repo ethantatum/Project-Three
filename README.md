@@ -1,4 +1,50 @@
+![](readme_images/logo.JPG)
+
+[Click here to check it out!](https://still-journey-26391.herokuapp.com/ "CareConnect")
+
+## CareConnect (Group Project Three)
+### Group Members
+* Leigh Tenore
+* Jose Chaparro
+* Jorge Gomez
+* Ethan Tatum
+
+### App Overview
+#### CareConnect is based on an idea from Leigh, who works at a special needs academy with autistic students. She talked about the difficulties faced as a teacher/caregiver when students are going from class to class, with little ability to share important information about individual students. CareConnect seeks to solve this issue by providing a easy-to-navigate application where teachers can see their different classrooms and students, as well as leave comments about behaviors and track different positive and negative behaviors in real time. Parents can also access the app to view the student information and leave comments for teachers.
+
+### Languages/Technologies Used
+* React
+* Redux
+* MongoDB, Mongoose
+* Postman
+* Passport
+* Semantic UI
+* Bootstrap
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Screenshot examples of functionality can be seen below:
+
+### Landing Page &#9660;
+![](readme_images/landing.JPG)
+
+### Login &#9660;
+![](readme_images/login.JPG)
+
+### Sign Up &#9660;
+![](readme_images/signup.JPG)
+
+### Teacher Classes View &#9660;
+![](readme_images/classes.JPG)
+
+### Teacher Students View &#9660;
+![](readme_images/all_students.JPG)
+
+### Message Input &#9660;
+![](readme_images/message_input.JPG)
+
+### Message Display &#9660;
+![](readme_images/message_display.JPG)
+
 
 ## Available Scripts
 
