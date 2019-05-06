@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
-import BehaviorFrequency from "./BehaviorFrequency";
+import BehaviorFrequency from "./StudentBehavior";
 import CommentComponent from "../CommentComponent";
 import API from '../../../utils/API';
 

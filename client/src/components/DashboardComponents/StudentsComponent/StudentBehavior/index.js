@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-import CounterButtons from "../CounterButtons/CounterButtons.js";
-import AddBehavior from "../AddBehavior";
+import CounterButtons from "./CounterButtons/CounterButtons.js";
+import AddBehavior from "./AddBehavior";
 import CardComponent from "../../CardComponent";
 import API from "../../../../utils/API";
 // redux imports ===============================
@@ -13,6 +13,7 @@ class BehaviorFrequency extends React.Component {
         super(props)
         this.state = {
             behavior: [],
+            isObservingBehavior: false,
             studentID: props.match.params.studentID,
             studentName: "",
             behaviorName: "",
@@ -61,6 +62,7 @@ class BehaviorFrequency extends React.Component {
         .catch(err => console.log(err));
     };
 
+    //methods for incrementing and decrementing behaviors
     handleIncrement = (behaviorID) => {
         const newbehaviorArr = this.state.behavior.map(behavior => {
             let freq = (behavior._id === behaviorID) ? behavior.frequency + 1 : behavior.frequency;
@@ -80,11 +82,12 @@ class BehaviorFrequency extends React.Component {
         console.log(newbehaviorArr);
     };
 
+    //begins the observation of behvaiors, sets behaviors to 0 
     startObservation = () => {
         const newbehaviorArr = this.state.behavior.map(behavior => {
             return {...behavior, frequency: 0};
         });
-        this.setState({behavior: newbehaviorArr});
+        this.setState({behavior: newbehaviorArr, isObservingBehavior: true});
         console.log(newbehaviorArr);
     }
 
