@@ -51,7 +51,7 @@ class CommentComponent extends Component {
             positiveComment: this.state.positiveComment,
             negativeComment: this.state.negativeComment,
             commentFrom: this.props.user.id,
-            time: new Date
+            time: new Date()
         };
         API.addComment((this.state.studentID), newComment)
             .then(res => {
@@ -84,7 +84,7 @@ class CommentComponent extends Component {
         }
 
         return (
-            <CardComponent headerText={`Comments-${this.state.studentName}`}>
+            <CardComponent headerText={`Comments - ${this.state.studentName}`}>
                 <div>
                     <h4 className="font-weight-bold font-weight-italic">Enter a Comment</h4>
                     <form className="container-fluid ui inverted segment" id="commentBox" onSubmit={this.handleSubmit}>
