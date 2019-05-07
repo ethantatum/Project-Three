@@ -106,9 +106,8 @@ class CommentComponent extends Component {
                                 value={this.state.commentBody}
                                 onChange={this.handleChange}
                                 name="commentBody"
-                                cols="95"
-                                rows="6"
                             ></textarea>
+
                         </div>
                         <div className="ui inverted divider"></div>
                         <h5 className=" ml-2 text-white">Message Type</h5>

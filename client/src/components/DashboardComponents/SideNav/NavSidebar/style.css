@@ -12,6 +12,7 @@
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    overflow: hidden;
 }
 
 /*Styles the open navbar*/
@@ -68,4 +69,16 @@
 .side-bar a:hover,
 .side-bar a:active {
     color: teal;
+}
+
+@media (max-width: 375px) {
+    .teacher-btns {
+        display: none;
+    }
+    .parent-btn {
+        display: none;
+    }
+    .side-bar.open {
+        width: 50%;
+    }
 }

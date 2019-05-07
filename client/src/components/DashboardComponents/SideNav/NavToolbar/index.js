@@ -17,7 +17,7 @@ const NavToolbar = props => (
             <div className="spacer"></div>
             <div className="toolbar-items">
                 <ul>
-                    <li><h4>Welcome {props.user}</h4></li>
+                    <li><h4 className="welcome-user">Welcome {props.user}</h4></li>
                 </ul>
                 <ul>
                     <li><a className="h4" href="/" onClick={props.logoutClick}>Log Out</a></li>
