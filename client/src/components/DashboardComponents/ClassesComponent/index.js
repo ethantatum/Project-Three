@@ -72,7 +72,7 @@ class ClassesComponent extends Component {
             console.log(res);
             this.props.selectClass(res);
         })
-        .then( () => this.props.history.push("/dashboard/students"))
+        .then( () => this.props.history.push(`/dashboard/students/${classData._id}`))
         .catch(err => console.log(err));
         // console.log(classData);
         // this.props.selectClass(classData);

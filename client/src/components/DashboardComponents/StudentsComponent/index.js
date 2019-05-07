@@ -11,6 +11,11 @@ class ClassesComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            startTime: "",
+            classID: props.match.params.classID,
+            className: "",
+            isClassSelected: false,
+            isObservingBehavior: false,
             students: [],
             firstname: "",
             lastname: "",
@@ -18,13 +23,14 @@ class ClassesComponent extends Component {
     }
 
     componentDidMount = () => {
-        if(this.props.selectedClass){
-            console.log("class was selected!!!");
-            this.setState({students: this.props.selectedClass.studentArr});
+        console.log(this.state.classID);
+        if(this.state.classID === "all"){
+            console.log("all students");
+            this.getAllStudents();
         }
         else{
-            console.log("get all students");
-            this.getAllStudents();
+            console.log("students in" + this.state.classID);
+            this.getStudentsInClass();
         }
     };
 
@@ -43,52 +49,58 @@ class ClassesComponent extends Component {
                 console.log(mergedStudents);
                 return mergedStudents;
             })
-            .then(data => this.setState({students: data}))
+            .then(data => this.setState({students: data, className: "All Students", isClassSelected: false}))
             .catch(err => console.log(err))
     };
 
+    getStudentsInClass = () => {
+        API.getStudentsInClass(this.state.classID)
+            .then(res => {
+                this.setState({students: res.data.studentArr, className: res.data.name, isClassSelected: true});
+            })
+            .catch(err => console.log(err));
+    }
+
     //function to show the correct header text
-    showHeaderText = (action, student) => {
-        // if(action && student){
-        //     return `${action} - ${student}`;
-        // }
-        if(this.props.selectedClass){
-            return `Students - ${this.props.selectedClass.name}`;
-        }
-        else{
-            return 'Students - All Students';
-        }
+    // showHeaderText = (action, student) => {
+    //     // if(action && student){
+    //     //     return `${action} - ${student}`;
+    //     // }
+    //     if(this.state.classID === "all"){
+    //         return `Students - All Students`;
+    //     }
+    //     else{
+    //         return 'Students - All Students';
+    //     }
         
-    };
+    // };
 
     render(){
         const { match } = this.props;     
 
         return (
-            <div>
-                
-                        <Switch>
-                            <Route exact path={`${match.path}`} render={(props) => 
-                            <CardComponent headerText = {this.showHeaderText()}>
-                                <div className="container bg-dark py-3">
-                                    {this.state.students.map(student => (
-                                        <StudentContainer 
-                                            key={student._id}
-                                            id={student._id}
-                                            firstname={student.firstname}
-                                            lastname={student.lastname}
-                                            image={student.image}
-                                            updateHeader={this.showHeaderText}
-                                            match={match}
-                                        /> 
-                                    ))}
-                                </div>
-                            </CardComponent>       
-                            }/> 
-                            <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
-                            <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
-                        </Switch>  
-               
+            <div>       
+                <Switch>
+                    <Route exact path={`${match.path}`} render={(props) => 
+                        <CardComponent headerText = {`Students - ${this.state.className}`}>
+                            <div className="container bg-dark py-3">
+                                {this.state.students.map(student => (
+                                    <StudentContainer 
+                                        key={student._id}
+                                        id={student._id}
+                                        firstname={student.firstname}
+                                        lastname={student.lastname}
+                                        image={student.image}
+                                        updateHeader={this.showHeaderText}
+                                        match={match}
+                                    /> 
+                                ))}
+                            </div>
+                        </CardComponent>       
+                    }/> 
+                    <Route exact path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
+                    <Route exact path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
+                </Switch>  
             </div>
         );
     }

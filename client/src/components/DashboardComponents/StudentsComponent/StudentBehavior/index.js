@@ -14,8 +14,8 @@ class BehaviorFrequency extends React.Component {
         super(props)
         this.state = {
             behavior: [],
-            startTime: "",
-            isObservingBehavior: false,
+            // startTime: "",
+            // isObservingBehavior: false,
             studentID: props.match.params.studentID,
             studentName: "",
             behaviorName: "",
@@ -84,14 +84,14 @@ class BehaviorFrequency extends React.Component {
     };
 
     //begins the observation of behvaiors, sets behaviors to 0 
-    startObservation = () => {
-        const newbehaviorArr = this.state.behavior.map(behavior => {
-            return {...behavior, frequency: 0};
-        });
-        this.setState({behavior: newbehaviorArr, isObservingBehavior: true});
-        console.log(moment().format("L"));
-        //gets the start time and date of when observation started using moment
-    }
+    // startObservation = () => {
+    //     const newbehaviorArr = this.state.behavior.map(behavior => {
+    //         return {...behavior, frequency: 0};
+    //     });
+    //     this.setState({behavior: newbehaviorArr, isObservingBehavior: true});
+    //     console.log(moment().format("L"));
+    //     //gets the start time and date of when observation started using moment
+    // }
 
     endObservation = () => {
         //changes isObservingBehavior to false
