@@ -1,0 +1,33 @@
+
+.classInfo {
+    justify-self: center;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background: rgb(65, 65, 65);
+    color: white;
+    height: 180px;
+    width: 350px;
+    margin-bottom: 40px;
+}
+.classForm {
+    justify-self: center;
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 20px;
+    background: rgb(65, 65, 65);
+    color: white;
+    height: 180px;
+    width: 350px;
+    margin-bottom: 40px;
+}
+.classForm > img {
+    margin: auto;
+}
+.classInfo > h2,h3,h4{
+    align-self: center;
+}
+.mainClassCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

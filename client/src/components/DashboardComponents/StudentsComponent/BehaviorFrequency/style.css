@@ -1,0 +1,51 @@
+h1 {
+    color: black;
+    /* font-family: 'Alegreya', serif; */
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+h3 {
+    color: black;
+    /* font-family: 'Alegreya', serif; */
+    font-size: 2rem;
+    margin: 2% 0%;
+    text-align: center;
+}
+
+form.form-inline {
+    text-align: center;
+    padding-left: 325px;
+}
+
+.far {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+#btnSpan {
+    color: white;
+    padding: 2px;
+    width: 100px;
+    text-align: center;
+}
+
+.btn-group {
+    padding: 5px 0px;
+    margin: 5px 40px;
+}
+
+#dropdown {
+    display: flex;
+}
+
+#beginBtn {
+    margin: 0px 0px 13px 50px;
+}
+
+/* .container-fluid {
+    margin-bottom: 10rem;
+    margin-left: 25%;
+} */

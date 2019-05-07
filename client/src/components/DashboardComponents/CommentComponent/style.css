@@ -1,0 +1,33 @@
+.container {
+    margin-bottom: 20px;
+}
+
+/* HIDE RADIO */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio]+img {
+    cursor: pointer;
+}
+
+/* .container-fluid {
+    background-color: white;
+    border: 1px solid black;
+} */
+
+#commentDisplay {
+    /* margin-left: 20%; */
+}
+
+#commentBox {
+    /* width: 80%; */
+}
+
+.message {
+    /* width: 700px; */
+}
