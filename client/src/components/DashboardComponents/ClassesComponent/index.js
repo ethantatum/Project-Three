@@ -4,7 +4,7 @@ import ClassContainer from "./ClassInfoContainer";
 import CardComponent from "../CardComponent"
 import AddClass from "./AddClass";
 import { Input, FormBtn, CancelBtn } from "./ClassForm";
-import "./style.css";
+// import "./style.css";
 // redux imports ===============================
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
@@ -82,20 +82,23 @@ class ClassesComponent extends Component {
         
         return (
             <CardComponent headerText = "Classes">
-                <div className="mainClassCont">
-                    {this.state.classes.map(classRoom => (
-                        <ClassContainer 
-                            key={classRoom._id}
-                            id={classRoom._id}
-                            name={classRoom.name}
-                            time={classRoom.time}
-                            studentArr={classRoom.studentArr}
-                            clickClass={() => this.clickClass(classRoom)}
-                        />
-                    ))}
-                    <AddClass handleAddClick = {() => {if(this.state.addClass === false){this.setState({addClass: true})}}}>
+                <div className="container bg-warning mainClassCont">
+                    <div className="row d-flex bg-info">
+                        <div className="col-xs-12 col-sm-6 justify-content-center bg-primary">
+                            {this.state.classes.map(classRoom => (
+                                <ClassContainer
+                                    key={classRoom._id}
+                                    id={classRoom._id}
+                                    name={classRoom.name}
+                                    time={classRoom.time}
+                                    studentArr={classRoom.studentArr}
+                                    clickClass={() => this.clickClass(classRoom)}
+                                />
+                            ))}
+                    <AddClass handleAddClick = {() => {if(this.state.addClass === false){this.setState({addClass: true})}}} >
+                    
                     {this.state.addClass ? (
-                        <div className="addClassCont">
+                        <div className="m-1 p-1 bg-dark text-white addClassCont">
                             <form>
                                 <Input
                                     id="className"
@@ -126,9 +129,11 @@ class ClassesComponent extends Component {
                             </CancelBtn>
                         </div>
                         ) : (
-                        <img src={require('./images/add.svg')} alt="Add Class" /> 
+                        <img className="bg-dark p-2" src={require('./images/add.svg')} alt="Add Class" /> 
                     )}
                     </AddClass>
+                    </div>
+                    </div>
                 </div>
             </CardComponent>
 
