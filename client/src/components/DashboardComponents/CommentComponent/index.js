@@ -89,7 +89,7 @@ class CommentComponent extends Component {
                     <div className="ui huge fluid inverted input">
                         <input autoFocus
                             type="text"
-                            placeholder="Comment Title"
+                            placeholder="Subject"
                             value={this.state.commentTitle}
                             onChange={this.handleChange}
                             name="commentTitle"
@@ -101,10 +101,12 @@ class CommentComponent extends Component {
                             <textarea 
                                 className="fluid message"
                                 type="text"
-                                placeholder="Comment Body"
+                                placeholder="Write Comment Here"
                                 value={this.state.commentBody}
                                 onChange={this.handleChange}
                                 name="commentBody"
+                                cols="95"
+                                rows="6"
                             ></textarea>
                         </div>
                     </div>
