@@ -78,4 +78,7 @@
     .parent-btn {
         display: none;
     }
+    .side-bar.open {
+        width: 50%;
+    }
 }

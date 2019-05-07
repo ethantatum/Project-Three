@@ -60,3 +60,12 @@
         display: none;
     }
 }
+
+@media (max-width: 375px) {
+    .welcome-user {
+        display: none;
+    }
+    .h4 {
+        font-size: 14px;
+    }
+}
