@@ -66,28 +66,28 @@ class ClassesComponent extends Component {
 
         return (
             <div>
-            
-            <Switch>
-                <Route exact path={`${match.path}`} render={(props) => 
-                <CardComponent headerText = {this.showHeaderText()}>
-                    <div>
-                    {this.state.students.map(student => (
-                        <StudentContainer 
-                            key={student._id}
-                            id={student._id}
-                            firstname={student.firstname}
-                            lastname={student.lastname}
-                            image={student.image}
-                            updateHeader={this.showHeaderText}
-                            match={match}
-                        /> 
-                    ))}
-                    </div>
-                </CardComponent>       
-                }/> 
-                <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
-                <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
-            </Switch>  
+                
+                        <Switch>
+                            <Route exact path={`${match.path}`} render={(props) => 
+                            <CardComponent headerText = {this.showHeaderText()}>
+                                <div className="container bg-dark py-3">
+                                    {this.state.students.map(student => (
+                                        <StudentContainer 
+                                            key={student._id}
+                                            id={student._id}
+                                            firstname={student.firstname}
+                                            lastname={student.lastname}
+                                            image={student.image}
+                                            updateHeader={this.showHeaderText}
+                                            match={match}
+                                        /> 
+                                    ))}
+                                </div>
+                            </CardComponent>       
+                            }/> 
+                            <Route path={`${match.path}/behaviors/:studentID`} component={BehaviorFrequency}/>
+                            <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
+                        </Switch>  
                
             </div>
         );
