@@ -69,7 +69,7 @@ class ClassesComponent extends Component {
                         <Switch>
                             <Route exact path={`${match.path}`} render={(props) => 
                             <CardComponent headerText = {this.showHeaderText()}>
-                                <div className="container bg-warning py-3">
+                                <div className="container bg-dark py-3">
                                     {this.state.students.map(student => (
                                         <StudentContainer 
                                             key={student._id}
