@@ -3,6 +3,7 @@ import "./style.css";
 import CounterButtons from "./CounterButtons/CounterButtons.js";
 import AddBehavior from "./AddBehavior";
 import CardComponent from "../../CardComponent";
+import moment from "moment";
 import API from "../../../../utils/API";
 // redux imports ===============================
 // import {bindActionCreators} from "redux";
@@ -13,6 +14,7 @@ class BehaviorFrequency extends React.Component {
         super(props)
         this.state = {
             behavior: [],
+            startTime: "",
             isObservingBehavior: false,
             studentID: props.match.params.studentID,
             studentName: "",
@@ -49,7 +51,6 @@ class BehaviorFrequency extends React.Component {
         console.log("formsubmit");
         }
     };
-    
     
     //Loads the Behaviors that belong to the current student
     loadBehaviors = () => {
@@ -88,12 +89,16 @@ class BehaviorFrequency extends React.Component {
             return {...behavior, frequency: 0};
         });
         this.setState({behavior: newbehaviorArr, isObservingBehavior: true});
-        console.log(newbehaviorArr);
+        console.log(moment().format("L"));
+        //gets the start time and date of when observation started using moment
     }
 
     endObservation = () => {
+        //changes isObservingBehavior to false
+        //gets the end time using moment
 
     }
+
     render() {
         return (
             <CardComponent headerText = {`Behaviors - ${this.state.studentName}`}>
