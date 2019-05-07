@@ -31,6 +31,11 @@ export default {
     return axios.post(`/api/user/${id}`, userData);
   },
   //=============== API calls for students ==================//
+  // Gets all students
+  getstudents: function() {
+    return axios.get("/api/student");
+  },
+
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/student/" + id);
@@ -38,6 +43,10 @@ export default {
 
   getBehavior: function(id) {
     return axios.get(`/api/student/behavior/${id}`);
+  },
+
+  addBehavior: function(id, newBehavior) {
+    return axios.put(`/api/student/behavior/${id}`, newBehavior);
   },
 
   getComments: function(id) {

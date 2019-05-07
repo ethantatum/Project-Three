@@ -9,7 +9,8 @@ const StudentContainer = (props) => {
                 <img src={props.image}></img>
             </div> */}
             <div id="studContName">
-                <h2>{props.firstname} {props.lastname}</h2>
+                <h2 className="text-white">{props.firstname} {props.lastname}</h2>
+                <img className="img-thumbnail img-fluid" src={props.image} alt="avatar" />
                 {/* <h2>{props.class}</h2> */}
             </div>
             <div id="studContButtons">

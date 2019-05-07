@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {connect} from "react-redux";
 import CardComponent from "../CardComponent";
 import StudentContainer from "./StudentContainer";
@@ -76,6 +76,7 @@ class ClassesComponent extends Component {
                                         id={student._id}
                                         firstname={student.firstname}
                                         lastname={student.lastname}
+                                        image={student.image}
                                         updateHeader={this.showHeaderText}
                                         match={match}
                                     /> 
