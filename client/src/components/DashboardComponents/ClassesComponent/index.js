@@ -37,9 +37,9 @@ class ClassesComponent extends Component {
     };
     
     //function that runs when user clicks cancel button 
-    handleCancel = () => {
-        this.setState({addClass: false});
-    };
+    // handleCancel = () => {
+    //     this.setState({addClass: false});
+    // };
 
     //for form input
     handleChange = (event) => {
