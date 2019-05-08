@@ -129,6 +129,17 @@ class ClassesComponent extends Component {
                 studentBehavior.behaviors.push(behaviorObj);
             }
         })
+    };
+
+    setInitialBehaviorCounter = (behaviorObj) => {
+        const BehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
+            return {...studentBehavior}
+        })
+        BehaviorArr.push(behaviorObj);
+        console.log(BehaviorArr);
+        // const updatedBehaviorArr = this.state.recordedBehaviors.push(behaviorObj);
+        // console.log(updatedBehaviorArr);
+        this.setState({recordedBehaviors: BehaviorArr});
     }
 
 
@@ -209,6 +220,7 @@ class ClassesComponent extends Component {
                         <BehaviorFrequency 
                             {...props}
                             recordedBehaviors={this.state.recordedBehaviors}
+                            setInitialBehaviorCounter={this.setInitialBehaviorCounter}
                         />
                     }/>
                     <Route exact path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
