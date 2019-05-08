@@ -117,7 +117,7 @@ class ProfileComponent extends Component {
                         </form>
         }
         return (
-            <div className="container m-3 pt-5 pl-5" >
+            <div className="container pt-5 pl-5" >
                 <React.Fragment>
                     <div className="ui fluid inverted left icon input">
                         <input

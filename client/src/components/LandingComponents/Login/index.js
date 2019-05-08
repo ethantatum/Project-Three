@@ -114,7 +114,6 @@ class Login extends Component {
                             </span>
                         </div>
                         <div className="ui inverted divider"></div>
-                        <div>{errors.passwordincorrect}</div>
                         <button className="ui inverted button" type="submit" disabled={!this.validateForm()}>Login</button>
                         <button className="ui inverted red button" type="submit" onClick={this.props.handleLogin}>Cancel</button>
                     </form>

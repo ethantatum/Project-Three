@@ -37,9 +37,9 @@ class ClassesComponent extends Component {
     };
     
     //function that runs when user clicks cancel button 
-    handleCancel = () => {
-        this.setState({addClass: false});
-    };
+    // handleCancel = () => {
+    //     this.setState({addClass: false});
+    // };
 
     //for form input
     handleChange = (event) => {
@@ -72,7 +72,7 @@ class ClassesComponent extends Component {
             console.log(res);
             this.props.selectClass(res);
         })
-        .then( () => this.props.history.push("/dashboard/students"))
+        .then( () => this.props.history.push(`/dashboard/students/${classData._id}`))
         .catch(err => console.log(err));
         // console.log(classData);
         // this.props.selectClass(classData);
