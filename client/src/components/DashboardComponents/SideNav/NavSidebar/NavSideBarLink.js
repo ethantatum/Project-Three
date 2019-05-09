@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Link } from "react-router-dom";
 
-
+//used to style active link
 function NavSideBarLink({ label, to, activeOnlyWhenExact }) {
     return (
       <Route
