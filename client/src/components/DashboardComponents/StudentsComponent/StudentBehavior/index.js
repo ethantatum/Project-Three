@@ -25,6 +25,10 @@ class BehaviorFrequency extends React.Component {
     componentDidMount = () => {
         this.loadBehaviors();
     };
+    componentWillUnmount = () => {
+        console.log("unmount ran");
+        this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});
+    }
 
     //for form input
     handleChange = (event) => {
@@ -44,6 +48,7 @@ class BehaviorFrequency extends React.Component {
         })
         .then((res) => {
             console.log(res);
+            //instead of calling loadbehavior function, get the response and add it to state
             this.loadBehaviors();
         })
         .catch(err => console.log(err));  
@@ -82,7 +87,7 @@ class BehaviorFrequency extends React.Component {
                         return {...behavior, frequency: 0};
                     })
                 };
-                this.props.setInitialBehaviorCounter(BehaviorObj);
+                // this.props.setInitialBehaviorCounter(BehaviorObj);
                 this.setState({ behaviors: BehaviorObj.behaviors, studentName: BehaviorObj.studentName});
             })
             .catch(err => console.log(err));
@@ -91,24 +96,25 @@ class BehaviorFrequency extends React.Component {
     };
 
     //methods for incrementing and decrementing behaviors
-    // handleIncrement = (behaviorID) => {
-    //     const newbehaviorArr = this.state.behavior.map(behavior => {
-    //         let freq = (behavior._id === behaviorID) ? behavior.frequency + 1 : behavior.frequency;
-    //         return {...behavior, frequency: freq};
-    //     });
-    //     this.setState({behavior: newbehaviorArr});
-    //     console.log(newbehaviorArr);
+    handleIncrement = (behaviorID) => {
+        const newbehaviorArr = this.state.behaviors.map(behavior => {
+            let freq = (behavior._id === behaviorID) ? behavior.frequency + 1 : behavior.frequency;
+            return {...behavior, frequency: freq};
+        });
+        this.setState({behaviors: newbehaviorArr});
+        // this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});
+        console.log(newbehaviorArr);
         
-    // };
+    };
 
-    // handleDecrement = (behaviorID) => {
-    //     const newbehaviorArr = this.state.behavior.map(behavior => {
-    //         let freq = (behavior._id === behaviorID) ? behavior.frequency - 1 : behavior.frequency;
-    //         return {...behavior, frequency: freq};
-    //     });
-    //     this.setState({behavior: newbehaviorArr});
-    //     console.log(newbehaviorArr);
-    // };
+    handleDecrement = (behaviorID) => {
+        const newbehaviorArr = this.state.behaviors.map(behavior => {
+            let freq = (behavior._id === behaviorID) ? behavior.frequency - 1 : behavior.frequency;
+            return {...behavior, frequency: freq};
+        });
+        this.setState({behaviors: newbehaviorArr});
+        // this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});        console.log(newbehaviorArr);
+    };
 
     //begins the observation of behvaiors, sets behaviors to 0 
     // startObservation = () => {
@@ -148,8 +154,8 @@ class BehaviorFrequency extends React.Component {
                     // frequency={behavior.frequency}
                     // behavior={behavior.behavior}
                     behaviors={this.state.behaviors}
-                    // handleIncrement={this.handleIncrement}
-                    // handleDecrement={this.handleDecrement}
+                    handleIncrement={this.handleIncrement}
+                    handleDecrement={this.handleDecrement}
                     />
 
 

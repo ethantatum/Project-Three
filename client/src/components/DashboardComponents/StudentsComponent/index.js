@@ -133,10 +133,23 @@ class ClassesComponent extends Component {
     };
 
     setInitialBehaviorCounter = (behaviorObj) => {
+        let didFindMatch;
         const BehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
             return {...studentBehavior}
-        })
-        BehaviorArr.push(behaviorObj);
+        });
+        if(this.state.recordedBehaviors.length === 0){
+            BehaviorArr.push(behaviorObj);
+            didFindMatch = false;
+        }
+        else{
+            for(let i = 0; i < BehaviorArr.length; i++){
+                if(behaviorObj.studentID === BehaviorArr[i].studentID){
+                    BehaviorArr[i].behaviors = behaviorObj.behaviors;
+                    break;
+                } 
+            }     
+        }
+        
         console.log(BehaviorArr);
         // const updatedBehaviorArr = this.state.recordedBehaviors.push(behaviorObj);
         // console.log(updatedBehaviorArr);

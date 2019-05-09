@@ -19,6 +19,7 @@ const NavSideBar = (props) => {
                 <NavSideBarLink to={`${props.match.url}/classes`} label="Classes" />
             </li>
             <li>
+    
                 <NavSideBarLink to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`} label="Students"/>
             </li>
             <li>
