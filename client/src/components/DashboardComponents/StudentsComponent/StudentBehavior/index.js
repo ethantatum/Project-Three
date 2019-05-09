@@ -4,6 +4,7 @@ import CounterButtons from "./CounterButtons/CounterButtons.js";
 import AddBehavior from "./AddBehavior";
 import CardComponent from "../../CardComponent";
 import API from "../../../../utils/API";
+import { FeedSummary } from "semantic-ui-react";
 // redux imports ===============================
 // import {bindActionCreators} from "redux";
 // import {connect} from "react-redux";
@@ -25,10 +26,19 @@ class BehaviorFrequency extends React.Component {
     componentDidMount = () => {
         this.loadBehaviors();
     };
+
     componentWillUnmount = () => {
         console.log("unmount ran");
-        this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});
-    }
+        const newArr = this.state.behaviors.map(behavior => {
+            return behavior.frequency;
+        });
+        // let sum = newArr.reduce((partial_sum, a) => partial_sum + a,0)
+        // console.log(sum);
+        if(this.state.behaviors.length > 0) {
+            this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});
+        }
+        
+    };
 
     //for form input
     handleChange = (event) => {
@@ -104,15 +114,19 @@ class BehaviorFrequency extends React.Component {
             return {...behavior, frequency: freq};
         });
         this.setState({behaviors: newbehaviorArr});
-        // this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});
-        console.log(newbehaviorArr);
-        
+    
     };
 
     handleDecrement = (behaviorID) => {
         const newbehaviorArr = this.state.behaviors.map(behavior => {
             let freq = (behavior._id === behaviorID) ? behavior.frequency - 1 : behavior.frequency;
-            return {...behavior, frequency: freq};
+            if(freq >= 0){
+                return {...behavior, frequency: freq};
+            }
+            else{
+                return {...behavior, frequency: behavior.frequency};
+            }
+            
         });
         this.setState({behaviors: newbehaviorArr});
         // this.props.setInitialBehaviorCounter({studentID: this.state.studentID, studentName: this.state.studentName, behaviors: this.state.behaviors});        console.log(newbehaviorArr);
@@ -128,11 +142,11 @@ class BehaviorFrequency extends React.Component {
     //     //gets the start time and date of when observation started using moment
     // }
 
-    endObservation = () => {
-        //changes isObservingBehavior to false
-        //gets the end time using moment
+    // endObservation = () => {
+    //     //changes isObservingBehavior to false
+    //     //gets the end time using moment
 
-    }
+    // }
 
     render() {
         return (
@@ -140,7 +154,7 @@ class BehaviorFrequency extends React.Component {
                 <div className="container-fluid p-2">
                     <h1 className="behavior-header">Behavior Frequency Counters</h1>
 
-                    <button onClick={this.startObservation}>Start Observation</button>
+                    
                     <AddBehavior 
                         typeState={this.state.type}
                         behaviorState={this.state.behaviorName}

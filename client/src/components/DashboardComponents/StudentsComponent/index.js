@@ -24,7 +24,8 @@ class ClassesComponent extends Component {
             isAddingStudent: false,
             recordedBehaviors: [],
             startTime: "",
-
+            endTIme: "",
+            date: ""
         };    
     }
 
@@ -94,16 +95,6 @@ class ClassesComponent extends Component {
         }
     };
 
-    // begins the observation of behvaiors, sets behaviors to 0 
-    startObservation = () => {
-        const newbehaviorArr = this.state.behavior.map(behavior => {
-            return {...behavior, frequency: 0};
-        });
-        this.setState({behavior: newbehaviorArr, isObservingBehavior: true});
-        console.log(moment().format("L"));
-        //gets the start time and date of when observation started using moment
-    };
-
     //Loop through studentArr and get each students behavior and set their frequency to 0
     setBehaviorCounters = () => {
         API.getStudentsInClass(this.state.classID)
@@ -124,38 +115,78 @@ class ClassesComponent extends Component {
 
     //This method is called when user creates a new behavior while tracking behaviors, 
     //child container passes the new behavior objects as an argument and the method saves it to state keeping the other behavior's frequencys untouched
-    addNewBehaviorToState = (studentID, behaviorObj) => {
-        const updatedBehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
-            if(studentBehavior.studentID === studentID){
-                studentBehavior.behaviors.push(behaviorObj);
-            }
-        })
-    };
+    // addNewBehaviorToState = (studentID, behaviorObj) => {
+    //     const updatedBehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
+    //         if(studentBehavior.studentID === studentID){
+    //             studentBehavior.behaviors.push(behaviorObj);
+    //         }
+    //     })
+    // };
 
     //updates the behavior state when user adds frequency
     setInitialBehaviorCounter = (behaviorObj) => {
-        
+        let didFindMatch;
+        const sumArr = behaviorObj.behaviors.map(behavior => {
+            return behavior.frequency;
+        });
+        let sum = sumArr.reduce((partial_sum, a) => partial_sum + a);
+        console.log(sum);
+
         const BehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
             return {...studentBehavior}
         });
+
         if(this.state.recordedBehaviors.length === 0){
-            BehaviorArr.push(behaviorObj);
-            
+            // BehaviorArr.push(behaviorObj);
+            didFindMatch = false;
         }
         else{
             for(let i = 0; i < BehaviorArr.length; i++){
-                if(behaviorObj.studentID === BehaviorArr[i].studentID){
-                    BehaviorArr[i].behaviors = behaviorObj.behaviors;
-                    break;
+                if(behaviorObj.studentID === BehaviorArr[i].studentID ){
+                    if(sum === 0){
+                        console.log("exist return 0");
+                        BehaviorArr[i].behaviors = behaviorObj.behaviors;
+                        didFindMatch = true; 
+                        break;      
+                    }
+                    else{
+                        BehaviorArr[i].behaviors = behaviorObj.behaviors;
+                        didFindMatch = true; 
+                        break;
+                    }
+
+                }
+                else{
+                    didFindMatch = false;
                 } 
             }     
-        }
-        
+        };
+        if(!didFindMatch && sum > 0){
+            BehaviorArr.push(behaviorObj);
+        };
+    
         console.log(BehaviorArr);
         // const updatedBehaviorArr = this.state.recordedBehaviors.push(behaviorObj);
         // console.log(updatedBehaviorArr);
         this.setState({recordedBehaviors: BehaviorArr});
-    }
+    };
+
+    // begins the observation of behvaiors, sets behaviors to 0 
+    startObservation = () => {
+        this.setState({isObservingBehavior: true, date: moment().format("L"), startTime: moment().format("LT")});
+        console.log(moment().format("L"));
+        console.log(moment().format("LT"));
+        //gets the start time and date of when observation started using moment
+    };
+
+    endObservation = () => {
+        this.setState({isObservingBehavior: false, endTime: moment().format("LT")});
+        console.log(moment().format("LT"));
+
+        // const newArr = this.state.recordedBehaviors.filter
+        //gets the start time and date of when observation started using moment
+    };
+
 
 
 
@@ -182,6 +213,10 @@ class ClassesComponent extends Component {
                     <Route exact path={`${match.path}`} render={(props) => 
                         <CardComponent headerText = {`Students - ${this.state.className}`}>
                             <div className="container">
+                                <div>
+                                    <button onClick={this.startObservation}>Start Observation</button>
+                                    <button onClick={this.endObservation}>End Observation</button>
+                                </div>
                                 <div className="row d-flex">
                                     {this.state.students.map(student => (
                                         <StudentContainer 
