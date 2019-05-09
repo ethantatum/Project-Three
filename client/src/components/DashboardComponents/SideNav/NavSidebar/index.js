@@ -21,12 +21,12 @@ const NavSideBar = (props) => {
             <li>
                 <Link to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`}>Students</Link>
             </li>
-            <li>
+            {/* <li>
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
             </li>
             <li>
                 <Link to={`${props.match.url}/notes`}>Notes</Link>
-            </li>
+            </li> */}
             <li>
                 <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
@@ -38,12 +38,12 @@ const NavSideBar = (props) => {
             <li>
                 <Link to={`${props.match.url}/students`}>My Students</Link>
             </li>
-            <li>
+            {/* <li>
                 <Link to={`${props.match.url}/reports`}>Reports</Link>
             </li>
             <li>
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
-            </li>
+            </li> */}
             <li >
                 <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>

@@ -71,7 +71,7 @@
     color: teal;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 415px) {
     .teacher-btns {
         display: none;
     }
@@ -79,6 +79,6 @@
         display: none;
     }
     .side-bar.open {
-        width: 50%;
+        width: 35%;
     }
 }
