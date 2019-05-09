@@ -58,14 +58,14 @@ class Dashboard extends Component {
       <React.Fragment>
         <Router>
           <NavToolbar clickHandler={this.NavSidebarClickHandler} logoutClick={this.onLogoutClick} user={user.name} />
-          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match} userImage={this.state.userImage}/>
+          <NavSidebar show={this.state.NavSidebarOpen} user={user.name} isTeacher={user.isTeacher} match={match} selectedClass={this.props.selectedClass} userImage={this.state.userImage}/>
           {backdrop}
   
           <div className="componentContainer">
               <Switch>
                 <Route exact path={`${match.path}/messages`} component={CommentComponent} />
                 <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
-                <Route path={`${match.path}/students`} component={StudentsComponent} />
+                <Route path={`${match.path}/students/:classID`} component={StudentsComponent} />
                 <Route exact path={`${match.path}/classes`} component={ClassComponent} />
               </Switch>
           </div>
@@ -80,6 +80,8 @@ Dashboard.propTypes = {
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  selectedClass: state.selectedClass
 });
+
 export default connect(mapStateToProps,{ logoutUser })(Dashboard);

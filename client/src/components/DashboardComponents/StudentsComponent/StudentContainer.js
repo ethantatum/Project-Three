@@ -11,7 +11,7 @@ const StudentContainer = (props) => {
                     <img className="justify-content-center img-thumbnail img-fluid" src={props.image} alt="avatar" />
                 </div>
                 <div className="py-2 col-xs-12 col-sm-6 my-auto">
-                    <LinkButton type="button" role="button" className="btn btn-light btn-lg btn-block studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton>
+                    <LinkButton type="button" role="button" className="btn btn-light btn-lg btn-block studContBtn" to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton>
                     <LinkButton type="button" role="button" className="btn btn-light btn-lg btn-block studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
                 </div>
             </div>
