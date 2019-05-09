@@ -83,21 +83,22 @@ class ClassesComponent extends Component {
             <CardComponent headerText="Classes">
                 <div className="container mainClassCont">
                     <div className="row d-flex">
-                        <div className="col-xs-12 col-sm-6 justify-content-center bg-light">
-                            {this.state.classes.map(classRoom => (
-                                <ClassContainer
-                                    key={classRoom._id}
-                                    id={classRoom._id}
-                                    name={classRoom.name}
-                                    time={classRoom.time}
-                                    studentArr={classRoom.studentArr}
-                                    clickClass={() => this.clickClass(classRoom)}
-                                />
-                            ))}
+                        {this.state.classes.map(classRoom => (
+                            <ClassContainer
+                                key={classRoom._id}
+                                id={classRoom._id}
+                                name={classRoom.name}
+                                time={classRoom.time}
+                                studentArr={classRoom.studentArr}
+                                clickClass={() => this.clickClass(classRoom)}
+                            />
+                        ))}
+                    </div>
+                    <div className="row d-flex">
                             <AddClass handleAddClick={() => { if (this.state.addClass === false) { this.setState({ addClass: true }) } }} >
 
                                 {this.state.addClass ? (
-                                    <div className="m-1 p-1 bg-dark text-white addClassCont">
+                                    <div>
                                         <form>
                                             <Input
                                                 id="className"
@@ -115,24 +116,25 @@ class ClassesComponent extends Component {
                                             />
 
                                             <FormBtn
+                                                className="m-1"
                                                 disabled={!(this.state.className && this.state.classTime)}
                                                 onClick={this.handleSubmit}
                                                 type="submit"
                                             >
                                                 Add Class
-                                </FormBtn>
+                                            </FormBtn>
 
                                         </form>
                                         <CancelBtn handleCancelClick={() => this.setState({ addClass: false })}>
                                             Cancel
-                            </CancelBtn>
+                                        </CancelBtn>
                                     </div>
                                 ) : (
-                                        <img className="bg-dark p-3" src={require('./images/add.svg')} alt="Add Class" />
+                                        <img className="bg-dark mb-1 rounded img-fluid" src={require('./images/add.svg')} alt="Add Class" />
                                     )}
                             </AddClass>
-                        </div>
-                    </div>
+                            </div>
+                    
                 </div>
             </CardComponent>
 

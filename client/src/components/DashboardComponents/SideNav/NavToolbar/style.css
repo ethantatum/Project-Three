@@ -9,6 +9,10 @@
     z-index: 300;
 }
 
+.welcome-user {
+    font-family: 'IBM Plex Serif', serif;
+}
+
 .toolbar-logo {
     margin-left: 1rem;
 }
@@ -49,10 +53,11 @@
 .toolbar-items a {
     color: white;
     text-decoration: none;
+    font-family: 'IBM Plex Serif', serif;
 }
 .toolbar-items a:hover,
 .toolbar-items a:active {
-    color: blue;
+    color: rgb(11, 250, 250);
 }
 
 @media (max-width: 350px) {
