@@ -166,18 +166,21 @@ class ClassesComponent extends Component {
                 <Switch>
                     <Route exact path={`${match.path}`} render={(props) => 
                         <CardComponent headerText = {`Students - ${this.state.className}`}>
-                            <div className="container bg-dark py-3">
-                                {this.state.students.map(student => (
-                                    <StudentContainer 
-                                        key={student._id}
-                                        id={student._id}
-                                        firstname={student.firstname}
-                                        lastname={student.lastname}
-                                        image={student.image}
-                                        updateHeader={this.showHeaderText}
-                                        match={match}
-                                    /> 
-                                ))}
+                            <div className="container">
+                                <div className="row d-flex">
+                                    {this.state.students.map(student => (
+                                        <StudentContainer 
+                                            key={student._id}
+                                            id={student._id}
+                                            firstname={student.firstname}
+                                            lastname={student.lastname}
+                                            image={student.image}
+                                            updateHeader={this.showHeaderText}
+                                            match={match}
+                                        /> 
+                                    ))}
+                                </div>
+                                <div className="row d-flex">
                                 <AddStudent handleAddClick = {() => {if(this.state.isAddingStudent === false){this.setState({isAddingStudent: true})}}}>
                                 {this.state.isAddingStudent ? (
                                     <div >
@@ -213,6 +216,7 @@ class ClassesComponent extends Component {
                                     <img src={require('../ClassesComponent/images/add.svg')} alt="Add Student" /> 
                                 )}
                                 </AddStudent>
+                                </div>
                             </div>
                         </CardComponent>       
                     }/> 
