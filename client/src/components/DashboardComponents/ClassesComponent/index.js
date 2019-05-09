@@ -83,7 +83,7 @@ class ClassesComponent extends Component {
             <CardComponent headerText="Classes">
                 <div className="container mainClassCont">
                     <div className="row d-flex">
-                        <div className="col-xs-12 col-sm-6 justify-content-center bg-light">
+                        <div className="col-xs-12 col-sm-6 justify-content-center bg-primary">
                             {this.state.classes.map(classRoom => (
                                 <ClassContainer
                                     key={classRoom._id}
@@ -115,20 +115,21 @@ class ClassesComponent extends Component {
                                             />
 
                                             <FormBtn
+                                                className="m-1"
                                                 disabled={!(this.state.className && this.state.classTime)}
                                                 onClick={this.handleSubmit}
                                                 type="submit"
                                             >
                                                 Add Class
-                                </FormBtn>
+                                            </FormBtn>
 
                                         </form>
                                         <CancelBtn handleCancelClick={() => this.setState({ addClass: false })}>
                                             Cancel
-                            </CancelBtn>
+                                        </CancelBtn>
                                     </div>
                                 ) : (
-                                        <img className="bg-dark p-3" src={require('./images/add.svg')} alt="Add Class" />
+                                        <img className="bg-dark p-3 mb-1 rounded" src={require('./images/add.svg')} alt="Add Class" />
                                     )}
                             </AddClass>
                         </div>
