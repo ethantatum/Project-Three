@@ -157,10 +157,13 @@ class ClassesComponent extends Component {
     //     }
         
     // };
-
+    
     render(){
         const { match } = this.props;     
-
+        let imgStyle = {
+            cursor: "pointer"
+        };
+        
         return (
             <div>       
                 <Switch>
@@ -213,7 +216,7 @@ class ClassesComponent extends Component {
                                         </CancelBtn>
                                     </div>
                                     ) : (
-                                    <img src={require('../ClassesComponent/images/add.svg')} alt="Add Student" /> 
+                                    <img style={imgStyle} src={require('../ClassesComponent/images/add.svg')} alt="Add Student" /> 
                                 )}
                                 </AddStudent>
                                 </div>

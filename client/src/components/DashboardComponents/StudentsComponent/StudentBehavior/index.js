@@ -145,7 +145,7 @@ class BehaviorFrequency extends React.Component {
                     </div>
                     <hr></hr>
                     <div className="row d-flex">
-                        <div className="col-xs-12 col-sm-6 align-content-center">
+                        <div className="col-xs-12 col-sm-6">
 
                             {/* <button className="btn btn-block btn-warning" onClick={this.startObservation}>Start Observation</button> */}
                             <AddBehavior 

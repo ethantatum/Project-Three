@@ -48,3 +48,7 @@
 .student-name {
     text-shadow: 1px 1px red;
 }
+
+.add-student:hover {
+    cursor: pointer;
+}
