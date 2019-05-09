@@ -59,8 +59,11 @@ export default {
 
   addComment: function(id, newComment) {
     return axios.put(`/api/student/comments/${id}`, newComment);
-  }
+  },
 
+  addReport: function(id, report) {
+    return axios.put(`/api/student/report/${id}`, report);
+  }
 };
   // // Deletes the book with the given id
   // deleteBook: function(id) {
