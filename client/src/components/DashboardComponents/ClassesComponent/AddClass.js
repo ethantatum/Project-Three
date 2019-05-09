@@ -3,7 +3,7 @@ import React from "react";
 
 const AddClass = (props) => {
     return (
-        <div className="col-xs-12 col-sm-6 mx-auto m-1 p-3 bg-dark text-white rounded" role="button" onClick={props.handleAddClick}>
+        <div className="col-xs-12 col-sm-6 mx-auto m-1 p-2 text-white rounded add-class" role="button" onClick={props.handleAddClick}>
             {props.children}
         </div>
     )
