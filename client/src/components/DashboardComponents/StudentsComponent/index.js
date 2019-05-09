@@ -36,6 +36,7 @@ class ClassesComponent extends Component {
     };
 
     componentDidMount = () => {
+        console.log(this.state.classID);
         if(this.state.classID === "all"){
             console.log("all students");
             this.getAllStudents();
@@ -216,14 +217,14 @@ class ClassesComponent extends Component {
                             </div>
                         </CardComponent>       
                     }/> 
-                    <Route exact path={`${match.path}/behaviors/:studentID`} render={(props) => 
+                    <Route path={`${match.path}/behaviors/:studentID`} render={(props) => 
                         <BehaviorFrequency 
                             {...props}
                             recordedBehaviors={this.state.recordedBehaviors}
                             setInitialBehaviorCounter={this.setInitialBehaviorCounter}
                         />
                     }/>
-                    <Route exact path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
+                    <Route path={`${match.path}/comments/:studentID`} component={CommentComponent}/>
                 </Switch>  
             </div>
         );

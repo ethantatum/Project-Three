@@ -17,19 +17,19 @@ const NavSideBar = (props) => {
         //had to change botton className for styling
         <ul className="teacher-btns">
             <li>
-                <Link to={`${props.match.url}/classes`}>Classes</Link>
+                <NavSideBarLink to={`${props.match.url}/classes`} label="Classes" />
             </li>
             <li>
-                <Link to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`}>Students</Link>
+                <NavSideBarLink to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`} label="Students"/>
             </li>
             <li>
-                <Link to={`${props.match.url}/messages`}>Messages</Link>
+                <NavSideBarLink to={`${props.match.url}/messages`} label="Messages"/>
             </li>
             <li>
-                <Link to={`${props.match.url}/notes`}>Notes</Link>
+                <NavSideBarLink to={`${props.match.url}/notes`} label="notes"/>
             </li>
             <li>
-                <Link to={`${props.match.url}/profile`}>Profile</Link>
+                <NavSideBarLink to={`${props.match.url}/profile`} label="Profile"/>
             </li>
         </ul>
     }

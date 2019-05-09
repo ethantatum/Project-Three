@@ -71,6 +71,11 @@
     color: teal;
 }
 
+.active{
+    pointer-events: none;
+    background: red;
+}
+
 @media (max-width: 375px) {
     .teacher-btns {
         display: none;
