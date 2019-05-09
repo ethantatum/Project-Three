@@ -52,3 +52,7 @@
 .add-student:hover {
     cursor: pointer;
 }
+
+.disabled{
+    pointer-events: none;
+}
