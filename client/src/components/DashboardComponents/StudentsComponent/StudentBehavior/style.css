@@ -1,4 +1,4 @@
-h1 {
+.behavior-header {
     color: black;
     /* font-family: 'Alegreya', serif; */
     font-size: 3rem;
@@ -6,7 +6,7 @@ h1 {
     margin-bottom: 3%;
 }
 
-h3 {
+.behavior-subheader {
     color: black;
     /* font-family: 'Alegreya', serif; */
     font-size: 2rem;

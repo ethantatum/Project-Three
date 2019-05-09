@@ -6,9 +6,9 @@ import AddClass from "./AddClass";
 import { Input, FormBtn, CancelBtn } from "./ClassForm";
 // import "./style.css";
 // redux imports ===============================
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import {selectClass} from "../../../actions/appActions";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { selectClass } from "../../../actions/appActions";
 
 class ClassesComponent extends Component {
     constructor() {
@@ -18,24 +18,23 @@ class ClassesComponent extends Component {
             className: "",
             classTime: "",
             addClass: false
-        };    
+        };
     }
 
     componentDidMount = () => {
         this.loadClasses();
     };
-    
+
     //Loads the classes that belong to the account
     loadClasses = () => {
-    API.getTeacherClasses(this.props.user.id)
-        .then(res =>
-        {
-            console.log(res);
-            this.setState({ classes: res.data.classes, className: "", classTime: "" });
-        })
-        .catch(err => console.log(err));
+        API.getTeacherClasses(this.props.user.id)
+            .then(res => {
+                console.log(res);
+                this.setState({ classes: res.data.classes, className: "", classTime: "" });
+            })
+            .catch(err => console.log(err));
     };
-    
+
     //function that runs when user clicks cancel button 
     // handleCancel = () => {
     //     this.setState({addClass: false});
@@ -51,40 +50,40 @@ class ClassesComponent extends Component {
     //function that runs when user clicks the forms submit button
     handleSubmit = event => {
         event.preventDefault();
-        
+
         if (this.state.className && this.state.classTime) {
-        API.createClass(this.props.user.id, {
-            name: this.state.className,
-            time: this.state.classTime
-        })
-        .then((res) => {
-            console.log(res);
-            this.loadClasses();
-            this.setState({addClass: false});
-        })
-        .catch(err => console.log(err));  
+            API.createClass(this.props.user.id, {
+                name: this.state.className,
+                time: this.state.classTime
+            })
+                .then((res) => {
+                    console.log(res);
+                    this.loadClasses();
+                    this.setState({ addClass: false });
+                })
+                .catch(err => console.log(err));
         }
     };
 
     clickClass = (classData) => {
-    API.getStudentsInClass(classData._id)
-        .then(res => {
-            console.log(res);
-            this.props.selectClass(res);
-        })
-        .then( () => this.props.history.push(`/dashboard/students/${classData._id}`))
-        .catch(err => console.log(err));
+        API.getStudentsInClass(classData._id)
+            .then(res => {
+                console.log(res);
+                this.props.selectClass(res);
+            })
+            .then(() => this.props.history.push(`/dashboard/students/${classData._id}`))
+            .catch(err => console.log(err));
         // console.log(classData);
         // this.props.selectClass(classData);
     };
 
     render() {
-        
+
         return (
-            <CardComponent headerText = "Classes">
-                <div className="container bg-warning mainClassCont">
-                    <div className="row d-flex bg-info">
-                        <div className="col-xs-12 col-sm-6 justify-content-center bg-primary">
+            <CardComponent headerText="Classes">
+                <div className="container mainClassCont">
+                    <div className="row d-flex">
+                        <div className="col-xs-12 col-sm-6 justify-content-center bg-light">
                             {this.state.classes.map(classRoom => (
                                 <ClassContainer
                                     key={classRoom._id}
@@ -95,44 +94,44 @@ class ClassesComponent extends Component {
                                     clickClass={() => this.clickClass(classRoom)}
                                 />
                             ))}
-                    <AddClass handleAddClick = {() => {if(this.state.addClass === false){this.setState({addClass: true})}}} >
-                    
-                    {this.state.addClass ? (
-                        <div className="m-1 p-1 bg-dark text-white addClassCont">
-                            <form>
-                                <Input
-                                    id="className"
-                                    value={this.state.className}
-                                    onChange={this.handleChange}
-                                    name="name"
-                                    placeholder="Class Name (required)"
-                                />
-                                <Input
-                                    id="classTime"
-                                    value={this.state.classTime}
-                                    onChange={this.handleChange}
-                                    name="time"
-                                    placeholder="Class Time (required)"
-                                />
+                            <AddClass handleAddClick={() => { if (this.state.addClass === false) { this.setState({ addClass: true }) } }} >
 
-                                <FormBtn
-                                    disabled={!(this.state.className && this.state.classTime)}
-                                    onClick={this.handleSubmit}
-                                    type="submit"
-                                >
-                                    Add Class
+                                {this.state.addClass ? (
+                                    <div className="m-1 p-1 bg-dark text-white addClassCont">
+                                        <form>
+                                            <Input
+                                                id="className"
+                                                value={this.state.className}
+                                                onChange={this.handleChange}
+                                                name="name"
+                                                placeholder="Class Name (required)"
+                                            />
+                                            <Input
+                                                id="classTime"
+                                                value={this.state.classTime}
+                                                onChange={this.handleChange}
+                                                name="time"
+                                                placeholder="Class Time (required)"
+                                            />
+
+                                            <FormBtn
+                                                disabled={!(this.state.className && this.state.classTime)}
+                                                onClick={this.handleSubmit}
+                                                type="submit"
+                                            >
+                                                Add Class
                                 </FormBtn>
 
-                            </form>
-                            <CancelBtn handleCancelClick = {() => this.setState({addClass: false})}>
-                                    Cancel
+                                        </form>
+                                        <CancelBtn handleCancelClick={() => this.setState({ addClass: false })}>
+                                            Cancel
                             </CancelBtn>
+                                    </div>
+                                ) : (
+                                        <img className="bg-dark p-3" src={require('./images/add.svg')} alt="Add Class" />
+                                    )}
+                            </AddClass>
                         </div>
-                        ) : (
-                        <img className="bg-dark p-2" src={require('./images/add.svg')} alt="Add Class" /> 
-                    )}
-                    </AddClass>
-                    </div>
                     </div>
                 </div>
             </CardComponent>
@@ -148,8 +147,8 @@ function mapStateToProps(state) {
     }
 }
 
-function matchDispatchToProps(dispatch){
-    return bindActionCreators({selectClass: selectClass}, dispatch)
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({ selectClass: selectClass }, dispatch)
 }
 
 //connects this component to redux
