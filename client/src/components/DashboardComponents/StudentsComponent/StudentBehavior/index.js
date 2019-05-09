@@ -49,7 +49,9 @@ class BehaviorFrequency extends React.Component {
         .then((res) => {
             console.log(res);
             //instead of calling loadbehavior function, get the response and add it to state
-            this.loadBehaviors();
+            const newbehaviorArr = this.state.behaviors;
+            newbehaviorArr.push(res.data.behaviors[res.data.behaviors.length-1]);
+            this.setState({behaviors: newbehaviorArr});
         })
         .catch(err => console.log(err));  
         console.log("formsubmit");

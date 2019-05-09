@@ -132,14 +132,15 @@ class ClassesComponent extends Component {
         })
     };
 
+    //updates the behavior state when user adds frequency
     setInitialBehaviorCounter = (behaviorObj) => {
-        let didFindMatch;
+        
         const BehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
             return {...studentBehavior}
         });
         if(this.state.recordedBehaviors.length === 0){
             BehaviorArr.push(behaviorObj);
-            didFindMatch = false;
+            
         }
         else{
             for(let i = 0; i < BehaviorArr.length; i++){
