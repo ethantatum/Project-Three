@@ -41,6 +41,10 @@ export default {
     return axios.get("/api/student/" + id);
   },
 
+  createStudent: function(id, newStudent) {
+    return axios.post("/api/student/" + id, newStudent);
+  },
+
   getBehavior: function(id) {
     return axios.get(`/api/student/behavior/${id}`);
   },

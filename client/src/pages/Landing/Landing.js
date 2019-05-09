@@ -43,9 +43,9 @@ class Landing extends Component {
       }
       
       return (
-      <div className="bg-dark" id="landingPage">
+      <div id="landingPage">
           <div className="row" id="landingTop">
-          <div className="col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12 front-page">
               {container}
           </div>
           <LandingImage />

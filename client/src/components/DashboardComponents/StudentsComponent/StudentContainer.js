@@ -1,21 +1,19 @@
 import React from "react";
 import LinkButton from './LinkButton';
-import "./style.css";
+// import "./style.css";
 
 const StudentContainer = (props) => {
     return (
-        <div className="row studentInfo" >
-            {/* <div className="col-4">
-                <img src={props.image}></img>
-            </div> */}
-            <div id="studContName">
-                <h2 className="text-white">{props.firstname} {props.lastname}</h2>
-                <img className="img-thumbnail img-fluid" src={props.image} alt="avatar" />
-                {/* <h2>{props.class}</h2> */}
-            </div>
-            <div id="studContButtons">
-                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" onClick={() => props.updateHeader("behaviors", props.firstname)}to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton><br></br>
-                <LinkButton type="button" className="btn btn-light btn-lg studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
+        <div className="container bg-primary" >
+            <div className="row bg-info d-flex" id="studContName">
+                <div className="py-2 col-xs-12 col-sm-6">
+                    <h3 className="justify-content-center text-white mb-2">{props.firstname} {props.lastname}</h3>
+                    <img className="justify-content-center img-thumbnail img-fluid" src={props.image} alt="avatar" />
+                </div>
+                <div className="py-2 col-xs-12 col-sm-6 my-auto">
+                    <LinkButton type="button" role="button" className="btn btn-light btn-lg btn-block studContBtn" to={`${props.match.url}/behaviors/${props.id}`}>Behaviors</LinkButton>
+                    <LinkButton type="button" role="button" className="btn btn-light btn-lg btn-block studContBtn" to={`${props.match.url}/comments/${props.id}`}>Comments</LinkButton>
+                </div>
             </div>
         </div>
     )

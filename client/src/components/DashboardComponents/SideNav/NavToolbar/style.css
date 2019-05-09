@@ -4,7 +4,7 @@
     left: 0;
     position: fixed;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
-    background-color: rgb(14, 163, 250);
+    background-color: rgb(2, 100, 247);
     height: 56px;
     z-index: 300;
 }
@@ -58,5 +58,14 @@
 @media (max-width: 350px) {
     .toolbar-items{
         display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .welcome-user {
+        display: none;
+    }
+    .h4 {
+        font-size: 14px;
     }
 }

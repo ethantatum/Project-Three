@@ -1,11 +1,11 @@
 import React from 'react';
+import NavSideBarLink from "./NavSideBarLink";
 import './style.css';
 import { Link } from 'react-router-dom'
 
 
 const NavSideBar = (props) => {
     let barClasses = 'side-bar';
-
     if (props.show) {
         barClasses = 'side-bar open';
     }
@@ -20,14 +20,14 @@ const NavSideBar = (props) => {
                 <Link to={`${props.match.url}/classes`}>Classes</Link>
             </li>
             <li>
-                <Link to={`${props.match.url}/students`}>Students</Link>
+                <Link to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`}>Students</Link>
             </li>
-            <li>
+            {/* <li>
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
             </li>
             <li>
                 <Link to={`${props.match.url}/notes`}>Notes</Link>
-            </li>
+            </li> */}
             <li>
                 <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
@@ -39,12 +39,12 @@ const NavSideBar = (props) => {
             <li>
                 <Link to={`${props.match.url}/students`}>My Students</Link>
             </li>
-            <li>
+            {/* <li>
                 <Link to={`${props.match.url}/reports`}>Reports</Link>
             </li>
             <li>
                 <Link to={`${props.match.url}/messages`}>Messages</Link>
-            </li>
+            </li> */}
             <li >
                 <Link to={`${props.match.url}/profile`}>Profile</Link>
             </li>
