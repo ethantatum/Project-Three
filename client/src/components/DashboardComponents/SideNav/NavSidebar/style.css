@@ -32,8 +32,8 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 0;
-    margin-bottom: -140px;
-    margin-top: 25px;
+    margin-bottom: -70px;
+    margin-top: 15px;
     margin-left: 6px;
 }
 
@@ -58,14 +58,14 @@
 .side-bar h4 {
     color: white;
     border: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-size: 18px;
     font-family: 'IBM Plex Serif', serif;
 }
 
 /*Users profile image*/
 .side-bar img {
-    border-radius: 50%;
+    border-radius: 17%;
 }
 
 /*Link styling*/
@@ -96,6 +96,6 @@
         font-size: 14px;
     }
     .side-bar ul {
-        margin-bottom: -200px;
+        margin-bottom: -100px;
     }
 }
