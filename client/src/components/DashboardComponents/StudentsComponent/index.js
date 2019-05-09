@@ -9,6 +9,7 @@ import CommentComponent from "../CommentComponent";
 import moment from "moment";
 import AddStudent from "./AddStudent";
 import API from '../../../utils/API';
+import "./style.css";
 
 class ClassesComponent extends Component {
     constructor(props) {
@@ -113,16 +114,6 @@ class ClassesComponent extends Component {
         .catch(err => console.log(err));
     };
 
-    //This method is called when user creates a new behavior while tracking behaviors, 
-    //child container passes the new behavior objects as an argument and the method saves it to state keeping the other behavior's frequencys untouched
-    // addNewBehaviorToState = (studentID, behaviorObj) => {
-    //     const updatedBehaviorArr = this.state.recordedBehaviors.map(studentBehavior => {
-    //         if(studentBehavior.studentID === studentID){
-    //             studentBehavior.behaviors.push(behaviorObj);
-    //         }
-    //     })
-    // };
-
     //updates the behavior state when user adds frequency
     setInitialBehaviorCounter = (behaviorObj) => {
         let didFindMatch;
@@ -197,33 +188,9 @@ class ClassesComponent extends Component {
             })
             .catch(err => console.log(err));
             }
-        // API.addReport(report)
-        // .then(res => {
-        //     console.log(res);
 
-            
-        // })
-        // .catch(err => console.log(err));
-        // const newArr = this.state.recordedBehaviors.filter
-        //gets the start time and date of when observation started using moment
     };
 
-
-
-
-    //function to show the correct header text
-    // showHeaderText = (action, student) => {
-    //     // if(action && student){
-    //     //     return `${action} - ${student}`;
-    //     // }
-    //     if(this.state.classID === "all"){
-    //         return `Students - All Students`;
-    //     }
-    //     else{
-    //         return 'Students - All Students';
-    //     }
-        
-    // };
 
     render(){
         const { match } = this.props;     
@@ -235,8 +202,8 @@ class ClassesComponent extends Component {
                         <CardComponent headerText = {`Students - ${this.state.className}`}>
                             <div className="container">
                                 <div>
-                                    <button onClick={this.startObservation}>Start Observation</button>
-                                    <button onClick={this.endObservation}>End Observation</button>
+                                    <button onClick={this.startObservation}  className={`btn btn-success btn-block mt-3 p-4 ${this.state.isObservingBehavior ? "disabled" : ""}`}>Start Observation</button>
+                                    <button onClick={this.endObservation} className={`btn btn-danger btn-block mt-3 mb-5 p-4 ${this.state.isObservingBehavior ? "" : "disabled"}`}>End Observation</button>
                                 </div>
                                 <div className="row d-flex">
                                     {this.state.students.map(student => (
