@@ -180,9 +180,30 @@ class ClassesComponent extends Component {
     };
 
     endObservation = () => {
-        this.setState({isObservingBehavior: false, endTime: moment().format("LT")});
+        this.setState({isObservingBehavior: false});
         console.log(moment().format("LT"));
 
+        
+        for(let i = 0; i < this.state.recordedBehaviors.length; i++){
+            const report = {
+                date: this.state.date,
+                startTime: this.state.startTime,
+                endTime: moment().format("LT"),
+                recordedBehaviors: this.state.recordedBehaviors[i].behaviors
+            };
+            API.addReport(this.state.recordedBehaviors[i].studentID, report)
+            .then(res => {
+                console.log(res); 
+            })
+            .catch(err => console.log(err));
+            }
+        // API.addReport(report)
+        // .then(res => {
+        //     console.log(res);
+
+            
+        // })
+        // .catch(err => console.log(err));
         // const newArr = this.state.recordedBehaviors.filter
         //gets the start time and date of when observation started using moment
     };
