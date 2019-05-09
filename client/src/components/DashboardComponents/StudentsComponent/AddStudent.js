@@ -3,7 +3,7 @@ import "./style.css";
 
 const AddStudent = (props) => {
     return (
-        <div className="container bg-primary" role="button" onClick={props.handleAddClick}>
+        <div className="container bg-dark p-2" role="button" onClick={props.handleAddClick}>
             {props.children}
         </div>
     )

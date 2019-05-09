@@ -130,7 +130,7 @@ class BehaviorFrequency extends React.Component {
         return (
             <CardComponent headerText = {`Behaviors - ${this.state.studentName}`}>
                 <div className="container-fluid p-2">
-                    <h1>Behavior Frequency Counters</h1>
+                    <h1 className="behavior-header">Behavior Frequency Counters</h1>
 
                     <button onClick={this.startObservation}>Start Observation</button>
                     <AddBehavior 
