@@ -3,6 +3,7 @@ import "./style.css";
 
 
 const CardComponent = (props) => {
+
     return (
         <div className="container card mt-3 w-75 shadow" id="cardCont">
             <h3 className="card-header bg-light">{props.headerText}</h3>
