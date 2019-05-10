@@ -33,17 +33,17 @@ form.form-inline {
 }
 
 .btn-group {
-    padding: 5px 0px;
-    margin: 5px 40px;
+    padding: 2px 0px;
+    margin: 2px;
 }
 
 #dropdown {
     display: flex;
 }
 
-#beginBtn {
-    margin: 0px 0px 13px 50px;
-}
+/* #beginBtn {
+    margin: 0px 0px 13px 15px;
+} */
 
 /* .container-fluid {
     margin-bottom: 10rem;

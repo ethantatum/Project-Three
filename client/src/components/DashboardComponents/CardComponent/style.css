@@ -1,4 +1,13 @@
 
 #cardCont {
     margin: 40px auto;
+    background-image: url("./Kindergarten-Classroom_3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-header {
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(2, 100, 247);
+    opacity: 0.75;
 }

@@ -23,11 +23,25 @@
 }
 .classForm > img {
     margin: auto;
+} */
+.classInfo {
+    background-color: rgb(61, 58, 58);
+    text-shadow: 1px 1px red;
 }
-.classInfo > h2,h3,h4{
-    align-self: center;
+
+.classInfo:hover {
+    background-color: rgb(97, 88, 88);
+    cursor: pointer;
 }
-.mainClassCont {
+
+.add-class {
+    background-color: rgb(61, 58, 58);
+}
+
+.add-class:hover {
+    cursor: pointer;
+}
+/* .mainClassCont {
     display: grid;
     grid-template-columns: 1fr 1fr;
 } */

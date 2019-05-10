@@ -151,30 +151,35 @@ class BehaviorFrequency extends React.Component {
     render() {
         return (
             <CardComponent headerText = {`Behaviors - ${this.state.studentName}`}>
-                <div className="container-fluid p-2">
-                    <h1 className="behavior-header">Behavior Frequency Counters</h1>
-
-                    
-                    <AddBehavior 
-                        typeState={this.state.type}
-                        behaviorState={this.state.behaviorName}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}
-                    />
-
+                <div className="container">
+                    <div className="row d-flex">
+                        
+                            <CounterButtons
+                            // key={behavior._id}
+                            // id={behavior._id}
+                            // frequency={behavior.frequency}
+                            // behavior={behavior.behavior}
+                            behaviors={this.state.behaviors}
+                            handleIncrement={this.handleIncrement}
+                            handleDecrement={this.handleDecrement}
+                            />
+                        
+                    </div>
                     <hr></hr>
+                    <div className="row d-flex">
+                        <div className="col-xs-12 col-sm-6">
 
-                    <CounterButtons
-                    // key={behavior._id}
-                    // id={behavior._id}
-                    // frequency={behavior.frequency}
-                    // behavior={behavior.behavior}
-                    behaviors={this.state.behaviors}
-                    handleIncrement={this.handleIncrement}
-                    handleDecrement={this.handleDecrement}
-                    />
-
-
+                            {/* <button className="btn btn-block btn-warning" onClick={this.startObservation}>Start Observation</button> */}
+                            <AddBehavior 
+                                typeState={this.state.type}
+                                behaviorState={this.state.behaviorName}
+                                handleChange={this.handleChange}
+                                handleSubmit={this.handleSubmit}
+                            />
+                        </div>
+                    </div>
+                
+                    
                 </div>
             </CardComponent>
         );

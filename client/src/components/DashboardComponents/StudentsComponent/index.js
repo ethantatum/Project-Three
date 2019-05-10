@@ -193,8 +193,8 @@ class ClassesComponent extends Component {
 
 
     render(){
-        const { match } = this.props;     
-
+        const { match } = this.props;
+        
         return (
             <div>       
                 <Switch>

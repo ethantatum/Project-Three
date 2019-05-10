@@ -35,6 +35,24 @@
     display: block;
     text-align: center;
 } */
+
+.student-info {
+    background-color: rgb(61, 58, 58);
+}
+
+.student-info:hover {
+    background-color: rgb(97, 88, 88);
+    cursor: pointer;
+}
+
+.student-name {
+    text-shadow: 1px 1px red;
+}
+
+.add-student:hover {
+    cursor: pointer;
+}
+
 .disabled{
     pointer-events: none;
 }

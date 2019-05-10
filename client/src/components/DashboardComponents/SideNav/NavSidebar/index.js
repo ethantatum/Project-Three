@@ -22,12 +22,12 @@ const NavSideBar = (props) => {
     
                 <NavSideBarLink to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`} label="Students"/>
             </li>
-            <li>
+            {/* <li>
                 <NavSideBarLink to={`${props.match.url}/messages`} label="Messages"/>
             </li>
             <li>
                 <NavSideBarLink to={`${props.match.url}/notes`} label="notes"/>
-            </li>
+            </li> */}
             <li>
                 <NavSideBarLink to={`${props.match.url}/profile`} label="Profile"/>
             </li>
@@ -55,7 +55,7 @@ const NavSideBar = (props) => {
         <nav className={barClasses}>
             <ul>
                 <li>
-                    <img className="mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
+                    <img className="img-thumbnail" src={props.userImage} alt="avatar" /><br />
                     <h4>{props.user}</h4>
                 </li>
             </ul>
