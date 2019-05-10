@@ -86,7 +86,7 @@ class CommentComponent extends Component {
         return (
             <CardComponent headerText={`Comments - ${this.state.studentName}`}>
                 <div>
-                    <h4 className="font-weight-bold font-weight-italic">Enter a Comment</h4>
+                    <h3 className="font-weight-bold font-weight-italic comment-header">Enter a Comment</h3>
                     <form className="container-fluid ui inverted segment" id="commentBox" onSubmit={this.handleSubmit}>
                         <div className="ui huge fluid inverted input">
                             <input 
@@ -126,7 +126,7 @@ class CommentComponent extends Component {
                 </form>
             </div>
             <div className="mt-3">
-                <h4 className="font-weight-bold font-weight-italic">Previous Comments</h4>
+                <h4 className="font-weight-bold font-weight-italic comment-header">Previous Comments</h4>
                 <CommentDisplay commentArray={this.state.commentArray} />
             </div>
             </CardComponent>

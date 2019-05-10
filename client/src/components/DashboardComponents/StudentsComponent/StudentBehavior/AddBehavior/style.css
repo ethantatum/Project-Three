@@ -1,6 +1,6 @@
 #addBtnp {
     display: inline;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .fas {
@@ -9,7 +9,7 @@
 }
 
 .addNew:hover {
-    background-color: rgb(14, 163, 250);
+    background-color: rgb(153, 9, 219);
     color: white;
-    border-color: rgb(14, 163, 250);
+    border-color: rgb(153, 9, 219);
 }

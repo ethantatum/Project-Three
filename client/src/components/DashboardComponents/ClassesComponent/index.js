@@ -130,7 +130,7 @@ class ClassesComponent extends Component {
                                         </CancelBtn>
                                     </div>
                                 ) : (
-                                        <img className="bg-dark mb-1 rounded img-fluid" src={require('./images/add.svg')} alt="Add Class" />
+                                        <img className="mb-1 p-2 rounded img-fluid" src={require('./images/add.svg')} alt="Add Class" />
                                     )}
                             </AddClass>
                             </div>

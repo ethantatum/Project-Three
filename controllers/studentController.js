@@ -48,5 +48,13 @@ module.exports = {
       .findOneAndUpdate({ _id: req.params.id }, { $push: { commentArr: req.body }}, {new: true })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  addReport: function(req, res) {
+    console.log(req.body);
+    db.Student
+      .findOneAndUpdate({ _id: req.params.id }, { $push: { reports: req.body }}, {new: true })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  
 };

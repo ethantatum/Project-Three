@@ -17,6 +17,12 @@ const studentSchema = new Schema({
         negativeComment: Boolean,
         commentFrom: { type: String, required: true},
         time: Date
+    }],
+    reports: [{
+        date: { type: String, required: true },
+        startTime: { type: String, required: true },
+        endTime: { type: String, required: true },
+        recordedBehaviors: { type: Array, required: true }
     }] 
 }, {strict: false});
 

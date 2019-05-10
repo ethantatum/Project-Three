@@ -16,19 +16,20 @@ const NavSideBar = (props) => {
         sideNavBarButtons = 
         <ul className="teacher-btns">
             <li>
-                <Link to={`${props.match.url}/classes`}>Classes</Link>
+                <NavSideBarLink to={`${props.match.url}/classes`} label="Classes" />
             </li>
             <li>
-                <Link to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`}>Students</Link>
+    
+                <NavSideBarLink to={`${props.match.url}/students/${props.selectedClass ? props.selectedClass._id : "all"}`} label="Students"/>
             </li>
             {/* <li>
-                <Link to={`${props.match.url}/messages`}>Messages</Link>
+                <NavSideBarLink to={`${props.match.url}/messages`} label="Messages"/>
             </li>
-            {/* <li>
-                <Link to={`${props.match.url}/notes`}>Notes</Link>
+            <li>
+                <NavSideBarLink to={`${props.match.url}/notes`} label="notes"/>
             </li> */}
             <li>
-                <Link to={`${props.match.url}/profile`}>Profile</Link>
+                <NavSideBarLink to={`${props.match.url}/profile`} label="Profile"/>
             </li>
         </ul>
     }
@@ -54,7 +55,7 @@ const NavSideBar = (props) => {
         <nav className={barClasses}>
             <ul>
                 <li>
-                    <img className="mt-1 img-thumbnail" src={props.userImage} alt="avatar" /><br />
+                    <img className="img-thumbnail" src={props.userImage} alt="avatar" /><br />
                     <h4>{props.user}</h4>
                 </li>
             </ul>

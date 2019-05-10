@@ -2,6 +2,11 @@
     margin-bottom: 20px;
 }
 
+.comment-header {
+    /* opacity: .70; */
+    text-shadow: 2px 1px white;
+}
+
 /* HIDE RADIO */
 [type=radio] {
     position: absolute;

@@ -18,4 +18,7 @@ router.route("/comments/:id")
     .get(studentController.findById)
     .put(studentController.addComment);
 
+router.route("/report/:id")
+    .put(studentController.addReport);
+
 module.exports = router;
