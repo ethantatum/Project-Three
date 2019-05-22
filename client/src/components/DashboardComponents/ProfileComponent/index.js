@@ -70,7 +70,8 @@ class ProfileComponent extends Component {
                 image: this.state.image,
                 // children: this.state.children,
                 address: this.state.address,
-                phone: this.state.phone
+                phone: this.state.phone,
+                token: this.state.token
             }
         }
         API.updateUser((this.props.user.id), userData)
@@ -129,6 +130,18 @@ class ProfileComponent extends Component {
                         name="phone"
                     ></input>
                     <i className="mobile alternate icon"></i>
+                </div>
+                <div className="ui inverted divider"></div>
+                <h6>Please enter your unique student token below</h6>
+                <div className="ui fluid inverted left icon input">
+                    <input
+                        type="text"
+                        placeholder="Token"
+                        value={this.state.token}
+                        onChange={this.handleChange}
+                        name="token"
+                    ></input>
+                    <i className="key alternate icon"></i>
                 </div>
             </form>
         }
