@@ -9,7 +9,7 @@ class ProfileComponent extends Component {
     state = {
         image: "",
         // classes: [],
-        // children: [],
+        children: [],
         address: "",
         phone: ""
         // classList: [],
@@ -68,10 +68,9 @@ class ProfileComponent extends Component {
         } else {
             userData = {
                 image: this.state.image,
-                // children: this.state.children,
+                children: this.state.children,
                 address: this.state.address,
-                phone: this.state.phone,
-                token: this.state.token
+                phone: this.state.phone
             }
         }
         API.updateUser((this.props.user.id), userData)
@@ -79,7 +78,7 @@ class ProfileComponent extends Component {
             .catch(err => console.log(err));
     }
 
-    validateButton = () => this.state.image.length > 0 || this.state.address.length > 0 || this.state.phone.length > 0;
+    validateButton = () => this.state.children.length > 0 || this.state.image.length > 0 || this.state.address.length > 0 || this.state.phone.length > 0;;
 
     render() {
         let selector;
@@ -137,9 +136,9 @@ class ProfileComponent extends Component {
                     <input
                         type="text"
                         placeholder="Token"
-                        value={this.state.token}
+                        value={this.state.children}
                         onChange={this.handleChange}
-                        name="token"
+                        name="children"
                     ></input>
                     <i className="key alternate icon"></i>
                 </div>
