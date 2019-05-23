@@ -11,6 +11,7 @@ import CommentComponent from "../../components/DashboardComponents/CommentCompon
 import ProfileComponent from "../../components/DashboardComponents/ProfileComponent";
 import StudentsComponent from "../../components/DashboardComponents/StudentsComponent";
 import ClassComponent from "../../components/DashboardComponents/ClassesComponent";
+import ParentComponent from "../../components/DashboardComponents/ParentComponent";
 import "./style.css";
 
 class Dashboard extends Component {
@@ -67,6 +68,7 @@ class Dashboard extends Component {
                 <Route exact path={`${match.path}/profile`} component={ProfileComponent} />
                 <Route path={`${match.path}/students/:classID`} component={StudentsComponent} />
                 <Route exact path={`${match.path}/classes`} component={ClassComponent} />
+                <Route exact path={`${match.path}/students`} component={ParentComponent} />
               </Switch>
           </div>
       </Router>
