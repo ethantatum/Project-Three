@@ -27,7 +27,7 @@ class ClassesComponent extends Component {
 
     //Loads the classes that belong to the account
     loadClasses = () => {
-        API.getTeacherClasses(this.props.user.id)
+        API.getUser(this.props.user.id)
             .then(res => {
                 console.log(res);
                 this.setState({ classes: res.data.classes, className: "", classTime: "" });
