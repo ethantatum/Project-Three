@@ -11,10 +11,9 @@ class ParentComponent extends Component {
         super();
         this.state = {
             children: [],
-            student: {
-                name: "",
-                image: ""
-            }
+            firstname: "",
+            lastname: "",
+            image: "" 
         };
     }
 
@@ -26,7 +25,7 @@ class ParentComponent extends Component {
     loadMyStudents = () => {
         API.getUserData(this.props.user.id)
             .then(res => {
-                console.log(res);
+                console.log(res.data);
                 this.setState({ children: res.data.children });
             })
             .then(getStudentData())
@@ -36,68 +35,31 @@ class ParentComponent extends Component {
     getStudentData = () => {
         API.getStudent(this.state.children[0])
             .then(res => {
-                console.log(res);
-                this.setState({ student.name: res.data.Name })
+                console.log(res.data);
+                this.setState({ 
+                    firstname: res.data.firstname, 
+                    lastname: res.data.lastname,
+                    image: res.data.image 
+                })
             })
     }
 
     render() {
 
+        let name = (`${this.state.firstname} ${this.state.lastname}`);
+
         return (
             <CardComponent headerText="My Student">
                 <div className="container mainClassCont">
                     <div className="row d-flex">
-                        {this.state.children.map(child => (
                             <ClassContainer
-                                key={child._id}
-                                id={child._id}
-                                name={child.name}
-                                time={child.time}
-                                studentArr={child.studentArr}
+                                key={this.state.children[0]}
+                                id={this.state.children[0]}
+                                name={name}
+                                image={this.state.image}
                                 clickClass={() => this.clickClass(child)}
                             />
-                        ))}
                     </div>
-                    <div className="row d-flex">
-                            <AddClass handleAddClick={() => { if (this.state.addClass === false) { this.setState({ addClass: true }) } }} >
-
-                                {this.state.addClass ? (
-                                    <div>
-                                        <form>
-                                            <Input
-                                                id="className"
-                                                value={this.state.className}
-                                                onChange={this.handleChange}
-                                                name="name"
-                                                placeholder="Class Name (required)"
-                                            />
-                                            <Input
-                                                id="classTime"
-                                                value={this.state.classTime}
-                                                onChange={this.handleChange}
-                                                name="time"
-                                                placeholder="Class Time (required)"
-                                            />
-
-                                            <FormBtn
-                                                className="m-1"
-                                                disabled={!(this.state.className && this.state.classTime)}
-                                                onClick={this.handleSubmit}
-                                                type="submit"
-                                            >
-                                                Add Class
-                                            </FormBtn>
-
-                                        </form>
-                                        <CancelBtn handleCancelClick={() => this.setState({ addClass: false })}>
-                                            Cancel
-                                        </CancelBtn>
-                                    </div>
-                                ) : (
-                                        <img className="mb-1 p-2 rounded img-fluid" src={require('./images/add.svg')} alt="Add Class" />
-                                    )}
-                            </AddClass>
-                            </div>
                     
                 </div>
             </CardComponent>
@@ -105,6 +67,18 @@ class ParentComponent extends Component {
         )
     }
 }
+
+// Original map function (for teacher display)
+    // {this.state.children.map(child => (
+    //     <ClassContainer
+    //         key={child._id}
+    //         id={child._id}
+    //         name={child.name}
+    //         time={child.time}
+    //         studentArr={child.studentArr}
+    //         clickClass={() => this.clickClass(child)}
+    //     />
+    // ))}
 
 //adds redux state to this component's props
 function mapStateToProps(state) {
