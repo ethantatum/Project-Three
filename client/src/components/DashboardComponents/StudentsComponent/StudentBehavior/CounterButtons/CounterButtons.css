@@ -12,15 +12,36 @@
 
 #btnSpan {
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     text-shadow: 1px 1px rgb(126, 125, 125);
+    border-bottom: 2px solid black;
 }
 
 .btn-good {
     background-color: rgb(175, 219, 109);
+    /* border-radius: 8px; */
+    /* border-bottom: 3px solid black; */
+    /* border-right: 2px solid black; */
 }
 
 .btn-bad {
     background-color: rgb(250, 102, 96);
+    /* border-bottom: 3px solid black; */
+    /* border-radius: 8px; */
+}
+
+.btn-operator {
+    font-size: 28px;
+    font-weight: bolder;
+    text-shadow: 1px 1px rgb(146, 141, 141);
+}
+
+.btn-left {
+    border-bottom: 2px solid black;
+}
+
+.btn-right {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }

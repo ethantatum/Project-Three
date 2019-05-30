@@ -8,7 +8,7 @@ class AddBehavior extends React.Component {
         return (
             <React.Fragment>
                 <p>
-                    <button className="btn btn-light text-center addNew" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button className="btn btn-light btn-lg text-center addNew" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         <i className="fas fa-plus float-left"></i><p id="addBtnp">Add Behavior </p>
                     </button>
                </p> 
