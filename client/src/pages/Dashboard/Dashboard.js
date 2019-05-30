@@ -11,7 +11,7 @@ import CommentComponent from "../../components/DashboardComponents/CommentCompon
 import ProfileComponent from "../../components/DashboardComponents/ProfileComponent";
 import StudentsComponent from "../../components/DashboardComponents/StudentsComponent";
 import ClassComponent from "../../components/DashboardComponents/ClassesComponent";
-import ParentComponent from "../../components/DashboardComponents/ParentComponent";
+// import ParentComponent from "../../components/DashboardComponents/ParentComponent";
 import "./style.css";
 
 class Dashboard extends Component {

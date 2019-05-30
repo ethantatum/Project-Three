@@ -4,7 +4,7 @@ import CounterButtons from "./CounterButtons/CounterButtons.js";
 import AddBehavior from "./AddBehavior";
 import CardComponent from "../../CardComponent";
 import API from "../../../../utils/API";
-import { FeedSummary } from "semantic-ui-react";
+// import { FeedSummary } from "semantic-ui-react";
 // redux imports ===============================
 // import {bindActionCreators} from "redux";
 // import {connect} from "react-redux";
@@ -29,9 +29,9 @@ class BehaviorFrequency extends React.Component {
 
     componentWillUnmount = () => {
         console.log("unmount ran");
-        const newArr = this.state.behaviors.map(behavior => {
-            return behavior.frequency;
-        });
+        // const newArr = this.state.behaviors.map(behavior => {
+        //     return behavior.frequency;
+        // });
         // let sum = newArr.reduce((partial_sum, a) => partial_sum + a,0)
         // console.log(sum);
         if(this.state.behaviors.length > 0) {
