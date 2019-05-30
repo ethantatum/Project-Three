@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../../utils/API";
+import ClassContainer from "../ClassesComponent/ClassInfoContainer";
 import CardComponent from "../CardComponent";
 // import "./style.css";
 // redux imports ===============================
@@ -28,7 +29,7 @@ class ParentComponent extends Component {
                 console.log(res.data);
                 this.setState({ children: res.data.children });
             })
-            .then(getStudentData())
+            .then(this.getStudentData())
             .catch(err => console.log(err));
     };
 
@@ -57,7 +58,7 @@ class ParentComponent extends Component {
                                 id={this.state.children[0]}
                                 name={name}
                                 image={this.state.image}
-                                clickClass={() => this.clickClass(child)}
+                                clickClass={() => this.clickClass(this.children[0])}
                             />
                     </div>
                     
